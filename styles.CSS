@@ -14,16 +14,22 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #C6D7FF, #E8FFCE);
   border-bottom: 2px solid #eaeaea;
   padding: 1rem 2rem;
 }
 
-.navbar-brand {
-  font-weight: bold;
-  font-size: 1.8rem;
-  color: #0d6efd;
+.navbar .logo-removebg {
+  max-width: 150px!important; /* Sesuaikan ukuran */
+  height: auto!important; /* Pertahankan proporsi */
 }
+
+
+
+.navbar-brand:hover {
+  transform: scale(1.1); /* Slight zoom-in on hover */
+}
+
 
 .navbar-nav .nav-link {
   color: #333;
@@ -49,8 +55,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem;
-  background: linear-gradient(135deg, #0d6efd, #6c757d);
-  color: #fff;
+  background: linear-gradient(135deg, #C6D7FF, #E8FFCE);
+  color: #0f233f;
 }
 
 .hero-text {
@@ -61,7 +67,7 @@ body {
 .hero-text h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #fff;
+  color: #0b0d37;
 }
 
 .hero-text p {
@@ -85,7 +91,7 @@ body {
 }
 
 .hero-buttons button:first-child {
-  background-color: #ffc107;
+  background-color: #c1ccfb;
   color: #333;
 }
 
@@ -220,7 +226,7 @@ body {
 
 /* Footer */
 footer {
-  background-color: #0d6efd;
+  background: linear-gradient(135deg, #C6D7FF, #E8FFCE);
   color: white;
   text-align: center;
   padding: 2rem;
