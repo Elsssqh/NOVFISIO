@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand img {
+    height: 40px;
+}
+.navbar-nav .nav-link {
+    color: #333;
+    font-weight: bold;
+    margin: 0 10px;
+}
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+/* About Us Section */
+.container h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.founder-card {
+    width: 150px;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 10px;
+    margin: auto;
+}
+
+/* Milestone Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+    padding: 40px 0;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #007bff;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+.milestone {
+    position: relative;
+    width: 50%;
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+.left {
+    left: 0;
+    text-align: right;
+}
+.right {
+    left: 50%;
+    text-align: left;
+}
+.milestone .content {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #f1f1f1;
+    padding: 20px;
+    text-align: center;
+}
+footer img {
+    height: 40px;
+}
