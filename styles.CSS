@@ -138,7 +138,7 @@ body {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
-  width: 200px;
+  width: 300px;
   height: 150px;
   display: flex;
   align-items: center;
@@ -173,8 +173,9 @@ body {
 }
 
 .product-card {
-  width: 250px;
+  width: 420px;
   height: 300px;
+  margin:10px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
