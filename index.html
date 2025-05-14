@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOV Fisiotherapi Center</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* Global Styles */
-    :root {
-        --primary-dark: #1a365d;
-        --primary-light: #4299e1;
-        --white: #ffffff;
-        --gray-light: #f7fafc;
-        --gray-dark: #4a5568;
-    }
-    
-    body {
-        background-color: var(--white);
-        color: var(--primary-dark);
-        line-height: 1.6;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    /* Header Styles */
-    .navbar {
-        background-color: var(--primary-dark) !important;
-        padding: 15px 0;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nov Fisioterapi Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: white;
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
+        }
+
+        /* Custom navbar toggler color */
+        .navbar-dark .navbar-toggler {
+            border-color: rgba(0, 0, 255, 0.1); /* Optional: light blue border */
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Header Styles */
+        .navbar {
+        background-color: rgb(255, 255, 255);
+        padding: 20px 0;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
     
     .navbar-brand .logo-removebg {
@@ -60,42 +70,126 @@
         border-color: var(--primary-dark);
     }
     
-    /* Hero Section */
-    .hero {
-        background: linear-gradient(rgba(26, 54, 93, 0.1), rgba(0, 0, 0, 0.1)), url('nov.png');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        color: var(--white);
-        margin-top: 56px; /* Adjust for fixed navbar */
-    }
-    
-    .hero-text {
-        max-width: 600px;
-    }
-    
-    .hero h1 {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-        font-weight: 700;
-    }
-    
-    .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 30px;
-    }
-    
-    .hero-buttons .btn {
-        margin-right: 15px;
-        padding: 12px 30px;
-        border-radius: 30px;
-        font-weight: 600;
-    }
-    
-   /* About Section with Aesthetic Visual */
-.about-section {
+        /* New Hero Section */
+        .hero {
+           width: 105%;
+            height: 100vh;
+            background-image: url('clearbackground.png');
+            background-size: cover;
+            background-position: center;
+            /* Remove absolute positioning */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 80px;
+        }
+        
+        .hero-content {
+            position: absolute;
+            width: 740px;
+            height: 400px;
+            left: 30px;
+            top: 135px; /* 291px - 159px */
+            text-align: center;
+        }
+        
+        .hero-title {
+            color: #324D69;
+            font-size: 70px;
+            font-family: 'Baskervville SC', serif;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            color: black;
+            font-size: 36px;
+            font-family: 'Averia Gruesa Libre', cursive;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .hero-btn {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background: #1F364C;
+            color: white;
+        }
+        
+        .btn-outline {
+            border: 2px solid #1F364C;
+            color: #1F364C;
+            background: transparent;
+        }
+        
+        /* Service Cards - Original Positioning Maintained */
+        /* .service-card {
+            background: rgba(228.44, 249.24, 255, 0.79);
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 90px;
+            position: absolute;
+        }
+        
+        .card-large {
+            width: 374px;
+            height: 293px;
+        }
+        
+        .card-medium {
+            width: 388px;
+            height: 123px;
+        }
+        
+        .card-small {
+            width: 74px;
+            height: 74px;
+        }
+        
+        .card-1 { left: 191px; top: 752px; }
+        .card-2 { left: 657px; top: 731px; }
+        .card-3 { left: 1048px; top: 731px; }
+        .card-4 { left: 920px; top: 754px; }
+        .card-5 { left: 483px; top: 774px; }
+        .card-6 { left: 1315px; top: 754px; }
+        
+        .learn-more-btn {
+            width: 247px;
+            height: 57px;
+            position: absolute;
+            left: 236px;
+            top: 789px;
+            color: #1F364C;
+            font-size: 40px;
+            font-weight: 800;
+        }
+        
+        .service-title {
+            position: absolute;
+            width: 192px;
+            height: 68px;
+            color: black;
+            font-size: 32px;
+            font-weight: 800;
+        }
+        
+        .fisioterapi { left: 718px; top: 782px; }
+        .apotek { left: 1108px; top: 778px; } */
+        
+        /* Rest of your original styles... */
+        /* About Us Section */
+        .about-section {
   padding: 80px 0;
   background-color: #fff;
 }
@@ -147,26 +241,6 @@
   margin: 30px 0;
   width: 100%;
 }
-
-.mission-quote {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #1a365d;
-  line-height: 1.6;
-  position: relative;
-  padding-left: 20px;
-}
-
-.mission-quote::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  background-color: #4299e1;
-}
-
 /* Aesthetic Visual Styles */
 .aesthetic-visual {
   background-color: #f8f9fa;
@@ -213,206 +287,284 @@
     height: 250px;
   }
 }
-    /* Services Section */
-    .our-service {
-        padding: 80px 0;
-        background-color: var(--gray-light);
-    }
-    
-    .our-service h2 {
-        text-align: center;
-        font-size: 2.5rem;
-        color: var(--primary-dark);
-        margin-bottom: 50px;
-        position: relative;
-    }
-    
-    .our-service h2::after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 3px;
-        background-color: var(--primary-light);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .service-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-    
-    .service-box {
-        background-color: var(--white);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-    }
-    
-    .service-box:hover {
-        transform: translateY(-10px);
-    }
-    
-    .service-box i {
-        font-size: 50px;
-        color: var(--primary-light);
-        margin-bottom: 20px;
-    }
-    
-    .service-box h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-    }
-    
-    /* Product Section */
-    .product {
-        padding: 80px 0;
-        text-align: center;
-    }
-    
-    .product h2 {
-        font-size: 2.5rem;
-        color: var(--primary-dark);
-        margin-bottom: 50px;
-        position: relative;
-    }
-    
-    .product h2::after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 3px;
-        background-color: var(--primary-light);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .product-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto 40px;
-        padding: 0 20px;
-    }
-    
-    .product-card {
-        background-color: var(--gray-light);
-        height: 300px;
-        border-radius: 10px;
-    }
-    
-    .all-product {
-        background-color: var(--primary-light);
-        color: var(--white);
-        padding: 12px 30px;
-        border-radius: 30px;
-        border: 2px solid var(--primary-light);
-        font-weight: 600;
-        transition: all 0.3s;
-    }
-    
-    .all-product:hover {
-        background-color: transparent;
-        color: var(--primary-light);
-    }
-    
-    /* Reviews Section */
-    .reviews {
-        padding: 80px 0;
-        background-color: var(--gray-light);
-        text-align: center;
-    }
-    
-    .reviews h2 {
-        font-size: 2.5rem;
-        color: var(--primary-dark);
-        margin-bottom: 50px;
-        position: relative;
-    }
-    
-    .reviews h2::after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 3px;
-        background-color: var(--primary-light);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .review-card {
-        background-color: var(--white);
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-    
-    .customer-avatar {
-        width: 80px;
-        height: 80px;
-        background-color: var(--gray-light);
-        border-radius: 50%;
-        margin: 0 auto 20px;
-    }
-    
-    .stars {
-        color: gold;
-        font-size: 1.5rem;
-        margin-top: 20px;
-    }
-    
-    /* Footer */
-    footer {
-        background-color: var(--primary-dark);
-        color: var(--white);
-        padding: 50px 0 20px;
-    }
-    
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        text-align: center;
-    }
-    
-    .footer-logo img {
-        height: 60px;
-        margin-bottom: 20px;
-    }
-    
-    .footer-content p {
-        color: #cbd5e0;
-        margin-bottom: 10px;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .hero h1 {
-            font-size: 2.5rem;
+        
+        /* Mission Section */
+.mission-section {
+    width: 100%;
+    max-width: 1512px;
+    height: 618px;
+    margin: 40px auto;
+    background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.mission-text {
+    width: 90%;
+    max-width: 1458px;
+    color: black;
+    font-size: 40px;
+    font-family: 'Inria Serif', serif;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+}
+        
+        /* Services Section */
+        .services-section {
+            padding: 80px 0;
+            position: relative;
+            width: 100%;
         }
         
-        .hero-buttons .btn {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
         }
-    }
-  </style>
+        
+        .services-title {
+            color: black;
+            font-size: 32px;
+            font-weight: 400;
+        }
+        
+        .what-we-do {
+            color: black;
+            font-size: 64px;
+            font-weight: 900;
+            margin-top: 10px;
+        }
+        
+        .learn-more-btn-2 {
+            width: 232px;
+            height: 56px;
+            background: #B9D0D9;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .learn-more-text {
+            color: black;
+            font-size: 32px;
+            font-weight: 600;
+        }
+        
+        .service-container {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+            margin-top: 60px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .service-item.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .service-card-large {
+            width: 695px;
+            height: 341px;
+            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            border-radius: 30px;
+            flex-shrink: 0;
+        }
+        
+        .service-content {
+            max-width: 434px;
+        }
+        
+        .service-name {
+            color: black;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .service-description {
+            color: black;
+            font-size: 24px;
+            font-weight: 400;
+        }
+        
+        .learn-more-container {
+            position: absolute;
+            left: 1101px;
+            top: 2601px;
+        }
+        
+        .learn-more-btn-2 {
+            width: 232px;
+            height: 56px;
+            background: #B9D0D9;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .learn-more-text {
+            color: black;
+            font-size: 32px;
+            font-weight: 600;
+        }
+        
+        
+        /* Testimonials Section */
+        .testimonials-title {
+            width: 500px;
+            left: 150px;
+            top: 3419px;
+            height: 211px;
+            color: black;
+            font-size: 64px;
+            font-weight: 900;
+            position: absolute;
+            
+        }
+        
+        .testimonial-card {
+            position: absolute;
+            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+        }
+        
+        .testimonial-large {
+            width: 400px;
+            height: 421px;
+            left: 375px;
+            top: 3971px;
+        }
+        
+        .testimonial-medium {
+            width: 270px;
+            height: 329px;
+            left: 1073px;
+            top: 3956px;
+        }
+        
+        .testimonial-small {
+            width: 213px;
+            height: 253px;
+        }
+        
+        .testimonial-1 { left: 130px; top: 3971px; }
+        .testimonial-2 { left: 824px; top: 4139px; }
+        
+        .testimonial-text {
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-weight: 400;
+        }
+        
+        .testimonial-1-text { left: 127px; top: 4262px; width: 210px; }
+        .testimonial-2-text { left: 828px; top: 3971px; width: 213px; }
+        .testimonial-3-text { left: 1086px; top: 4314px; width: 210px; }
+        
+        .testimonials-title {
+        top: 3100px !important; /* Reduced from 3819px */
+      }
+
+        .testimonial-large, 
+        .testimonial-medium, 
+        .testimonial-small {
+            top: 3350px !important; /* Reduced from 3971px */
+        }
+
+        .testimonial-1-text {
+            top: 3650px !important; /* Adjusted position */
+        }
+
+        .testimonial-2 {
+            top: 3500px !important; /* Adjusted position */
+        } 
+
+        /* Contact Form */
+        .contact-form {
+            width: 1227px;
+            height: 660px;
+            position: absolute;
+            left: 30px;
+            top: 4700px;
+            background: rgba(253, 255, 255, 0.60);
+            border-radius: 90px;
+        }
+        
+        .contact-title {
+            position: absolute;
+            left: 96px;
+            top: 4750px;
+            width: 394px;
+            height: 164px;
+            color: black;
+            font-size: 48px;
+            font-weight: 700;
+        }
+        
+        .form-field {
+            position: absolute;
+            color: rgba(0, 0, 0, 0.50);
+            font-size: 32px;
+            font-weight: 600;
+        }
+        
+        .first-name { left: 101px; top: 4924px; }
+        .last-name { left: 615px; top: 4921px; }
+        .email { left: 101px; top: 5020px; }
+        .description { left: 101px; top: 5119px; }
+        
+        .form-line {
+            position: absolute;
+            height: 0px;
+            outline: 1px black solid;
+            outline-offset: -0.50px;
+        }
+        
+        .line-1 { width: 475px; left: 96px; top: 4980px; }
+        .line-2 { width: 475px; left: 614px; top: 4980px; }
+        .line-3 { width: 993px; left: 96px; top: 5081px; }
+        .line-4 { width: 744px; left: 96px; top: 5179px; }
+        
+        .submit-btn {
+            width: 207px;
+            height: 76px;
+            position: absolute;
+            left: 882px;
+            top: 5130px;
+            background: linear-gradient(0deg, #9DC2D0 0%, #9DC2D0 100%), #D7F3FF;
+            border-radius: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .submit-text {
+            color: black;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        
+    
+    
+    </style>
 </head>
 <body>
-  <!-- Header Section -->
+    <!-- Header Section -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
@@ -447,33 +599,42 @@
       </div>
     </nav>
   </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-text">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">Book appointment</a>
-          <a href="#" class="btn btn-outline-light">Call Now</a>
+    
+    <!-- New Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">NOV FISIOTHERAPI CENTER</h1>
+            <p class="hero-subtitle">/ Your Wellness, Our Priority /</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-btn btn-primary">Book Appointment</a>
+                <a href="#" class="hero-btn btn-outline">Call Now</a>
+            </div>
         </div>
-      </div>
     </div>
-  </section>
+    
+    <!-- Service Cards -->
+    <!-- <div class="service-card card-medium card-1"></div>
+    <div class="service-card card-large card-2"></div>
+    <div class="service-card card-large card-3"></div>
+    <div class="service-card card-small card-4"></div>
+    <div class="service-card card-small card-5"></div>
+    <div class="service-card card-small card-6"></div>
+    
+    <div class="learn-more-btn">Learn More</div>
+    <div class="service-title fisioterapi">Fisioterapi</div>
+    <div class="service-title apotek">Apotek</div>
+     -->
 
-<!-- About Us with Aesthetic Section -->
-<section class="about-section">
-  <div class="container">
-    <div class="about-grid">
+    <!-- About Us with Aesthetic Section -->
+    <section class="about-section">
+    <div class="container">
+        <div class="about-grid">
+
       <!-- About Us Content -->
       <div class="about-content">
         <h2 class="section-title">ABOUT US</h2>
         <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
         <p class="company-description">PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozone, dan estetik.</p>
-        <div class="divider"></div>
-        <div class="mission-quote">
-          <p>"Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas."</p>
-        </div>
       </div>
       
       <!-- Aesthetic Visual -->
@@ -485,141 +646,136 @@
     </div>
   </div>
 </section>
-
-  <!-- Services Section -->
-  <section class="our-service">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-container">
-          <div class="service-box">
-              <i class="fas fa-user-md"></i>
-              <h3>Dokter Umum</h3>
-              <p>Pemeriksaan kesehatan umum dengan tenaga medis profesional.</p>
-          </div>
-          <div class="service-box">
-              <i class="fas fa-air-freshener"></i>
-              <h3>Aesthetic</h3>
-              <p>Perawatan kecantikan dengan teknologi terkini.</p>
-          </div>
-          <div class="service-box">
-              <i class="fas fa-wind"></i>
-              <h3>Ozone Therapy</h3>
-              <p>Terapi ozon untuk meningkatkan kesehatan tubuh.</p>
-          </div>
-          <div class="service-box">
-            <i class="fas fa-prescription-bottle-alt"></i>
-            <h3>Farmasi</h3>
-            <p>Pelayanan obat dengan standar keamanan dan kualitas tinggi.</p>
-          </div>
-          <div class="service-box">
-              <i class="fas fa-dumbbell"></i>
-              <h3>Fisioterapi</h3>
-              <p>Rehabilitasi fisik untuk pemulihan cedera dan peningkatan mobilitas.</p>
-          </div>
-      </div>
+    
+    <!-- Mission Section -->
+<section class="mission-section">
+    <div class="mission-text">
+        "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
     </div>
-  </section>
+</section>
 
-  <!-- Product Section -->
-  <section class="product" id="product">
-    <div class="container">
-      <h2>Our Product</h2>
-      <div class="product-cards">
-        <div class="product-card"></div>
-        <div class="product-card"></div>
-        <div class="product-card"></div>
-      </div>
-      <button class="all-product">All Product</button>
-    </div>
-  </section>
-
-  <!-- Customer Reviews Section -->
-  <section class="reviews" id="reviews">
-    <div class="container">
-      <h2>What our customer says!</h2>
-      <div class="review-card">
-        <div class="customer-avatar"></div>
-        <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry's standard dummy text.</p>
-        <div class="stars">★★★★★</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="logo.png" alt="NOV Logo">
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="services-header">
+                <div>
+                    <div class="services-title">-OUR SERVICES</div>
+                    <div class="what-we-do">What do we do ?</div>
+                </div>
+                <div class="learn-more-btn-2">
+                    <div class="learn-more-text">Learn more</div>
+                </div>
+            </div>
+            
+            <div class="service-container">
+                <div class="service-item">
+                    <div class="service-card-large"></div>
+                    <div class="service-content">
+                        <div class="service-name">layanan fisioterapi</div>
+                        <div class="service-description">
+                            .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item reverse">
+                    <div class="service-card-large"></div>
+                    <div class="service-content" style="text-align: right;">
+                        <div class="service-name">terapi ozone</div>
+                        <div class="service-description">
+                            .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p>Your partner in recovery and wellness.</p>
-        <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
-      </div>
-    </div>
-  </footer>
+    </section>
+    
+    <!-- Testimonials Section - Adjusted Position -->
+<div class="testimonials-title" >What our customer says!</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
-    // Animation on scroll
-    window.addEventListener('load', () => {
-        const serviceBoxes = document.querySelectorAll('.service-box');
-        const productCards = document.querySelectorAll('.product-card');
-        const reviewCard = document.querySelector('.review-card');
+<div class="testimonial-card testimonial-large" style="top: 3350px;"></div>
+<div class="testimonial-card testimonial-medium" style="top: 3350px;"></div>
+<div class="testimonial-card testimonial-small testimonial-1" style="top: 3350px;"></div>
+<div class="testimonial-card testimonial-small testimonial-2" style="top: 3500px;"></div>
+
+<div class="testimonial-text testimonial-1-text" style="top: 3650px;">
+    .Lorem Ipsum has been the
+</div>
+<div class="testimonial-text testimonial-2-text" style="top: 3350px;">
+    .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
+</div>
+<div class="testimonial-text testimonial-3-text" style="top: 3700px;">
+    .Lorem Ipsum has been the
+</div>
+<!-- Blue Background Section -->
+<div style="position: relative; width: 100%; background: linear-gradient(135deg, #EBFFE9 0%, #BBE1FF 100%); padding: 100px 0; margin-top: 800px;">
+    
+    <!-- Contact Form - Made Responsive -->
+    <div class="contact-form" style="position: relative; width: 90%; max-width: 1227px; margin: 0 auto; top: 0; left: 0;">
+        <div class="contact-title" style="position: relative; top: 0; left: 0; margin-bottom: 40px;">Contact Us for Business Inquiry</div>
         
-        const animateOnScroll = () => {
-            serviceBoxes.forEach(box => {
-                const boxPosition = box.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (boxPosition < screenPosition) {
-                    box.style.opacity = '1';
-                    box.style.transform = 'translateY(0)';
-                }
-            });
-            
-            productCards.forEach(card => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (cardPosition < screenPosition) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }
-            });
-            
-            if (reviewCard) {
-                const reviewPosition = reviewCard.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (reviewPosition < screenPosition) {
-                    reviewCard.style.opacity = '1';
-                    reviewCard.style.transform = 'translateY(0)';
-                }
-            }
-        };
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">First Name</div>
+                <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
+            </div>
+            <div>
+                <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Last Name</div>
+                <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
+            </div>
+        </div>
         
-        // Set initial state
-        serviceBoxes.forEach(box => {
-            box.style.opacity = '0';
-            box.style.transform = 'translateY(20px)';
-            box.style.transition = 'all 0.5s ease';
-        });
+        <div style="margin-top: 20px;">
+            <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Email</div>
+            <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
+        </div>
         
-        productCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.5s ease';
-        });
+        <div style="margin-top: 20px;">
+            <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Description</div>
+            <div class="form-line" style="position: relative; top: 0; left: 0; width: 60%; margin-bottom: 40px;"></div>
+        </div>
         
-        if (reviewCard) {
-            reviewCard.style.opacity = '0';
-            reviewCard.style.transform = 'translateY(20px)';
-            reviewCard.style.transition = 'all 0.5s ease';
+        <div class="submit-btn" style="position: relative; top: 0; left: auto; margin-left: auto; margin-top: 40px;">
+            <div class="submit-text">Send</div>
+        </div>
+    </div>
+</div>
+<!-- Footer - Adjusted Closer Position -->
+<footer style="position: relative; top: 0px; width: 100%;">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.png" alt="NOV Logo">
+            </div>
+            <p>Your partner in recovery and wellness.</p>
+            <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
+        </div>
+    </div>
+</footer>
+
+    <style>
+        footer {
+            background-color: #1F364C;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
         }
         
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on load
-    });
-  </script>
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo img {
+            width: 100px; /* Adjust as needed */
+        }
+    </style>
+
+  
 </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>

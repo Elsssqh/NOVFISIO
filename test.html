@@ -1,578 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nov Fisioterapi Center</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        body {
-            background: white;
-            position: relative;
-            width: 100%;
-            height: 5668px;
-            overflow-x: hidden;
-            margin: 0 auto;
-        }
-        
-        /* Header Styles */
-        .navbar {
-        background-color: white;
-        padding: 15px 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    .navbar-brand .logo-removebg {
-        height: 50px;
-    }
-    
-    .navbar-nav .nav-link {
-        color: var(--primary-dark) !important;
-        font-weight: 500;
-        margin: 0 10px;
-        transition: color 0.3s;
-    }
-    
-    .navbar-nav .nav-link:hover {
-        color: var(--primary-dark) !important;
-    }
-    
-    .btn-outline-primary {
-        color: var(--white);
-        border-color: var(--white);
-    }
-    
-    .btn-outline-primary:hover {
-        background-color: var(--primary-dark);
-        border-color: var(--primary-dark);
-    }
-    
-        /* New Hero Section */
-        .hero {
-            width: 100%;
-            height: 100vh;
-            background-image: url('clearbackground.png');
-            background-size: cover;
-            background-position: center;
-            position: absolute;
-            top: 90px; /* Adjusted to match original layout */
-            left: 0;
-        }
-        
-        .hero-content {
-            position: absolute;
-            width: 740px;
-            height: 369px;
-            left: 9px;
-            top: 132px; /* 291px - 159px */
-            text-align: center;
-        }
-        
-        .hero-title {
-            color: #324D69;
-            font-size: 80px;
-            font-family: 'Baskervville SC', serif;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-        
-        .hero-subtitle {
-            color: black;
-            font-size: 36px;
-            font-family: 'Averia Gruesa Libre', cursive;
-            font-weight: 400;
-            margin-bottom: 40px;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .hero-btn {
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 24px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .btn-primary {
-            background: #1F364C;
-            color: white;
-        }
-        
-        .btn-outline {
-            border: 2px solid #1F364C;
-            color: #1F364C;
-            background: transparent;
-        }
-        
-        /* Service Cards - Original Positioning Maintained */
-        .service-card {
-            background: rgba(228.44, 249.24, 255, 0.79);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 90px;
-            position: absolute;
-        }
-        
-        .card-large {
-            width: 374px;
-            height: 293px;
-        }
-        
-        .card-medium {
-            width: 388px;
-            height: 123px;
-        }
-        
-        .card-small {
-            width: 74px;
-            height: 74px;
-        }
-        
-        .card-1 { left: 191px; top: 752px; }
-        .card-2 { left: 657px; top: 731px; }
-        .card-3 { left: 1048px; top: 731px; }
-        .card-4 { left: 920px; top: 754px; }
-        .card-5 { left: 483px; top: 774px; }
-        .card-6 { left: 1315px; top: 754px; }
-        
-        .learn-more-btn {
-            width: 247px;
-            height: 57px;
-            position: absolute;
-            left: 236px;
-            top: 789px;
-            color: #1F364C;
-            font-size: 40px;
-            font-weight: 800;
-        }
-        
-        .service-title {
-            position: absolute;
-            width: 192px;
-            height: 68px;
-            color: black;
-            font-size: 32px;
-            font-weight: 800;
-        }
-        
-        .fisioterapi { left: 718px; top: 782px; }
-        .apotek { left: 1108px; top: 778px; }
-        
-        /* Rest of your original styles... */
-        /* About Us Section */
-        .about-section {
-            width: 100%;
-            background: white;
-            padding: 60px 20px; /* tambahkan padding atas dan bawah */
-            position: relative;
-        }
-
-        
-        .section-title {
-            position: absolute;
-            color: black;
-            font-size: 32px;
-            font-weight: 400;
-        }
-        
-        .about-title { left: 102px; top: 1247px; }
-        
-        .company-name {
-            position: absolute;
-            left: 103px;
-            top: 1336px;
-            color: black;
-            font-size: 48px;
-            font-weight: 800;
-            width: 1293px;
-            height: 61px;
-        }
-        
-        .about-description {
-            position: absolute;
-            left: 102px;
-            top: 1410px;
-            width: 676px;
-            height: 138px;
-            color: black;
-            font-size: 32px;
-            font-weight: 400;
-        }
-        
-        /* Mission Section */
-        .mission-section {
-            width: 1512px;
-            height: 618px;
-            position: absolute;
-            left: -34px;
-            top: 1814px;
-            background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%);
-            border-radius: 10px;
-        }
-        
-        .mission-text {
-            width: 1458px;
-            height: 95px;
-            position: absolute;
-            left: 20px;
-            top: 2080px;
-            text-align: center;
-            color: black;
-            font-size: 40px;
-            font-family: 'Inria Serif', serif;
-            font-weight: 700;
-        }
-        
-        /* Services Section */
-        .services-section {
-            position: relative;
-            width: 100%;
-            height: auto;
-        }
-        
-        .services-title {
-            position: absolute;
-            left: 123px;
-            top: 2563px;
-            color: black;
-            font-size: 32px;
-            font-weight: 400;
-        }
-        
-        .what-we-do {
-            position: absolute;
-            left: 134px;
-            top: 2613px;
-            color: black;
-            font-size: 64px;
-            font-weight: 900;
-            width: 754px;
-            height: 56px;
-        }
-        
-        .service-card-large {
-            width: 695px;
-            height: 341px;
-            position: absolute;
-            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
-            border-radius: 30px;
-        }
-        
-        .service-card-1 { left: 131px; top: 2778px; }
-        .service-card-2 { left: 619px; top: 3269px; }
-        
-        .service-description {
-            position: absolute;
-            color: black;
-            font-size: 24px;
-            font-weight: 400;
-        }
-        
-        .desc-1 { left: 900px; top: 2913px; width: 434px; }
-        .desc-2 { left: 141px; top: 3401px; width: 434px; text-align: right; }
-        
-        .service-name {
-            position: absolute;
-            color: black;
-            font-size: 32px;
-            font-weight: 800;
-        }
-        
-        .service-1 { left: 905px; top: 2848px; width: 648px; }
-        .service-2 { left: 367px; top: 3316px; width: 648px; }
-        
-        .learn-more-container {
-            position: absolute;
-            left: 1101px;
-            top: 2601px;
-        }
-        
-        .learn-more-btn-2 {
-            width: 232px;
-            height: 56px;
-            background: #B9D0D9;
-            border-radius: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .learn-more-text {
-            color: black;
-            font-size: 32px;
-            font-weight: 600;
-        }
-        
-        /* Testimonials Section */
-        .testimonials-title {
-            position: absolute;
-            left: 314px;
-            top: 3819px;
-            width: 877px;
-            height: 211px;
-            color: black;
-            font-size: 64px;
-            font-weight: 900;
-        }
-        
-        .testimonial-card {
-            position: absolute;
-            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
-        }
-        
-        .testimonial-large {
-            width: 400px;
-            height: 421px;
-            left: 375px;
-            top: 3971px;
-        }
-        
-        .testimonial-medium {
-            width: 270px;
-            height: 329px;
-            left: 1073px;
-            top: 3956px;
-        }
-        
-        .testimonial-small {
-            width: 213px;
-            height: 253px;
-        }
-        
-        .testimonial-1 { left: 130px; top: 3971px; }
-        .testimonial-2 { left: 824px; top: 4139px; }
-        
-        .testimonial-text {
-            position: absolute;
-            color: black;
-            font-size: 24px;
-            font-weight: 400;
-        }
-        
-        .testimonial-1-text { left: 127px; top: 4262px; width: 210px; }
-        .testimonial-2-text { left: 828px; top: 3971px; width: 213px; }
-        .testimonial-3-text { left: 1086px; top: 4314px; width: 210px; }
-        
-        /* Contact Form */
-        .contact-form {
-            width: 1227px;
-            height: 660px;
-            position: absolute;
-            left: -39px;
-            top: 4700px;
-            background: rgba(253, 255, 255, 0.60);
-            border-radius: 90px;
-        }
-        
-        .contact-title {
-            position: absolute;
-            left: 96px;
-            top: 4750px;
-            width: 394px;
-            height: 164px;
-            color: black;
-            font-size: 48px;
-            font-weight: 700;
-        }
-        
-        .form-field {
-            position: absolute;
-            color: rgba(0, 0, 0, 0.50);
-            font-size: 32px;
-            font-weight: 600;
-        }
-        
-        .first-name { left: 101px; top: 4924px; }
-        .last-name { left: 615px; top: 4921px; }
-        .email { left: 101px; top: 5020px; }
-        .description { left: 101px; top: 5119px; }
-        
-        .form-line {
-            position: absolute;
-            height: 0px;
-            outline: 1px black solid;
-            outline-offset: -0.50px;
-        }
-        
-        .line-1 { width: 475px; left: 96px; top: 4980px; }
-        .line-2 { width: 475px; left: 614px; top: 4980px; }
-        .line-3 { width: 993px; left: 96px; top: 5081px; }
-        .line-4 { width: 744px; left: 96px; top: 5179px; }
-        
-        .submit-btn {
-            width: 207px;
-            height: 76px;
-            position: absolute;
-            left: 882px;
-            top: 5130px;
-            background: linear-gradient(0deg, #9DC2D0 0%, #9DC2D0 100%), #D7F3FF;
-            border-radius: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .submit-text {
-            color: black;
-            font-size: 32px;
-            font-weight: 600;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header Section -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="index.html">
-            <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-          </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="product.html">Product</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
-            </li>
-          </ul>
-          <a href="#login" class="btn btn-outline-primary">Login</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-    
-    <!-- New Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">NOV FISIOTHERAPI CENTER</h1>
-            <p class="hero-subtitle">/ Your Wellness, Our Priority /</p>
-            <div class="hero-buttons">
-                <a href="#" class="hero-btn btn-primary">Book Appointment</a>
-                <a href="#" class="hero-btn btn-outline">Call Now</a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Service Cards -->
-    <!-- <div class="service-card card-medium card-1"></div>
-    <div class="service-card card-large card-2"></div>
-    <div class="service-card card-large card-3"></div>
-    <div class="service-card card-small card-4"></div>
-    <div class="service-card card-small card-5"></div>
-    <div class="service-card card-small card-6"></div>
-    
-    <div class="learn-more-btn">Learn More</div>
-    <div class="service-title fisioterapi">Fisioterapi</div>
-    <div class="service-title apotek">Apotek</div>
-     -->
-    <!-- About Us Section -->
-    <div class="about-section"></div>
-    <div class="section-title about-title">-ABOUT US</div>
-    <div class="company-name">NOV FISIOTERAPI CENTER</div>
-    <div class="about-description">
-        PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik.
-    </div>
-    
-    <!-- Mission Section -->
-    <div class="mission-section"></div>
-    <div class="mission-text">
-        "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
-    </div>
-    
-    <!-- Services Section -->
-    <div class="services-title">-OUR SERVICES</div>
-    <div class="what-we-do">What do we do ?</div>
-    
-    <div class="learn-more-container">
-        <div class="learn-more-btn-2">
-            <div class="learn-more-text">Learn more</div>
-        </div>
-    </div>
-    
-    <div class="service-card-large service-card-1"></div>
-    <div class="service-card-large service-card-2"></div>
-    
-    <div class="service-description desc-1">
-        .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
-    </div>
-    <div class="service-description desc-2">
-        .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
-    </div>
-    
-    <div class="service-name service-1">layanan fisioterapi</div>
-    <div class="service-name service-2">terapi ozone</div>
-    
-    <!-- Testimonials Section -->
-    <div class="testimonials-title">What our customer says!</div>
-    
-    <div class="testimonial-card testimonial-large"></div>
-    <div class="testimonial-card testimonial-medium"></div>
-    <div class="testimonial-card testimonial-small testimonial-1"></div>
-    <div class="testimonial-card testimonial-small testimonial-2"></div>
-    
-    <div class="testimonial-text testimonial-1-text">
-        .Lorem Ipsum has been the
-    </div>
-    <div class="testimonial-text testimonial-2-text">
-        .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
-    </div>
-    <div class="testimonial-text testimonial-3-text">
-        .Lorem Ipsum has been the
-    </div>
-    
-    <!-- Contact Form -->
-    <div class="contact-form"></div>
-    <div class="contact-title">Contact Us for Business Inquiry</div>
-    
-    <div class="form-field first-name">First Name</div>
-    <div class="form-field last-name">Last Name</div>
-    <div class="form-field email">Email</div>
-    <div class="form-field description">Description</div>
-    
-    <div class="form-line line-1"></div>
-    <div class="form-line line-2"></div>
-    <div class="form-line line-3"></div>
-    <div class="form-line line-4"></div>
-    
-    <div class="submit-btn">
-        <div class="submit-text">Send</div>
-    </div>
-</body>
-</html>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>
+<div data-layer="about us" class="AboutUs" style="width: 1440px; height: 4602px; position: relative; background: white; overflow: hidden">
+  <div data-layer="Rectangle 232" class="Rectangle232" style="width: 1341px; height: 703px; left: 50px; top: 3444px; position: absolute; background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%); border-radius: 30px"></div>
+  <div data-layer="All Pa" class="AllPa" style="left: 2563px; top: 353px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 900; word-wrap: break-word">All Pa</div>
+  <div data-layer="OUR Product" class="OurProduct" style="left: 1569px; top: 364px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 900; word-wrap: break-word">OUR  Product </div>
+  <div data-layer="Our Company" class="OurCompany" style="width: 1041px; height: 180px; left: 129px; top: 260px; position: absolute; color: black; font-size: 96px; font-family: Inter; font-weight: 900; word-wrap: break-word"> Our Company </div>
+  <div data-layer="Rectangle 22" class="Rectangle22" style="width: 353px; height: 368px; left: 121px; top: 486px; position: absolute; background: #D9D9D9; border-radius: 20px"></div>
+  <div data-layer="Rectangle 23" class="Rectangle23" style="width: 352px; height: 368px; left: 567px; top: 491px; position: absolute; background: #D9D9D9; border-radius: 20px"></div>
+  <div data-layer="Rectangle 24" class="Rectangle24" style="width: 353px; height: 368px; left: 993px; top: 491px; position: absolute; background: #D9D9D9; border-radius: 20px"></div>
+  <div data-layer="Our Goals" class="OurGoals" style="width: 982px; height: 168px; left: 266px; top: 3524px; position: absolute; text-align: center; color: black; font-size: 96px; font-family: Inter; font-weight: 800; word-wrap: break-word">Our Goals</div>
+  <div data-layer="founder" class="Founder" style="width: 234px; height: 76px; left: 221px; top: 895px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 900; word-wrap: break-word">founder</div>
+  <div data-layer="founder" class="Founder" style="width: 233px; height: 62px; left: 672px; top: 899px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 900; word-wrap: break-word">founder</div>
+  <div data-layer="founder" class="Founder" style="width: 233px; height: 62px; left: 1096px; top: 903px; position: absolute; color: black; font-size: 36px; font-family: Inter; font-weight: 900; word-wrap: break-word">founder </div>
+  <div data-layer="Mission" class="Mission" style="width: 530px; height: 299px; left: 615px; top: 2542px; position: absolute; color: black; font-size: 64px; font-family: Inter; font-weight: 900; word-wrap: break-word">Mission</div>
+  <div data-layer="Rectangle 230" class="Rectangle230" style="width: 1471px; height: 232px; left: 0px; top: -68px; position: absolute; background: rgba(255, 255, 255, 0.90); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+  <div data-layer="About us" class="AboutUs" style="width: 298px; height: 81px; left: 57px; top: 72px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">About us</div>
+  <div data-layer="Product" class="Product" style="width: 298px; height: 81px; left: 245px; top: 74px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Product </div>
+  <div data-layer="Reviews" class="Reviews" style="width: 298px; height: 81px; left: 432px; top: 72px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Reviews</div>
+  <div data-layer="Insight" class="Insight" style="width: 298px; height: 81px; left: 922px; top: 71px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Insight</div>
+  <div data-layer="Contact us" class="ContactUs" style="width: 298px; height: 81px; left: 1088px; top: 73px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Contact us </div>
+  <div data-layer="Rectangle 231" class="Rectangle231" style="width: 142px; height: 57px; left: 1275px; top: 55px; position: absolute; background: #657379; border-radius: 30px"></div>
+  <div data-layer="Login" class="Login" style="width: 142px; height: 82px; left: 1315px; top: 67px; position: absolute; color: white; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Login</div>
+  <img data-layer="logo-removebg 2" class="LogoRemovebg2" style="width: 249px; height: 108px; left: 591px; top: 29px; position: absolute" src="https://placehold.co/249x108" />
+  <div data-layer="Rectangle 232" class="Rectangle232" style="width: 360px; height: 265px; left: 537px; top: 3001px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Rectangle 233" class="Rectangle233" style="width: 371px; height: 265px; left: 134px; top: 2668px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Rectangle 234" class="Rectangle234" style="width: 371px; height: 265px; left: 532px; top: 2669px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Rectangle 235" class="Rectangle235" style="width: 372px; height: 265px; left: 934px; top: 2668px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Rectangle 236" class="Rectangle236" style="width: 372px; height: 265px; left: 134px; top: 3000px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Rectangle 238" class="Rectangle238" style="width: 371px; height: 265px; left: 935px; top: 3000px; position: absolute; background: rgba(216.87, 228.52, 234.34, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 10px"></div>
+  <div data-layer="Bell" class="Bell" style="width: 115px; height: 129px; left: 669px; top: 2746px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 112.70px; height: 104.92px; left: 1.15px; top: 12.04px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Sleeping Moon" class="SleepingMoon" style="width: 116px; height: 128px; left: 246px; top: 2733px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 6.72px; height: 12.64px; left: 106.14px; top: 40.14px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 18.77px; height: 14.51px; left: 33.38px; top: 81.93px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 8.22px; height: 11.19px; left: 95.73px; top: 22.87px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 19.14px; height: 12.22px; left: 26.30px; top: 53.46px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 4.94px; height: 11.03px; left: 109.90px; top: 59.16px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 6.54px; height: 11.54px; left: 106.13px; top: 76.33px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 106.56px; height: 116.34px; left: 1.16px; top: 5.83px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Achievement Badge" class="AchievementBadge" style="width: 115px; height: 129px; left: 1061px; top: 2732px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 112.70px; height: 124.09px; left: 1.15px; top: 2.46px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Trophy" class="Trophy" style="width: 116px; height: 130px; left: 249px; top: 3065px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 3.98px; height: 8.44px; left: 11.25px; top: 35.48px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 99.75px; height: 100.63px; left: 15.09px; top: 19.35px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 10.21px; height: 10.10px; left: 32.17px; top: 83.40px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 19px; height: 28.75px; left: 22.82px; top: 39.35px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 3.92px; height: 12.91px; left: 11.87px; top: 14.50px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 9.97px; height: 10.34px; left: 91.05px; top: 10.02px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 11.44px; height: 3.45px; left: 14.60px; top: 28.81px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 11.04px; height: 2.82px; left: 1.16px; top: 29.65px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 3.33px; height: 9px; left: 100.45px; top: 81.53px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 19.47px; height: 33.55px; left: 89.24px; top: 34.61px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 4.85px; height: 9.13px; left: 99.59px; top: 99.75px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 10.49px; height: 2.78px; left: 103.50px; top: 94.71px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 8.57px; height: 2.47px; left: 91.93px; top: 94.27px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 35.37px; height: 6.30px; left: 42.44px; top: 37.71px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Stopwatch" class="Stopwatch" style="width: 115px; height: 130px; left: 666px; top: 3064px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 112.17px; height: 127.40px; left: 1.41px; top: 1.30px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Reading" class="Reading" style="width: 115px; height: 130px; left: 1065px; top: 3068px; position: absolute; overflow: hidden; border-radius: 10px">
+    <div data-layer="Vector" class="Vector" style="width: 73.73px; height: 54.66px; left: 17.79px; top: 1.30px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 104.89px; height: 74.65px; left: 5.05px; top: 54.05px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Line 35" class="Line35" style="width: 264px; height: 0px; left: 611px; top: 1129px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Rectangle 233" class="Rectangle233" style="width: 479px; height: 55px; left: 547px; top: 3773px; position: absolute; background: #ACB6C9"></div>
+  <div data-layer="“Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas”" class="MenjadikanPtNovFisioterapiCenterSebagaiTempatPelayananKesehatanYangSehatAmanDanBerkualitas" style="width: 1458px; height: 95px; left: 14px; top: 3776px; position: absolute; text-align: center; color: black; font-size: 40px; font-family: Inria Serif; font-weight: 700; word-wrap: break-word">“Menjadikan PT. Nov
+  Fisioterapi Center sebagai
+  <br/>tempat pelayanan kesehatan
+  yang sehat, aman, dan berkualitas”</div>
+  <div data-layer="Rectangle 227" class="Rectangle227" style="width: 153px; height: 38px; left: 666px; top: 3692px; position: absolute; background: #D9D9D9; border-radius: 90px"></div>
+  <div data-layer="Ellipse 42" class="Ellipse42" style="width: 22px; height: 23px; left: 690px; top: 3700px; position: absolute; background: #6C6C6C; border-radius: 9999px"></div>
+  <div data-layer="Ellipse 43" class="Ellipse43" style="width: 23px; height: 23px; left: 731px; top: 3700px; position: absolute; background: #6C6C6C; border-radius: 9999px"></div>
+  <div data-layer="Ellipse 44" class="Ellipse44" style="width: 22px; height: 23px; left: 773px; top: 3700px; position: absolute; background: #6C6C6C; border-radius: 9999px"></div>
+  <div data-layer="Globe" data-size="48" class="Globe" style="width: 56px; height: 59px; left: 717px; top: 3954px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 46.67px; height: 49.17px; left: 4.67px; top: 4.92px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <img data-layer="stethoscope 2" class="Stethoscope2" style="width: 58px; height: 58px; left: 787px; top: 3954px; position: absolute" src="https://placehold.co/58x58" />
+  <img data-layer="medicine 2" class="Medicine2" style="width: 54px; height: 54px; left: 649px; top: 3956px; position: absolute" src="https://placehold.co/54x54" />
+  <div data-layer="-ABOUT US" class="AboutUs" style="width: 293px; height: 171px; left: 102px; top: 1247px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 400; word-wrap: break-word">-ABOUT US</div>
+  <div data-layer="NOV FISIOTERAPI CENTER" class="NovFisioterapiCenter" style="width: 1293px; height: 109px; left: 103px; top: 1405px; position: absolute; color: black; font-size: 48px; font-family: Inter; font-weight: 800; word-wrap: break-word">NOV FISIOTERAPI CENTER</div>
+  <div data-layer="PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik." class="PtNovFisioterapiCenterBergerakDiBidangLayananKesehatanTermasukFisioterapiDokterUmumOzonDanEstetik" style="width: 676px; height: 246px; left: 102px; top: 1537px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 400; word-wrap: break-word">PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik.  </div>
+  <div data-layer="Rectangle 232" class="Rectangle232" style="width: 1438px; height: 156px; left: 3px; top: 1890px; position: absolute; background: white"></div>
+  <img data-layer="image" class="Image" style="width: 277px; height: 281px; left: 1120px; top: 1594px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 9px #FFFFFF solid" src="https://placehold.co/277x281" />
+  <div data-layer="Rectangle 232" class="Rectangle232" style="width: 1438px; height: 156px; left: 24px; top: 1199px; position: absolute; background: white"></div>
+  <img data-layer="image" class="Image" style="width: 348px; height: 388px; left: 955px; top: 1302px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 9px #FFFFFF solid" src="https://placehold.co/348x388" />
+  <img data-layer="image" class="Image" style="width: 277px; height: 281px; left: 805px; top: 1572px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 9px #FFFFFF solid" src="https://placehold.co/277x281" />
+  <img data-layer="image" class="Image" style="width: 182px; height: 176px; left: 1206px; top: 1350px; position: absolute; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 50px; border: 9px #FFFFFF solid" src="https://placehold.co/182x176" />
+  <div data-layer="Vision" class="Vision" style="width: 530px; height: 75px; left: 642px; top: 1998px; position: absolute; color: black; font-size: 64px; font-family: Inter; font-weight: 900; word-wrap: break-word">Vision </div>
+  <div data-layer="Vision" class="Vision" style="width: 1523px; height: 85px; left: 84px; top: 2071px; position: absolute; color: rgba(195.62, 195.62, 195.62, 0.30); font-size: 270px; font-family: Inter; font-weight: 900; letter-spacing: 81px; word-wrap: break-word">Vision </div>
+  <div data-layer="Menjadikan pusat layanan kesehatan yang sehat, aman, berkualitas, dan terkemuka di Kota Batam." class="MenjadikanPusatLayananKesehatanYangSehatAmanBerkualitasDanTerkemukaDiKotaBatam" style="width: 1299px; left: 84px; top: 2190px; position: absolute; text-align: center; color: black; font-size: 48px; font-family: Inter; font-weight: 500; word-wrap: break-word">Menjadikan pusat layanan kesehatan yang sehat,
+  <br/>aman, berkualitas, dan terkemuka di Kota Batam.</div>
+</div>
