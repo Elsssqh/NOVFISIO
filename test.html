@@ -1,372 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - NOV Fisioterapi Center</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <style>
-    :root {
-      --primary-blue: #BBE1FF;
-      --primary-green: #EBFFE9;
-      --card-bg: rgba(216, 228, 234, 0.8);
-      --gray-bg: #D9D9D9;
-      --primary-dark: #000;
-      --white: #fff;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-    
-    /* Header */
-    .navbar {
-        background-color: rgb(255, 255, 255);
-        padding: 20px 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-
-    .navbar-brand .logo-removebg {
-        height: 50px;
-    }
-
-    .navbar-nav .nav-link {
-        color: var(--primary-dark) !important;
-        font-weight: 500;
-        margin: 0 10px;
-        transition: color 0.3s;
-    }
-
-    .navbar-nav .nav-link:hover {
-        color: var(--primary-dark) !important;
-    }
-
-    .btn-outline-primary {
-        color: var(--white);
-        border-color: var(--white);
-    }
-
-    .btn-outline-primary:hover {
-        background-color: var(--primary-dark);
-        border-color: var(--primary-dark);
-    }
-    
-    /* Hero Section */
-    .hero-title {
-      font-size: 48px;
-      font-weight: 900;
-      margin: 40px 0;
-    }
-    
-    /* Founder Cards */
-    .founder-card {
-      width: 100%;
-      height: 250px;
-      background: var(--gray-bg);
-      border-radius: 20px;
-      margin-bottom: 15px;
-    }
-    
-    .founder-title {
-      font-size: 24px;
-      font-weight: 700;
-    }
-    
-    /* About Section */
-    .about-title {
-      font-size: 20px;
-      margin-top: 30px;
-    }
-    
-    .company-name {
-      font-size: 32px;
-      font-weight: 800;
-      margin: 20px 0;
-    }
-    
-    .about-desc {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-    
-    .about-img {
-      width: 100%;
-      border-radius: 30px;
-      border: 5px white solid;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 10px 0;
-    }
-    
-    /* Vision/Mission */
-    .section-title {
-      font-size: 36px;
-      font-weight: 800;
-      margin: 40px 0 20px;
-    }
-    
-    .vision-text {
-      font-size: 24px;
-      margin-bottom: 40px;
-    }
-    
-    /* Goals Section */
-    .goals-section {
-      background: linear-gradient(180deg, var(--primary-green), var(--primary-blue));
-      border-radius: 30px;
-      padding: 40px 0;
-      margin: 50px 0;
-    }
-    
-    .goals-title {
-      font-size: 42px;
-      font-weight: 800;
-      margin-bottom: 30px;
-    }
-    
-    .goal-card {
-      width: 100%;
-      height: 180px;
-      background: var(--card-bg);
-      border-radius: 10px;
-      margin: 15px 0;
-      position: relative;
-    }
-    
-    .goal-icon {
-      width: 80px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    /* Mission Statement */
-    .mission-text {
-      font-size: 22px;
-      font-weight: 600;
-      margin: 30px 0;
-      line-height: 1.4;
-    }
-    
-    .page-nav {
-      width: 120px;
-      height: 30px;
-      background: var(--gray-bg);
-      border-radius: 90px;
-      margin: 20px auto;
-      position: relative;
-    }
-    
-    .page-dot {
-      width: 18px;
-      height: 18px;
-      background: #6C6C6C;
-      border-radius: 50%;
-      position: absolute;
-      top: 6px;
-    }
-    
-    .footer-icon {
-      width: 40px;
-      margin: 0 15px;
-    }
-
-    footer {
-        background-color: #1F364C;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
-    .footer-logo img {
-        width: 100px;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Header Section -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <div class="navbar-brand">
-                <a href="index.html">
-                    <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="product.html">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
-                    </li>
-                </ul>
-                <a href="#login" class="btn btn-outline-primary">Login</a>
-            </div>
-        </div>
-    </nav>
-  </header>
-
-  <main class="container">
-    <!-- Hero Section -->
-    <section class="text-center">
-      <h1 class="hero-title">Our Company</h1>
-    </section>
-    
-    <!-- Founders -->
-    <section class="row justify-content-center">
-      <div class="col-md-4 text-center">
-        <div class="founder-card"></div>
-        <h3 class="founder-title">Founder</h3>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="founder-card"></div>
-        <h3 class="founder-title">Founder</h3>
-      </div>
-      <div class="col-md-4 text-center">
-        <div class="founder-card"></div>
-        <h3 class="founder-title">Founder</h3>
-      </div>
-    </section>
-    
-    <!-- About Section -->
-    <section class="row mt-5 align-items-center">
-      <div class="col-lg-6">
-        <h2 class="about-title">-ABOUT US</h2>
-        <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
-        <p class="about-desc">
-          PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <div class="row">
-          <div class="col-6">
-            <img src="https://placehold.co/300x350" alt="About 1" class="about-img">
-          </div>
-          <div class="col-6">
-            <img src="https://placehold.co/200x200" alt="About 2" class="about-img">
-            <img src="https://placehold.co/250x250" alt="About 3" class="about-img mt-3">
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Vision -->
-    <section class="text-center my-5">
-      <h2 class="section-title">Vision</h2>
-      <p class="vision-text">
-        Menjadikan pusat layanan kesehatan yang sehat,<br>
-        aman, berkualitas, dan terkemuka di Kota Batam.
-      </p>
-    </section>
-    
-    <!-- Mission -->
-    <section class="text-center my-5">
-      <h2 class="section-title">Mission</h2>
-    </section>
-    
-    <!-- Goals -->
-    <section class="goals-section">
-      <div class="container">
-        <h2 class="goals-title text-center">Our Goals</h2>
-        
-        <div class="row">
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 1" class="goal-icon">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 2" class="goal-icon">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 3" class="goal-icon">
-            </div>
-          </div>
-        </div>
-        
-        <div class="row mt-3">
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 4" class="goal-icon">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 5" class="goal-icon">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="goal-card">
-              <img src="https://placehold.co/80x80" alt="Goal 6" class="goal-icon">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Mission Statement -->
-    <section class="text-center my-5">
-      <div class="page-nav">
-        <span class="page-dot" style="left: 15px;"></span>
-        <span class="page-dot" style="left: 50px;"></span>
-        <span class="page-dot" style="left: 85px;"></span>
-      </div>
-      
-      <p class="mission-text">
-        "Menjadikan PT. Nov Fisioterapi Center sebagai<br>
-        tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
-      </p>
-      
-      <div class="d-flex justify-content-center">
-        <img src="https://placehold.co/40x40" alt="Icon 1" class="footer-icon">
-        <img src="https://placehold.co/40x40" alt="Icon 2" class="footer-icon">
-        <img src="https://placehold.co/40x40" alt="Icon 3" class="footer-icon">
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer Section -->
-  <footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="NOV Logo">
-            </div>
-            <p>Your partner in recovery and wellness.</p>
-            <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
-        </div>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div data-layer="Contact Us" class="ContactUs" style="width: 1440px; height: 3965px; position: relative; background: white; overflow: hidden">
+  <div data-layer="Rectangle 241" class="Rectangle241" style="width: 477px; height: 125px; left: 268px; top: 1015px; position: absolute; background: #D9D9D9"></div>
+  <img data-layer="image 7" class="Image7" style="width: 1441px; height: 2161px; left: 0px; top: -967px; position: absolute" src="https://placehold.co/1441x2161" />
+  <img data-layer="image 6" class="Image6" style="width: 798.40px; height: 998px; left: 721px; top: 113px; position: absolute" src="https://placehold.co/798x998" />
+  <div data-layer="NOV FISIOTHERAPI CENTER" class="NovFisiotherapiCenter" style="width: 740px; height: 369px; left: 11px; top: 338px; position: absolute; text-align: center; color: #324D69; font-size: 80px; font-family: Baskervville SC; font-weight: 400; word-wrap: break-word">NOV FISIOTHERAPI CENTER</div>
+  <div data-layer="/ Your Wellness, Our Priority /" class="YourWellnessOurPriority" style="width: 544px; height: 138px; left: 109px; top: 692px; position: absolute; text-align: center; color: black; font-size: 36px; font-family: Averia Gruesa Libre; font-weight: 400; word-wrap: break-word">/ Your Wellness, Our Priority /</div>
+  <img data-layer="whatsapp 1" class="Whatsapp1" style="width: 88px; height: 88px; left: 40px; top: 953px; position: absolute" src="https://placehold.co/88x88" />
+  <div data-layer="Arrow up-right" data-size="48" class="ArrowUpRight" style="width: 38px; height: 38px; left: 940px; top: 819px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 15.83px; height: 15.83px; left: 11.08px; top: 11.08px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Rectangle 224" class="Rectangle224" style="width: 1227px; height: 660px; left: 2194px; top: 3304px; position: absolute; background: rgba(252.99, 255, 254.90, 0.60); border-radius: 90px"></div>
+  <div data-layer="Contact Us for Business Inquiry" class="ContactUsForBusinessInquiry" style="width: 394px; height: 164px; left: 2329px; top: 3354px; position: absolute; color: black; font-size: 48px; font-family: Inter; font-weight: 700; word-wrap: break-word">Contact Us for Business Inquiry</div>
+  <div data-layer="Last Name" class="LastName" style="width: 176px; height: 34px; left: 2848px; top: 3525px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Last Name</div>
+  <div data-layer="First Name" class="FirstName" style="width: 176px; height: 34px; left: 2334px; top: 3528px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">First Name</div>
+  <div data-layer="Line 27" class="Line27" style="width: 475px; height: 0px; left: 2329px; top: 3584px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Line 28" class="Line28" style="width: 475px; height: 0px; left: 2847px; top: 3584px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Email" class="Email" style="width: 176px; height: 34px; left: 2334px; top: 3624px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Email</div>
+  <div data-layer="Line 29" class="Line29" style="width: 993px; height: 0px; left: 2329px; top: 3685px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Description" class="Description" style="width: 260px; height: 34px; left: 2334px; top: 3723px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Description</div>
+  <div data-layer="Rectangle 226" class="Rectangle226" style="width: 207px; height: 76px; left: 3115px; top: 3734px; position: absolute; background: linear-gradient(0deg, #9DC2D0 0%, #9DC2D0 100%), #D7F3FF; border-radius: 90px"></div>
+  <div data-layer="Send" class="Send" style="width: 110px; height: 24px; left: 3180px; top: 3751px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Send</div>
+  <div data-layer="Line 30" class="Line30" style="width: 744px; height: 0px; left: 2329px; top: 3783px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Rectangle 169" class="Rectangle169" style="width: 1440px; height: 398px; left: 2233px; top: 387px; position: absolute; background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%); border-radius: 30px"></div>
+  <img data-layer="logo-removebg 1" class="LogoRemovebg1" style="width: 249px; height: 108px; left: 2811px; top: 465px; position: absolute" src="https://placehold.co/249x108" />
+  <div data-layer="Contact us" class="ContactUs" style="width: 175px; height: 59px; left: 2940px; top: 597px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Contact us </div>
+  <div data-layer="komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau" class="KompPertokoanKingBusinessCenterBlokA2No0102BelianBatamKotaKotaBatamKepulauanRiau" style="width: 373px; height: 83px; left: 2393px; top: 598px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau </div>
+  <div data-layer="Telephone" class="Telephone" style="width: 175px; height: 59px; left: 3309px; top: 598px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Telephone</div>
+  <div data-layer="Location" class="Location" style="width: 24px; height: 24px; left: 2351px; top: 602px; position: absolute">
+    <div data-layer="icon" class="Icon" style="width: 17.25px; height: 20px; left: 3.38px; top: 2px; position: absolute; outline: 1.50px #292D32 solid; outline-offset: -0.75px"></div>
+  </div>
+  <div data-layer="Novfisiocenter@gmail.com" class="NovfisiocenterGmailCom" style="left: 2945px; top: 645px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Novfisiocenter@gmail.com</div>
+  <div data-layer="+62778 5508040" class="627785508040" style="left: 3312px; top: 646px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">+62778 5508040</div>
+  <div data-layer="Rectangle 170" class="Rectangle170" style="width: 1440px; height: 398px; left: 0px; top: 3575px; position: absolute; background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%); border-radius: 30px"></div>
+  <img data-layer="logo-removebg 2" class="LogoRemovebg2" style="width: 249px; height: 108px; left: 578px; top: 3653px; position: absolute" src="https://placehold.co/249x108" />
+  <div data-layer="Contact us" class="ContactUs" style="width: 175px; height: 59px; left: 707px; top: 3785px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Contact us </div>
+  <div data-layer="komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau" class="KompPertokoanKingBusinessCenterBlokA2No0102BelianBatamKotaKotaBatamKepulauanRiau" style="width: 373px; height: 83px; left: 160px; top: 3786px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau </div>
+  <div data-layer="Telephone" class="Telephone" style="width: 175px; height: 59px; left: 1076px; top: 3786px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 700; word-wrap: break-word">Telephone</div>
+  <div data-layer="Location" class="Location" style="width: 24px; height: 24px; left: 118px; top: 3790px; position: absolute">
+    <div data-layer="icon" class="Icon" style="width: 17.25px; height: 20px; left: 3.38px; top: 2px; position: absolute; outline: 1.50px #292D32 solid; outline-offset: -0.75px"></div>
+  </div>
+  <div data-layer="Novfisiocenter@gmail.com" class="NovfisiocenterGmailCom" style="left: 712px; top: 3833px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Novfisiocenter@gmail.com</div>
+  <div data-layer="+62778 5508040" class="627785508040" style="left: 1079px; top: 3834px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">+62778 5508040</div>
+  <div data-layer="Rectangle 234" class="Rectangle234" style="width: 1471px; height: 232px; left: -16px; top: -45px; position: absolute; background: rgba(255, 255, 255, 0.90); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)"></div>
+  <div data-layer="About us" class="AboutUs" style="width: 298px; height: 81px; left: 41px; top: 95px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">About us</div>
+  <div data-layer="Product" class="Product" style="width: 298px; height: 81px; left: 229px; top: 97px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Product </div>
+  <div data-layer="Reviews" class="Reviews" style="width: 298px; height: 81px; left: 416px; top: 95px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Reviews</div>
+  <div data-layer="Insight" class="Insight" style="width: 298px; height: 81px; left: 906px; top: 94px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Insight</div>
+  <div data-layer="Contact us" class="ContactUs" style="width: 298px; height: 81px; left: 1072px; top: 96px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Contact us </div>
+  <div data-layer="Rectangle 235" class="Rectangle235" style="width: 142px; height: 57px; left: 1259px; top: 78px; position: absolute; background: #657379; border-radius: 30px"></div>
+  <div data-layer="Login" class="Login" style="width: 142px; height: 82px; left: 1299px; top: 90px; position: absolute; color: white; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">Login</div>
+  <img data-layer="logo-removebg 4" class="LogoRemovebg4" style="width: 249px; height: 108px; left: 575px; top: 52px; position: absolute" src="https://placehold.co/249x108" />
+  <div data-layer="Rectangle 42" class="Rectangle42" style="width: 87px; height: 173px; left: 1210px; top: 1975px; position: absolute; background: rgba(255, 255, 255, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 1px black solid"></div>
+  <div data-layer="Rectangle 43" class="Rectangle43" style="width: 87px; height: 74px; left: 1210px; top: 1887px; position: absolute; background: rgba(255, 255, 255, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 1px black solid"></div>
+  <div data-layer="Minus" data-size="48" class="Minus" style="width: 48px; height: 48px; left: 1232px; top: 2082px; position: absolute; overflow: hidden"></div>
+  <div data-layer="Line 6" class="Line6" style="width: 85.04px; height: 0px; left: 1211.21px; top: 2063px; position: absolute; transform: rotate(-1deg); transform-origin: top left; outline: 1px #C3ABAB solid; outline-offset: -0.50px"></div>
+  <div data-layer="Location 2" class="Location2" style="width: 62px; height: 57px; left: 1223px; top: 1895px; position: absolute">
+    <div data-layer="tone" class="Tone" style="width: 36.17px; height: 33.25px; left: 12.92px; top: 11.88px; position: absolute; background: rgba(0, 0, 0, 0.15); border-radius: 9999px"></div>
+    <div data-layer="shape" class="Shape" style="width: 46.50px; height: 42.75px; left: 7.75px; top: 7.12px; position: absolute; outline: 2px black solid; outline-offset: -1px"></div>
+  </div>
+  <img data-layer="image" class="Image" style="width: 1172px; height: 679px; left: 142px; top: 1516px; position: absolute; border-radius: 50px" src="https://placehold.co/1172x679" />
+  <div data-layer="Plus" data-size="48" class="Plus" style="width: 50px; height: 48px; left: 1230px; top: 2004px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 29.17px; height: 28px; left: 10.42px; top: 10px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Plus" data-size="48" class="Plus" style="width: 50px; height: 48px; left: 1230px; top: 2004px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 29.17px; height: 28px; left: 10.42px; top: 10px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Rectangle 42" class="Rectangle42" style="width: 87px; height: 173px; left: 1210px; top: 1975px; position: absolute; background: rgba(255, 255, 255, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 1px black solid"></div>
+  <div data-layer="Rectangle 43" class="Rectangle43" style="width: 87px; height: 74px; left: 1210px; top: 1887px; position: absolute; background: rgba(255, 255, 255, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 30px; border: 1px black solid"></div>
+  <div data-layer="Minus" data-size="48" class="Minus" style="width: 48px; height: 48px; left: 1232px; top: 2082px; position: absolute; overflow: hidden"></div>
+  <div data-layer="Line 6" class="Line6" style="width: 85.04px; height: 0px; left: 1211.21px; top: 2063px; position: absolute; transform: rotate(-1deg); transform-origin: top left; outline: 1px #C3ABAB solid; outline-offset: -0.50px"></div>
+  <div data-layer="Location 2" class="Location2" style="width: 62px; height: 57px; left: 1223px; top: 1895px; position: absolute">
+    <div data-layer="tone" class="Tone" style="width: 36.17px; height: 33.25px; left: 12.92px; top: 11.88px; position: absolute; background: rgba(0, 0, 0, 0.15); border-radius: 9999px"></div>
+    <div data-layer="shape" class="Shape" style="width: 46.50px; height: 42.75px; left: 7.75px; top: 7.12px; position: absolute; outline: 2px black solid; outline-offset: -1px"></div>
+  </div>
+  <div data-layer="Rectangle 39" class="Rectangle39" style="width: 370px; height: 265px; left: 152px; top: 2269px; position: absolute; background: #DDFFD9; border-radius: 50px"></div>
+  <div data-layer="Rectangle 40" class="Rectangle40" style="width: 370px; height: 265px; left: 547px; top: 2269px; position: absolute; background: #B6F2AF; border-radius: 50px"></div>
+  <div data-layer="Email" class="Email" style="width: 175px; height: 59px; left: 691px; top: 2328px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Email</div>
+  <div data-layer="Telephone" class="Telephone" style="width: 175px; height: 59px; left: 266px; top: 2333px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Telephone</div>
+  <div data-layer="Email" class="Email" style="width: 57px; height: 55px; left: 598px; top: 2322px; position: absolute">
+    <div data-layer="Icon" class="Icon" style="width: 42.75px; height: 32.08px; left: 7.12px; top: 11.46px; position: absolute; outline: 2px black solid; outline-offset: -1px"></div>
+  </div>
+  <div data-layer="Novfisiocenter@gmail.com" class="NovfisiocenterGmailCom" style="left: 610px; top: 2411px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Novfisiocenter@gmail.com</div>
+  <div data-layer="+62778 5508040" class="627785508040" style="left: 194px; top: 2412px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">+62778 5508040</div>
+  <div data-layer="Phone" data-size="48" class="Phone" style="width: 40px; height: 43px; left: 194px; top: 2334px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 33.15px; height: 35.70px; left: 3.52px; top: 3.58px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Rectangle 41" class="Rectangle41" style="width: 370px; height: 265px; left: 953px; top: 2269px; position: absolute; background: #EAF2FF; border-radius: 50px"></div>
+  <div data-layer="Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau" class="KompPertokoanKingBusinessCenterBlokA2No0102BelianBatamKotaKotaBatamKepulauanRiau" style="width: 286px; height: 83px; left: 1000px; top: 2373px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau </div>
+  <div data-layer="location_on" class="LocationOn" style="width: 60px; height: 54px; left: 993px; top: 2305px; position: absolute; overflow: hidden">
+    <div data-layer="icon" class="Icon" style="width: 35px; height: 45px; left: 12.50px; top: 4.50px; position: absolute; background: var(--Schemes-On-Surface, #1D1B20)"></div>
+  </div>
+  <div data-layer="Location" class="Location" style="width: 175px; height: 59px; left: 1072px; top: 2316px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Location </div>
+  <div data-layer="Phone" data-size="48" class="Phone" style="width: 40px; height: 43px; left: 198px; top: 2321px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 33.15px; height: 35.70px; left: 3.52px; top: 3.58px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Rectangle 39" class="Rectangle39" style="width: 370px; height: 265px; left: 152px; top: 2269px; position: absolute; background: white; border-radius: 50px"></div>
+  <div data-layer="Rectangle 40" class="Rectangle40" style="width: 370px; height: 265px; left: 547px; top: 2269px; position: absolute; background: #F2F6FF; border-radius: 50px"></div>
+  <div data-layer="Email" class="Email" style="width: 175px; height: 59px; left: 691px; top: 2328px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Email</div>
+  <div data-layer="Telephone" class="Telephone" style="width: 175px; height: 59px; left: 266px; top: 2328px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Telephone</div>
+  <div data-layer="Email" class="Email" style="width: 57px; height: 55px; left: 598px; top: 2322px; position: absolute">
+    <div data-layer="Icon" class="Icon" style="width: 42.75px; height: 32.08px; left: 7.12px; top: 11.46px; position: absolute; outline: 2px black solid; outline-offset: -1px"></div>
+  </div>
+  <div data-layer="Novfisiocenter@gmail.com" class="NovfisiocenterGmailCom" style="left: 610px; top: 2411px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Novfisiocenter@gmail.com</div>
+  <div data-layer="+62778 5508040" class="627785508040" style="left: 194px; top: 2412px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">+62778 5508040</div>
+  <div data-layer="Rectangle 41" class="Rectangle41" style="width: 370px; height: 265px; left: 953px; top: 2269px; position: absolute; background: #EAF2FF; border-radius: 50px"></div>
+  <div data-layer="Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau" class="KompPertokoanKingBusinessCenterBlokA2No0102BelianBatamKotaKotaBatamKepulauanRiau" style="width: 286px; height: 83px; left: 1000px; top: 2373px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota, Kota Batam - Kepulauan Riau </div>
+  <div data-layer="location_on" class="LocationOn" style="width: 60px; height: 54px; left: 993px; top: 2305px; position: absolute; overflow: hidden">
+    <div data-layer="icon" class="Icon" style="width: 35px; height: 45px; left: 12.50px; top: 4.50px; position: absolute; background: var(--Schemes-On-Surface, #1D1B20)"></div>
+  </div>
+  <div data-layer="Location" class="Location" style="width: 175px; height: 59px; left: 1072px; top: 2316px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">Location </div>
+  <div data-layer="Explode" class="Explode" style="width: 100px; height: 100px; left: 1172px; top: 2759px; position: absolute; overflow: hidden">
+    <div data-layer="Vector" class="Vector" style="width: 98px; height: 46.95px; left: 1px; top: 26.53px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 43.99px; height: 21.22px; left: 28.65px; top: 52.20px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Explode" class="Explode" style="width: 100px; height: 100px; left: 166px; top: 1443px; position: absolute; overflow: hidden">
+    <div data-layer="Vector" class="Vector" style="width: 98px; height: 46.95px; left: 1px; top: 26.53px; position: absolute; background: black"></div>
+    <div data-layer="Vector" class="Vector" style="width: 43.99px; height: 21.22px; left: 28.65px; top: 52.20px; position: absolute; background: black"></div>
+  </div>
+  <div data-layer="Rectangle 240" class="Rectangle240" style="width: 1122px; height: 365px; left: 190px; top: 797px; position: absolute; background: rgba(247.44, 247.44, 247.44, 0.80); border-radius: 30px"></div>
+  <div data-layer="rest hour : 18.00-19,00" class="RestHour18001900" style="left: 745px; top: 968px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word"><br/>rest hour : <br/>18.00-19,00</div>
+  <div data-layer="Mon - Sat" class="MonSat" style="left: 751px; top: 888px; position: absolute; color: black; font-size: 41px; font-family: Inter; font-weight: 700; word-wrap: break-word">Mon - Sat</div>
+  <div data-layer="08.00-21.00" class="002100" style="left: 751px; top: 938px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">08.00-21.00</div>
+  <div data-layer="Working Hours" class="WorkingHours" style="left: 751px; top: 838px; position: absolute; color: black; font-size: 36px; font-family: NanumMyeongjo; font-weight: 800; word-wrap: break-word">Working Hours</div>
+  <div data-layer="appointment booking" class="AppointmentBooking" style="width: 455px; height: 132px; left: 290px; top: 897px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">appointment booking</div>
+  <div data-layer="Rectangle 242" class="Rectangle242" style="width: 375px; height: 103px; left: 274px; top: 993px; position: absolute; background: #CCDEE4; border-radius: 30px"></div>
+  <div data-layer="contact us" class="ContactUs" style="width: 455px; height: 110px; left: 368px; top: 1022px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 700; word-wrap: break-word">contact us </div>
+  <div data-layer="Rectangle 227" class="Rectangle227" style="width: 1227px; height: 660px; left: 96px; top: 2832px; position: absolute; background: rgba(252.99, 255, 254.90, 0.60); border-radius: 90px"></div>
+  <div data-layer="Contact Us for Business Inquiry" class="ContactUsForBusinessInquiry" style="width: 394px; height: 164px; left: 231px; top: 2882px; position: absolute; color: black; font-size: 48px; font-family: Inter; font-weight: 700; word-wrap: break-word">Contact Us for Business Inquiry</div>
+  <div data-layer="Rectangle 228" class="Rectangle228" style="width: 207px; height: 76px; left: 1017px; top: 3262px; position: absolute; background: linear-gradient(0deg, #9DC2D0 0%, #9DC2D0 100%), #D7F3FF; border-radius: 90px"></div>
+  <div data-layer="Send" class="Send" style="width: 110px; height: 24px; left: 1082px; top: 3279px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Send</div>
+  <div data-layer="Line 31" class="Line31" style="width: 475px; height: 0px; left: 231px; top: 3112px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Line 32" class="Line32" style="width: 475px; height: 0px; left: 749px; top: 3112px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Line 33" class="Line33" style="width: 993px; height: 0px; left: 231px; top: 3213px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="Line 34" class="Line34" style="width: 744px; height: 0px; left: 231px; top: 3311px; position: absolute; outline: 1px black solid; outline-offset: -0.50px"></div>
+  <div data-layer="First Name" class="FirstName" style="width: 176px; height: 34px; left: 236px; top: 3056px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">First Name</div>
+  <div data-layer="Email" class="Email" style="width: 176px; height: 34px; left: 236px; top: 3152px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Email</div>
+  <div data-layer="Description" class="Description" style="width: 260px; height: 34px; left: 236px; top: 3251px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Description</div>
+  <div data-layer="Last Name" class="LastName" style="width: 176px; height: 34px; left: 750px; top: 3053px; position: absolute; color: rgba(0, 0, 0, 0.50); font-size: 32px; font-family: Inter; font-weight: 600; word-wrap: break-word">Last Name</div>
+  <div data-layer="where we are located ?!" class="WhereWeAreLocated" style="width: 776px; height: 181px; left: 565px; top: 1342px; position: absolute; color: black; font-size: 64px; font-family: Inter; font-weight: 700; word-wrap: break-word">where we are located ?!</div>
+  <div data-layer="location_on" class="LocationOn" style="width: 197px; height: 174px; left: 118px; top: 1317px; position: absolute; overflow: hidden">
+    <div data-layer="icon" class="Icon" style="width: 114.92px; height: 145px; left: 41.04px; top: 14.50px; position: absolute; background: var(--Schemes-On-Surface, #1D1B20)"></div>
+  </div>
+  <div data-layer="Clock" data-size="48" class="Clock" style="width: 115px; height: 108px; left: 1155px; top: 830px; position: absolute; overflow: hidden">
+    <div data-layer="Icon" class="Icon" style="width: 95.83px; height: 90px; left: 9.58px; top: 9px; position: absolute; outline: 4px var(--Icon-Default-Default, #1E1E1E) solid; outline-offset: -2px"></div>
+  </div>
+  <div data-layer="Line 36" class="Line36" style="width: 360px; height: 0px; left: 690.03px; top: 797px; position: absolute; transform: rotate(90deg); transform-origin: top left; outline: 5px white solid; outline-offset: -2.50px"></div>
+</div>

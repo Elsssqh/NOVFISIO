@@ -9,6 +9,10 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
+        }
         
         * {
             margin: 0;
@@ -25,59 +29,57 @@
             margin: 0 auto;
         }
 
-        /* Custom navbar toggler color */
-        .navbar-dark .navbar-toggler {
-            border-color: rgba(0, 0, 255, 0.1); /* Optional: light blue border */
+        .navbar-toggler {
+            border-color: rgba(0, 0, 0, 0.1);
         }
 
         .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
         
         /* Header Styles */
         .navbar {
-        background-color: rgb(255, 255, 255);
-        padding: 20px 0;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-    }
-    
-    .navbar-brand .logo-removebg {
-        height: 50px;
-    }
-    
-    .navbar-nav .nav-link {
-        color: var(--primary-dark) !important;
-        font-weight: 500;
-        margin: 0 10px;
-        transition: color 0.3s;
-    }
-    
-    .navbar-nav .nav-link:hover {
-        color: var(--primary-dark) !important;
-    }
-    
-    .btn-outline-primary {
-        color: var(--white);
-        border-color: var(--white);
-    }
-    
-    .btn-outline-primary:hover {
-        background-color: var(--primary-dark);
-        border-color: var(--primary-dark);
-    }
-    
-        /* New Hero Section */
+            background-color: rgb(255, 255, 255);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-brand .logo-removebg {
+            height: 50px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--primary-dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-dark) !important;
+        }
+        
+        .btn-outline-primary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        /* Hero Section */
         .hero {
-           width: 105%;
+            width: 105%;
             height: 100vh;
             background-image: url('clearbackground.png');
             background-size: cover;
             background-position: center;
-            /* Remove absolute positioning */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -89,7 +91,7 @@
             width: 740px;
             height: 400px;
             left: 30px;
-            top: 135px; /* 291px - 159px */
+            top: 135px;
             text-align: center;
         }
         
@@ -134,185 +136,120 @@
             background: transparent;
         }
         
-        /* Service Cards - Original Positioning Maintained */
-        /* .service-card {
-            background: rgba(228.44, 249.24, 255, 0.79);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 90px;
-            position: absolute;
-        }
-        
-        .card-large {
-            width: 374px;
-            height: 293px;
-        }
-        
-        .card-medium {
-            width: 388px;
-            height: 123px;
-        }
-        
-        .card-small {
-            width: 74px;
-            height: 74px;
-        }
-        
-        .card-1 { left: 191px; top: 752px; }
-        .card-2 { left: 657px; top: 731px; }
-        .card-3 { left: 1048px; top: 731px; }
-        .card-4 { left: 920px; top: 754px; }
-        .card-5 { left: 483px; top: 774px; }
-        .card-6 { left: 1315px; top: 754px; }
-        
-        .learn-more-btn {
-            width: 247px;
-            height: 57px;
-            position: absolute;
-            left: 236px;
-            top: 789px;
-            color: #1F364C;
-            font-size: 40px;
-            font-weight: 800;
-        }
-        
-        .service-title {
-            position: absolute;
-            width: 192px;
-            height: 68px;
-            color: black;
-            font-size: 32px;
-            font-weight: 800;
-        }
-        
-        .fisioterapi { left: 718px; top: 782px; }
-        .apotek { left: 1108px; top: 778px; } */
-        
-        /* Rest of your original styles... */
         /* About Us Section */
         .about-section {
-  padding: 80px 0;
-  background-color: #fff;
-}
+            padding: 80px 0;
+            background-color: #fff;
+        }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
 
-/* About Content Styles (same as before) */
-.about-content {
-  text-align: left;
-}
+        .about-content {
+            text-align: left;
+        }
 
-.section-title {
-  font-size: 2rem;
-  color: #1a365d;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+        .section-title {
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-.company-name {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #1a365d;
-}
+        .company-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
 
-.company-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #4a5568;
-}
+        .company-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
 
-.divider {
-  height: 1px;
-  background-color: #e2e8f0;
-  margin: 30px 0;
-  width: 100%;
-}
-/* Aesthetic Visual Styles */
-.aesthetic-visual {
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  padding: 40px;
-  text-align: center;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+        .divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            margin: 30px 0;
+            width: 100%;
+        }
 
-.aesthetic-tag {
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #4299e1;
-  margin-bottom: 10px;
-}
+        /* Aesthetic Visual Styles */
+        .aesthetic-visual {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-.aesthetic-text {
-  font-size: 1.5rem;
-  color: #4a5568;
-  margin-bottom: 20px;
-}
+        .aesthetic-tag {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #4299e1;
+            margin-bottom: 10px;
+        }
 
-.arrow-icon {
-  font-size: 2rem;
-  color: #4299e1;
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-}
+        .aesthetic-text {
+            font-size: 1.5rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .aesthetic-visual {
-    height: 250px;
-  }
-}
-        
+        .arrow-icon {
+            font-size: 2rem;
+            color: #4299e1;
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+        }
+
         /* Mission Section */
-.mission-section {
-    width: 100%;
-    max-width: 1512px;
-    height: 618px;
-    margin: 40px auto;
-    background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%);
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+        .mission-section {
+            width: 100%;
+            max-width: 1512px;
+            height: 618px;
+            margin: 40px auto;
+            background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-.mission-text {
-    width: 90%;
-    max-width: 1458px;
-    color: black;
-    font-size: 40px;
-    font-family: 'Inria Serif', serif;
-    font-weight: 700;
-    text-align: center;
-    padding: 20px;
-    margin: 0 auto;
-}
+        .mission-text {
+            width: 90%;
+            max-width: 1458px;
+            color: black;
+            font-size: 40px;
+            font-family: 'Inria Serif', serif;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px;
+            margin: 0 auto;
+        }
         
         /* Services Section */
         .services-section {
@@ -401,209 +338,402 @@
             font-weight: 400;
         }
         
-        .learn-more-container {
-            position: absolute;
-            left: 1101px;
-            top: 2601px;
-        }
-        
-        .learn-more-btn-2 {
-            width: 232px;
-            height: 56px;
-            background: #B9D0D9;
-            border-radius: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .learn-more-text {
-            color: black;
-            font-size: 32px;
-            font-weight: 600;
-        }
-        
-        
         /* Testimonials Section */
         .testimonials-title {
+            left: 100px; /* Adjusted to move left */
+            top: 3000px; /* Adjusted to move up */
             width: 500px;
-            left: 150px;
-            top: 3419px;
             height: 211px;
             color: black;
-            font-size: 64px;
+            font-size: 60px;
             font-weight: 900;
             position: absolute;
-            
         }
-        
+
         .testimonial-card {
             position: absolute;
             background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
         }
-        
+
         .testimonial-large {
             width: 400px;
             height: 421px;
-            left: 375px;
-            top: 3971px;
+            left: 325px; /* Adjusted to move left */
+            top: 3250px; /* Adjusted to move up */
         }
-        
+
         .testimonial-medium {
             width: 270px;
             height: 329px;
-            left: 1073px;
-            top: 3956px;
+            left: 1023px; /* Adjusted to move slightly to the left */
+            top: 3250px; /* Adjusted to move slightly up */
         }
-        
+
         .testimonial-small {
             width: 213px;
             height: 253px;
         }
-        
-        .testimonial-1 { left: 130px; top: 3971px; }
-        .testimonial-2 { left: 824px; top: 4139px; }
-        
+
+        .testimonial-1 {
+            left: 80px; /* Adjusted to move slightly to the left */
+            top: 3250px; /* Adjusted to move slightly up */
+        }
+
+        .testimonial-2 {
+            left: 774px; /* Adjusted to move slightly to the left */
+            top: 3400px; /* Adjusted to move slightly up */
+        }
+
         .testimonial-text {
             position: absolute;
             color: black;
             font-size: 24px;
             font-weight: 400;
         }
-        
-        .testimonial-1-text { left: 127px; top: 4262px; width: 210px; }
-        .testimonial-2-text { left: 828px; top: 3971px; width: 213px; }
-        .testimonial-3-text { left: 1086px; top: 4314px; width: 210px; }
-        
-        .testimonials-title {
-        top: 3100px !important; /* Reduced from 3819px */
-      }
-
-        .testimonial-large, 
-        .testimonial-medium, 
-        .testimonial-small {
-            top: 3350px !important; /* Reduced from 3971px */
-        }
 
         .testimonial-1-text {
-            top: 3650px !important; /* Adjusted position */
+            left: 77px; /* Adjusted to move slightly to the left */
+            top: 3550px; /* Adjusted to move slightly up */
+            width: 210px;
         }
 
-        .testimonial-2 {
-            top: 3500px !important; /* Adjusted position */
-        } 
+        .testimonial-2-text {
+            left: 778px; /* Adjusted to move slightly to the left */
+            top: 3250px; /* Adjusted to move slightly up */
+            width: 213px;
+        }
 
-        /* Contact Form */
-        .contact-form {
-            width: 1227px;
-            height: 660px;
-            position: absolute;
-            left: 30px;
-            top: 4700px;
+        .testimonial-3-text {
+            left: 1036px; /* Adjusted to move slightly to the left */
+            top: 3600px; /* Adjusted to move slightly up */
+            width: 210px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, #EBFFE9 0%, #BBE1FF 100%);
+            padding: 100px 0;
+            margin-top: 800px;
+        }
+
+        .contact-form-container {
+            width: 90%;
+            max-width: 1227px;
+            margin: 0 auto;
             background: rgba(253, 255, 255, 0.60);
             border-radius: 90px;
+            padding: 60px;
         }
-        
+
         .contact-title {
-            position: absolute;
-            left: 96px;
-            top: 4750px;
-            width: 394px;
-            height: 164px;
             color: black;
             font-size: 48px;
             font-weight: 700;
+            margin-bottom: 40px;
         }
-        
-        .form-field {
-            position: absolute;
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-label {
             color: rgba(0, 0, 0, 0.50);
-            font-size: 32px;
+            font-size: 24px;
             font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
         }
-        
-        .first-name { left: 101px; top: 4924px; }
-        .last-name { left: 615px; top: 4921px; }
-        .email { left: 101px; top: 5020px; }
-        .description { left: 101px; top: 5119px; }
-        
-        .form-line {
-            position: absolute;
-            height: 0px;
-            outline: 1px black solid;
-            outline-offset: -0.50px;
+
+        .form-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid black;
+            background: transparent;
+            padding: 10px 0;
+            font-size: 20px;
         }
-        
-        .line-1 { width: 475px; left: 96px; top: 4980px; }
-        .line-2 { width: 475px; left: 614px; top: 4980px; }
-        .line-3 { width: 993px; left: 96px; top: 5081px; }
-        .line-4 { width: 744px; left: 96px; top: 5179px; }
-        
+
+        .form-input:focus {
+            outline: none;
+        }
+
+        .submit-btn-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 40px;
+        }
+
         .submit-btn {
             width: 207px;
             height: 76px;
-            position: absolute;
-            left: 882px;
-            top: 5130px;
             background: linear-gradient(0deg, #9DC2D0 0%, #9DC2D0 100%), #D7F3FF;
             border-radius: 90px;
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
         }
-        
+
         .submit-text {
             color: black;
             font-size: 32px;
             font-weight: 600;
         }
 
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            margin-top: -30px; /* Adjust this to control overlap */
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
         
-    
-    
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            min-width: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 60px;
+            }
+            
+            .hero-subtitle {
+                font-size: 30px;
+            }
+            
+            .hero-btn {
+                font-size: 20px;
+                padding: 12px 25px;
+            }
+            
+            .mission-text {
+                font-size: 32px;
+            }
+            
+            .what-we-do {
+                font-size: 48px;
+            }
+            
+            .service-name {
+                font-size: 28px;
+            }
+            
+            .service-description {
+                font-size: 20px;
+            }
+            
+            .contact-title {
+                font-size: 36px;
+            }
+            
+            .form-label {
+                font-size: 20px;
+            }
+            
+            .submit-text {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .aesthetic-visual {
+                height: 250px;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .service-item.reverse {
+                flex-direction: column;
+            }
+            
+            .service-content {
+                max-width: 100%;
+                text-align: center !important;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .testimonials-title {
+                position: static !important;
+                width: 100%;
+                text-align: center;
+                margin: 60px 0 40px;
+            }
+            
+            .testimonial-card,
+            .testimonial-text {
+                position: static !important;
+                margin: 20px auto;
+                width: 90% !important;
+                left: auto !important;
+                top: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .hero-subtitle {
+                font-size: 24px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .mission-text {
+                font-size: 24px;
+            }
+            
+            .services-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .what-we-do {
+                font-size: 36px;
+            }
+            
+            .learn-more-btn-2 {
+                width: 180px;
+                height: 45px;
+            }
+            
+            .learn-more-text {
+                font-size: 24px;
+            }
+            
+            .contact-title {
+                font-size: 28px;
+            }
+            
+            .submit-btn {
+                width: 160px;
+                height: 60px;
+            }
+            
+            .submit-text {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content {
+                width: 90%;
+                left: 5%;
+                top: 100px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .service-card-large {
+                width: 100%;
+                height: 250px;
+            }
+            
+            .contact-form-container {
+                padding: 40px 20px;
+                border-radius: 50px;
+            }
+            
+            .form-label {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header Section -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="index.html">
-            <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-          </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="ourteam.html">Our Team</a>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="product.html">Our Service</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
-            </li>
-          </ul>
-          <a href="#login" class="btn btn-outline-primary">Login</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="ourteam.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="product.html">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
+                        </li>
+                    </ul>
+                    <a href="#login" class="btn btn-outline-primary">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
     
-    <!-- New Hero Section -->
+    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
             <h1 class="hero-title">NOV FISIOTHERAPI CENTER</h1>
@@ -615,47 +745,33 @@
         </div>
     </div>
     
-    <!-- Service Cards -->
-    <!-- <div class="service-card card-medium card-1"></div>
-    <div class="service-card card-large card-2"></div>
-    <div class="service-card card-large card-3"></div>
-    <div class="service-card card-small card-4"></div>
-    <div class="service-card card-small card-5"></div>
-    <div class="service-card card-small card-6"></div>
-    
-    <div class="learn-more-btn">Learn More</div>
-    <div class="service-title fisioterapi">Fisioterapi</div>
-    <div class="service-title apotek">Apotek</div>
-     -->
-
-    <!-- About Us with Aesthetic Section -->
+    <!-- About Us Section -->
     <section class="about-section">
-    <div class="container">
-        <div class="about-grid">
-
-      <!-- About Us Content -->
-      <div class="about-content">
-        <h2 class="section-title">ABOUT US</h2>
-        <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
-        <p class="company-description">PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozone, dan estetik.</p>
-      </div>
-      
-      <!-- Aesthetic Visual -->
-      <div class="aesthetic-visual">
-        <div class="aesthetic-tag">R</div>
-        <p class="aesthetic-text">d.</p>
-        <div class="arrow-icon">></div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="container">
+            <div class="about-grid">
+                <!-- About Us Content -->
+                <div class="about-content">
+                    <h2 class="section-title">ABOUT US</h2>
+                    <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
+                    <p class="company-description">PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozone, dan estetik.</p>
+                </div>
+                
+                <!-- Aesthetic Visual -->
+                <div class="aesthetic-visual">
+                    <div class="aesthetic-tag">R</div>
+                    <p class="aesthetic-text">d.</p>
+                    <div class="arrow-icon">></div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Mission Section -->
-<section class="mission-section">
-    <div class="mission-text">
-        "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
-    </div>
-</section>
+    <section class="mission-section">
+        <div class="mission-text">
+            "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section class="services-section">
@@ -694,91 +810,100 @@
         </div>
     </section>
     
-    <!-- Testimonials Section - Adjusted Position -->
-<div class="testimonials-title" >What our customer says!</div>
+    <!-- Testimonials Section -->
+    <div class="testimonials-title">What our customer says!</div>
 
-<div class="testimonial-card testimonial-large" style="top: 3350px;"></div>
-<div class="testimonial-card testimonial-medium" style="top: 3350px;"></div>
-<div class="testimonial-card testimonial-small testimonial-1" style="top: 3350px;"></div>
-<div class="testimonial-card testimonial-small testimonial-2" style="top: 3500px;"></div>
+    <div class="testimonial-card testimonial-large"></div>
+    <div class="testimonial-card testimonial-medium"></div>
+    <div class="testimonial-card testimonial-small testimonial-1"></div>
+    <div class="testimonial-card testimonial-small testimonial-2"></div>
 
-<div class="testimonial-text testimonial-1-text" style="top: 3650px;">
-    .Lorem Ipsum has been the
-</div>
-<div class="testimonial-text testimonial-2-text" style="top: 3350px;">
-    .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
-</div>
-<div class="testimonial-text testimonial-3-text" style="top: 3700px;">
-    .Lorem Ipsum has been the
-</div>
-<!-- Blue Background Section -->
-<div style="position: relative; width: 100%; background: linear-gradient(135deg, #EBFFE9 0%, #BBE1FF 100%); padding: 100px 0; margin-top: 800px;">
-    
-    <!-- Contact Form - Made Responsive -->
-    <div class="contact-form" style="position: relative; width: 90%; max-width: 1227px; margin: 0 auto; top: 0; left: 0;">
-        <div class="contact-title" style="position: relative; top: 0; left: 0; margin-bottom: 40px;">Contact Us for Business Inquiry</div>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-            <div>
-                <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">First Name</div>
-                <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
-            </div>
-            <div>
-                <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Last Name</div>
-                <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
-            </div>
-        </div>
-        
-        <div style="margin-top: 20px;">
-            <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Email</div>
-            <div class="form-line" style="position: relative; top: 0; left: 0; width: 100%; margin-bottom: 40px;"></div>
-        </div>
-        
-        <div style="margin-top: 20px;">
-            <div class="form-field" style="position: relative; top: 0; left: 0; margin-bottom: 20px;">Description</div>
-            <div class="form-line" style="position: relative; top: 0; left: 0; width: 60%; margin-bottom: 40px;"></div>
-        </div>
-        
-        <div class="submit-btn" style="position: relative; top: 0; left: auto; margin-left: auto; margin-top: 40px;">
-            <div class="submit-text">Send</div>
-        </div>
+    <div class="testimonial-text testimonial-1-text">
+        .Lorem Ipsum has been the
     </div>
-</div>
-<!-- Footer - Adjusted Closer Position -->
-<footer style="position: relative; top: 0px; width: 100%;">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="logo.png" alt="NOV Logo">
-            </div>
-            <p>Your partner in recovery and wellness.</p>
-            <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
-        </div>
+    <div class="testimonial-text testimonial-2-text">
+        .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
     </div>
-</footer>
+    <div class="testimonial-text testimonial-3-text">
+        .Lorem Ipsum has been the
+    </div>
 
-    <style>
-        footer {
-            background-color: #1F364C;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .footer-logo img {
-            width: 100px; /* Adjust as needed */
-        }
-    </style>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-form-container">
+            <h2 class="contact-title">Contact Us for Business Inquiry</h2>
+            
+            <div class="form-grid">
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-input">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">Description</label>
+                <input type="text" class="form-input">
+            </div>
+            
+            <div class="submit-btn-container">
+                <div class="submit-btn">
+                    <div class="submit-text">Send</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </div>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Novfisiocenter@gmail.com
+                    </p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Telephone</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M22 16.92V19.92C22.0008 20.1985 21.9431 20.4743 21.8307 20.7292C21.7183 20.9841 21.5538 21.2122 21.3483 21.3979C21.1428 21.5836 20.9009 21.7225 20.6393 21.8056C20.3776 21.8886 20.1023 21.9139 19.83 21.88C16.7426 21.49 13.7872 20.3685 11.19 18.6C8.6979 16.9066 6.60277 14.6456 5.06 12C3.46852 9.26809 2.51303 6.23249 2.26 3.12C2.22611 2.84772 2.25142 2.57236 2.33445 2.31072C2.41748 2.04908 2.55641 1.80723 2.7421 1.60172C2.9278 1.39621 3.15589 1.23173 3.41078 1.11932C3.66567 1.00691 3.94153 0.949244 4.22 0.95H7.22C7.72148 0.948991 8.20138 1.15291 8.5479 1.5149C8.89442 1.87689 9.07692 2.36429 9.05 2.86C8.886 5.048 9.348 7.232 10.39 9.18C10.57 9.541 10.598 9.964 10.466 10.35L9.42 13.33C10.4569 15.0614 11.9386 16.5431 13.67 17.58L16.65 16.534C17.036 16.402 17.459 16.43 17.82 16.61C19.768 17.652 21.952 18.114 24.14 17.95C24.6357 17.9231 25.1231 18.1056 25.4851 18.4521C25.8471 18.7986 26.051 19.2785 26.05 19.78V22.78C26.05 23.854 25.124 24.78 24.05 24.78C19.0443 24.6615 14.2116 22.9616 10.29 19.83C6.36837 16.6984 3.57844 12.3907 2.34 7.62C2.108 6.625 3.085 5.65 4.09 5.65C6.06 5.65 7.92 6.23 9.53 7.26C10.11 7.625 10.38 8.325 10.18 8.96C9.55 10.1 9.2 11.35 9.1 12.63C9.193 12.9139 9.38105 13.1529 9.63 13.3C11.0959 14.2684 12.7316 15.9041 13.7 17.37C13.8471 17.6189 14.0861 17.807 14.37 17.9C15.65 17.8 16.9 17.45 18.04 16.82C18.675 16.62 19.375 16.89 19.74 17.47C20.77 19.08 21.35 20.94 21.35 22.91C21.35 23.985 20.425 24.91 19.35 24.91H16.35" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        +62 778 5508040
+                    </p>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
+                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
+                        </svg>
+                        Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  <script>

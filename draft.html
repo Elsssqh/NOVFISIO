@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - NOV Fisioterapi Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
+            --card-gradient: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            --dark-gray: #474444;
+            --primary-color: #1F364C;
+            --secondary-color: #5C8AB8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: white;
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand .logo-removebg {
+            height: 50px;
+            transition: height 0.3s ease;
+        }
+        
+        .navbar.scrolled .logo-removebg {
+            height: 40px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #000 !important;
+            font-weight: 500;
+            margin: 0 12px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .navbar-nav .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(31, 54, 76, 0.2);
+        }
+
+        /* Main Content */
+        .review-main {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            background: white;
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        /* Review Title */
+        .review-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            padding: 0 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .review-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        /* Review Grid Container */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Review Cards */
+        .review-card {
+            background: var(--card-gradient);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .review-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        /* Card Sizes */
+        .card-small {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        
+        .card-medium {
+            grid-column: span 4;
+            grid-row: span 3;
+        }
+        
+        .card-large {
+            grid-column: span 5;
+            grid-row: span 4;
+        }
+        
+        .card-wide {
+            grid-column: span 6;
+            grid-row: span 2;
+        }
+        
+        .card-tall {
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+
+        /* Review Content */
+        .review-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-text {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+        
+        .author-title {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .rating {
+            margin-top: 5px;
+            color: #FFC107;
+        }
+        
+        .rating i {
+            margin-right: 3px;
+        }
+
+        /* Decorative Elements */
+        .review-decoration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .circle-decoration {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            position: absolute;
+        }
+        
+        .circle-1 {
+            top: -50px;
+            right: -50px;
+        }
+        
+        .circle-2 {
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Testimonial Highlight */
+        .testimonial-highlight {
+            grid-column: span 12;
+            background: var(--primary-color);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        }
+        
+        .highlight-quote {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight-quote:before, .highlight-quote:after {
+            color: rgba(255,255,255,0.3);
+            font-size: 4rem;
+            position: absolute;
+        }
+        
+        .highlight-quote:before {
+            content: '"';
+            top: -30px;
+            left: -40px;
+        }
+        
+        .highlight-quote:after {
+            content: '"';
+            bottom: -60px;
+            right: -40px;
+        }
+        
+        .highlight-author {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* CTA Section */
+        .review-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #15283d;
+            border-color: #15283d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(31, 54, 76, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            transition: transform 0.3s;
+        }
+        
+        .footer-logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-icon {
+            margin-right: 12px;
+            min-width: 20px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--primary-color);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .review-grid {
+                gap: 20px;
+            }
+            
+            .card-small {
+                grid-column: span 4;
+            }
+            
+            .card-medium {
+                grid-column: span 6;
+            }
+            
+            .card-large, .card-wide {
+                grid-column: span 12;
+            }
+            
+            .card-tall {
+                grid-column: span 4;
+            }
+            
+            .highlight-quote {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .review-title {
+                font-size: 2.8rem;
+            }
+            
+            .card-small, .card-medium, .card-tall {
+                grid-column: span 6;
+            }
+            
+            .testimonial-highlight {
+                padding: 40px 30px;
+            }
+            
+            .highlight-quote {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review-title {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+            
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-card {
+                grid-column: span 1 !important;
+            }
+            
+            .testimonial-highlight {
+                padding: 30px 20px;
+            }
+            
+            .highlight-quote {
+                font-size: 1.2rem;
+            }
+            
+            .highlight-quote:before, .highlight-quote:after {
+                font-size: 3rem;
+            }
+            
+            .highlight-quote:before {
+                top: -20px;
+                left: -10px;
+            }
+            
+            .highlight-quote:after {
+                bottom: -40px;
+                right: -10px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .review-title {
+                font-size: 1.8rem;
+            }
+            
+            .review-card {
+                padding: 20px;
+            }
+            
+            .review-text {
+                font-size: 1rem;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer {
+                padding: 60px 0 30px;
+            }
+            
+            .footer-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ourteam.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insight.html">Insight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact us</a>
+                        </li>
+                    </ul>
+                    <a href="#login" class="btn btn-outline-primary">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="review-main">
+        <div class="container">
+            <h1 class="review-title">What Our Clients Say</h1>
+            
+            <div class="review-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card card-large">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "After my knee surgery, the team at NOV Fisioterapi Center helped me regain full mobility. Their personalized approach and cutting-edge techniques made all the difference in my recovery. I can now play with my grandchildren pain-free!"
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-title">Post-Surgery Patient</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-decoration circle-1"></div>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The therapists are incredibly knowledgeable and caring. My chronic back pain has significantly improved after just 6 sessions."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah M.</div>
+                                <div class="author-title">Office Worker</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 3 -->
+                <div class="review-card card-tall">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "As an athlete, I need top-notch care for my sports injuries. NOV Fisioterapi Center understands athletes' needs and has helped me recover faster than expected multiple times. Their sports-specific therapy is unmatched in Batam."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-info">
+                                <div class="author-name">Andi R.</div>
+                                <div class="author-title">Professional Athlete</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 4 -->
+                <div class="review-card card-medium">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "I was skeptical at first, but the results speak for themselves. My posture has improved dramatically, and the neck pain I've had for years is finally gone. The team took time to explain everything and made me feel comfortable throughout the process."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">LT</div>
+                            <div class="author-info">
+                                <div class="author-name">Lisa T.</div>
+                                <div class="author-title">Teacher</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-decoration circle-2"></div>
+                </div>
+                
+                <!-- Review Card 5 -->
+                <div class="review-card card-wide">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "After trying several clinics in the area, NOV Fisioterapi Center stands out for their professionalism and results. My shoulder mobility has improved by 80% in just 3 weeks. The combination of manual therapy and their advanced equipment is truly effective."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">MW</div>
+                            <div class="author-info">
+                                <div class="author-name">Michael W.</div>
+                                <div class="author-title">Construction Worker</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 6 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The pediatric physiotherapy program helped my son overcome his developmental delays. The therapists were so patient and creative with him."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">NP</div>
+                            <div class="author-info">
+                                <div class="author-name">Nia P.</div>
+                                <div class="author-title">Parent</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Highlight -->
+                <div class="testimonial-highlight">
+                    <p class="highlight-quote">
+                        NOV Fisioterapi Center transformed my life after my car accident. When doctors said I might never walk properly again, their team worked miracles. Today, I'm not just walking - I'm running marathons!
+                    </p>
+                    <div class="highlight-author">- David K., Marathon Runner</div>
+                </div>
+                
+                <!-- Review Card 7 -->
+                <div class="review-card card-medium">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The prenatal physiotherapy sessions were a game-changer during my pregnancy. Not only did they help with my back pain, but the exercises also made my delivery much smoother. I'm so grateful for their specialized care for expecting mothers."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SR</div>
+                            <div class="author-info">
+                                <div class="author-name">Siti R.</div>
+                                <div class="author-title">New Mother</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 8 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "I've been coming for regular maintenance sessions for 2 years now. The team remembers all my issues and tailors each session perfectly. It's like having a personal health coach!"
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">BW</div>
+                            <div class="author-info">
+                                <div class="author-name">Budi W.</div>
+                                <div class="author-title">Regular Client</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 9 -->
+                <div class="review-card card-large">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "As someone who's been through multiple physiotherapy centers over 20 years of managing my arthritis, NOV Fisioterapi Center is by far the best. Their holistic approach combining traditional techniques with modern technology has given me more pain-free days than I've had in a decade. The staff's compassion and expertise make each visit something I look forward to rather than dread."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">EC</div>
+                            <div class="author-info">
+                                <div class="author-name">Elizabeth C.</div>
+                                <div class="author-title">Arthritis Patient</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="review-cta">
+                <h2 class="cta-title">Ready to Start Your Recovery Journey?</h2>
+                <p class="cta-subtitle">
+                    Join hundreds of satisfied clients who have regained their mobility, reduced pain, and improved their quality of life with our expert physiotherapy services.
+                </p>
+                <a href="contactus.html" class="btn btn-primary btn-lg">Book Your Consultation Today</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </div>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="aboutus.html" class="text-decoration-none text-dark">About Us</a></li>
+                        <li class="mb-2"><a href="ourteam.html" class="text-decoration-none text-dark">Our Team</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-decoration-none text-dark">Our Services</a></li>
+                        <li class="mb-2"><a href="review.html" class="text-decoration-none text-dark">Reviews</a></li>
+                        <li class="mb-2"><a href="insight.html" class="text-decoration-none text-dark">Insights</a></li>
+                        <li class="mb-2"><a href="contactus.html" class="text-decoration-none text-dark">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <a href="mailto:Novfisiocenter@gmail.com">Novfisiocenter@gmail.com</a>
+                    </p>
+                    <p class="contact-info">
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <a href="tel:+627785508040">+62 778 5508040</a>
+                    </p>
+                    <p class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
+                    </p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 NOV Fisioterapi Center. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation for review cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewCards = document.querySelectorAll('.review-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            reviewCards.forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

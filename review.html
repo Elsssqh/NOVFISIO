@@ -1,147 +1,470 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NOV Fisiotherapi Center</title>
-        <link rel="stylesheet" href="styles.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-      
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - NOV Fisioterapi Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+        :root {
+            --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
+            --card-gradient: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            --dark-gray: #474444;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: white;
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-brand .logo-removebg {
+            height: 50px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #000 !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #1F364C !important;
+        }
+        
+        .btn-outline-primary {
+            color: #1F364C;
+            border-color: #1F364C;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: #1F364C;
+            color: white;
+            border-color: #1F364C;
+        }
+
+        /* Main Content */
+        .review-main {
+            width: 1440px;
+            min-height: 3275px;
+            margin: 0 auto;
+            position: relative;
+            background: white;
+            padding-top: 100px;
+        }
+
+        /* Review Title */
+        .review-title {
             text-align: center;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .review-card {
-            background: linear-gradient(to bottom, #eafaea, #c5e1f5);
-            padding: 20px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .review-text {
-            flex: 1;
-            text-align: left;
+            color: black;
+            font-size: 96px;
+            font-weight: 900;
+            margin-bottom: 80px;
             padding: 0 20px;
         }
-        .profile-circle {
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border-radius: 50%;
-        }
-        .dots {
+
+        /* Review Boxes - Exact positions as in your design */
+        .review-box {
+            position: absolute;
+            background: var(--card-gradient);
+            border-radius: 30px;
             display: flex;
-            gap: 5px;
+            align-items: flex-end;
+            padding: 30px;
+            box-sizing: border-box;
         }
-        .dot {
-            width: 8px;
-            height: 8px;
-            background-color: #000;
+
+        .review-text {
+            color: black;
+            font-size: 24px;
+            font-weight: 400;
+        }
+
+        /* Box 1 - Large rectangle */
+        .box-1 {
+            width: 377px;
+            height: 421px;
+            left: 391px;
+            top: 100px;
+        }
+
+        /* Box 2 - Small square */
+        .box-2 {
+            width: 200px;
+            height: 253px;
+            left: 161px;
+            top: 100px;
+        }
+
+        /* Box 3 - Small square */
+        .box-3 {
+            width: 200px;
+            height: 253px;
+            left: 815px;
+            top: 268px;
+        }
+
+        /* Box 4 - Wide rectangle */
+        .box-4 {
+            width: 710px;
+            height: 253px;
+            left: 645px;
+            top: 635px;
+        }
+
+        /* Box 5 - Medium rectangle */
+        .box-5 {
+            width: 388px;
+            height: 312px;
+            left: 170px;
+            top: 798px;
+        }
+
+        /* Box 6 - Tall rectangle */
+        .box-6 {
+            width: 254px;
+            height: 329px;
+            left: 1049px;
+            top: 85px;
+        }
+
+        /* Box 7 - Large square */
+        .box-7 {
+            width: 412px;
+            height: 458px;
+            left: 158px;
+            top: 1615px;
+        }
+
+        /* Box 8 - Wide rectangle */
+        .box-8 {
+            width: 703px;
+            height: 387px;
+            left: 645px;
+            top: 1917px;
+        }
+
+        /* Box 9 - Large rectangle */
+        .box-9 {
+            width: 700px;
+            height: 596px;
+            left: 645px;
+            top: 1019px;
+        }
+
+        /* Circles */
+        .review-circle {
+            position: absolute;
+            background: var(--dark-gray);
             border-radius: 50%;
+        }
+
+        .circle-1 {
+            width: 55px;
+            height: 59px;
+            left: 1154px;
+            top: 210px;
+        }
+
+        .circle-2 {
+            width: 113px;
+            height: 107px;
+            left: 936px;
+            top: 1264px;
+        }
+
+        .circle-3 {
+            width: 54px;
+            height: 59px;
+            left: 230px;
+            top: 192px;
+        }
+
+        /* Text positions */
+        .text-1 {
+            width: 197px;
+            left: 158px;
+            top: 391px;
+        }
+
+        .text-2 {
+            width: 198px;
+            left: 1061px;
+            top: 443px;
+        }
+
+        .text-3 {
+            width: 543px;
+            left: 666px;
+            top: 1859px;
+        }
+
+        .text-4 {
+            width: 543px;
+            left: 195px;
+            top: 2097px;
+        }
+
+        .text-5 {
+            width: 363px;
+            left: 195px;
+            top: 1155px;
+        }
+
+        .text-6 {
+            width: 200px;
+            left: 819px;
+            top: 100px;
+        }
+
+        .text-7 {
+            width: 604px;
+            left: 691px;
+            top: 1644px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            min-width: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1440px) {
+            .review-main {
+                width: 100%;
+                min-height: auto;
+                padding-bottom: 100px;
+            }
+            
+            .review-title {
+                font-size: 72px;
+            }
+            
+            /* Adjust box positions for smaller screens */
+            .box-1, .box-2, .box-3, 
+            .box-4, .box-5, .box-6,
+            .box-7, .box-8, .box-9,
+            .review-text, .review-circle {
+                position: relative;
+                left: auto !important;
+                top: auto !important;
+                margin: 20px auto;
+                width: 90% !important;
+                height: auto;
+                min-height: 200px;
+            }
+            
+            .review-text {
+                font-size: 20px;
+            }
+            
+            .circle-1, .circle-2, .circle-3 {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review-title {
+                font-size: 48px;
+                margin-bottom: 40px;
+            }
+            
+            .review-text {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .review-title {
+                font-size: 36px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="navbar-brand">
-            <a href="index.html">
-              <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-            </a></div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="product.html">Product</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
-                </li>
-              </ul>
-              <a href="#login" class="btn btn-outline-primary">Login</a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ourteam.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insight.html">Insight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact us</a>
+                        </li>
+                    </ul>
+                    <a href="#login" class="btn btn-outline-primary">Login</a>
+                </div>
             </div>
-          </div>
         </nav>
-      </header>
-    <div class="container">
-        <h1>Customer Review</h1>
-        <div class="review-card">
-            <div class="profile-circle"></div>
-            <p class="review-text">Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="profile-circle"></div>
-            <p class="review-text">Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="profile-circle"></div>
-            <p class="review-text">Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
-        <div class="review-card">
-            <div class="profile-circle"></div>
-            <p class="review-text">Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </div>
+    </header>
+    
+   <!-- Main Content Section -->
+  <div class="Content" style="flex: 1; padding: 20px; position: relative;">
+    <!-- Customer Review Title -->
+    <div class="CustomerReview" style="text-align: center; margin: 50px 0; color: black; font-size: 96px; font-family: Inter; font-weight: 900; word-wrap: break-word">
+      Customer Review
     </div>
-     <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="logo.png" alt="NOV Logo">
+
+    <!-- Content Blocks -->
+    <div style="position: relative; height: 2800px;">
+      <div class="Rectangle29" style="width: 377px; height: 421px; left: 391px; top: 100px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle221" style="width: 200px; height: 253px; left: 161px; top: 100px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle222" style="width: 200px; height: 253px; left: 815px; top: 268px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle237" style="width: 710px; height: 253px; left: 645px; top: 635px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle236" style="width: 388px; height: 312px; left: 170px; top: 798px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle223" style="width: 254px; height: 329px; left: 1049px; top: 85px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="LoremIpsumHasBeenThe" style="width: 197px; height: 109px; left: 158px; top: 391px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the
       </div>
-      <p>Your partner in recovery and wellness.</p>
-      <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
+      <div class="LoremIpsumHasBeenThe" style="width: 198px; height: 109px; left: 1061px; top: 443px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the
+      </div>
+      <div class="LoremIpsumHasBeenThe" style="width: 543px; height: 58px; left: 666px; top: 1859px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the
+      </div>
+      <div class="LoremIpsumHasBeenThe" style="width: 543px; height: 58px; left: 195px; top: 2097px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the
+      </div>
+      <div class="LoremIpsumHasBeenThe" style="width: 363px; height: 109px; left: 195px; top: 1155px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the
+      </div>
+      <div class="LoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheThe" style="width: 200px; height: 109px; left: 819px; top: 100px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the
+      </div>
+      <div class="LoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheTheLoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheThe" style="width: 604px; height: 109px; left: 691px; top: 1644px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
+        .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the  .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the
+      </div>
+      <div class="Ellipse37" style="width: 55px; height: 59px; left: 1154px; top: 210px; position: absolute; background: #474444; border-radius: 9999px"></div>
+      <div class="Rectangle234" style="width: 412px; height: 458px; left: 158px; top: 1615px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle238" style="width: 703px; height: 387px; left: 645px; top: 1917px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Rectangle235" style="width: 700px; height: 596px; left: 645px; top: 1019px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
+      <div class="Ellipse39" style="width: 113px; height: 107px; left: 936px; top: 1264px; position: absolute; background: #474444; border-radius: 9999px"></div>
+      <div class="Ellipse38" style="width: 54px; height: 59px; left: 230px; top: 192px; position: absolute; background: #474444; border-radius: 9999px"></div>
     </div>
-  </footer>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </div>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Novfisiocenter@gmail.com
+                    </p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Telephone</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M22 16.92V19.92C22.0008 20.1985 21.9431 20.4743 21.8307 20.7292C21.7183 20.9841 21.5538 21.2122 21.3483 21.3979C21.1428 21.5836 20.9009 21.7225 20.6393 21.8056C20.3776 21.8886 20.1023 21.9139 19.83 21.88C16.7426 21.49 13.7872 20.3685 11.19 18.6C8.6979 16.9066 6.60277 14.6456 5.06 12C3.46852 9.26809 2.51303 6.23249 2.26 3.12C2.22611 2.84772 2.25142 2.57236 2.33445 2.31072C2.41748 2.04908 2.55641 1.80723 2.7421 1.60172C2.9278 1.39621 3.15589 1.23173 3.41078 1.11932C3.66567 1.00691 3.94153 0.949244 4.22 0.95H7.22C7.72148 0.948991 8.20138 1.15291 8.5479 1.5149C8.89442 1.87689 9.07692 2.36429 9.05 2.86C8.886 5.048 9.348 7.232 10.39 9.18C10.57 9.541 10.598 9.964 10.466 10.35L9.42 13.33C10.4569 15.0614 11.9386 16.5431 13.67 17.58L16.65 16.534C17.036 16.402 17.459 16.43 17.82 16.61C19.768 17.652 21.952 18.114 24.14 17.95C24.6357 17.9231 25.1231 18.1056 25.4851 18.4521C25.8471 18.7986 26.051 19.2785 26.05 19.78V22.78C26.05 23.854 25.124 24.78 24.05 24.78C19.0443 24.6615 14.2116 22.9616 10.29 19.83C6.36837 16.6984 3.57844 12.3907 2.34 7.62C2.108 6.625 3.085 5.65 4.09 5.65C6.06 5.65 7.92 6.23 9.53 7.26C10.11 7.625 10.38 8.325 10.18 8.96C9.55 10.1 9.2 11.35 9.1 12.63C9.193 12.9139 9.38105 13.1529 9.63 13.3C11.0959 14.2684 12.7316 15.9041 13.7 17.37C13.8471 17.6189 14.0861 17.807 14.37 17.9C15.65 17.8 16.9 17.45 18.04 16.82C18.675 16.62 19.375 16.89 19.74 17.47C20.77 19.08 21.35 20.94 21.35 22.91C21.35 23.985 20.425 24.91 19.35 24.91H16.35" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        +62 778 5508040
+                    </p>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
+                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
+                        </svg>
+                        Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

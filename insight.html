@@ -1,81 +1,1072 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOV Fisiotherapi Center</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="insight.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <style>
-    
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education & Insights - NOV Fisioterapi Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
+            --primary-color: #1F364C;
+            --secondary-color: #5C8AB8;
+            --light-gray: #F8F9FA;
+            --dark-gray: #474444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: white;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand .logo-removebg {
+            height: 50px;
+            transition: height 0.3s ease;
+        }
+        
+        .navbar.scrolled .logo-removebg {
+            height: 40px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: #000 !important;
+            font-weight: 500;
+            margin: 0 12px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .navbar-nav .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(31, 54, 76, 0.2);
+        }
+
+        /* Hero Section */
+        .insight-hero {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 180px 0 100px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .insight-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-search {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            font-size: 1rem;
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #15283d;
+            transform: translateY(-2px);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .insight-main {
+            padding: 0 0 80px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        /* Video Grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+        
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .video-card:hover .play-btn {
+            background: var(--primary-color);
+            color: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-duration {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .video-content {
+            padding: 20px;
+        }
+        
+        .video-category {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .video-description {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 0.85rem;
+        }
+        
+        /* Featured Video */
+        .featured-video {
+            margin-bottom: 60px;
+            background: var(--light-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .featured-video-container {
+            flex: 1;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .featured-info {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .featured-category {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .featured-description {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .featured-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+        
+        .meta-item i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .watch-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .watch-btn i {
+            margin-right: 10px;
+        }
+        
+        .watch-btn:hover {
+            background: #15283d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(31, 54, 76, 0.2);
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover .category-icon {
+            background: var(--primary-color);
+            color: white;
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .category-count {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.2;
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background: white;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            padding: 15px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: var(--accent-green);
+            transform: translateX(3px);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+            transition: transform 0.3s;
+        }
+        
+        .footer-logo:hover img {
+            transform: scale(1.05);
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-icon {
+            margin-right: 12px;
+            min-width: 20px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--primary-color);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .featured-content {
+                flex-direction: column;
+            }
+            
+            .featured-video-container {
+                min-height: 300px;
+                width: 100%;
+            }
+            
+            .featured-info {
+                padding: 30px;
+            }
+            
+            .featured-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .newsletter-title {
+                font-size: 1.8rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 8px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 8px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item {
+                padding: 15px 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="navbar-brand">
-        <a href="index.html">
-          <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-        </a></div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="product.html">Product</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
-            </li>
-          </ul>
-          <a href="#login" class="btn btn-outline-primary">Login</a>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ourteam.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Our Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="insight.html">Insight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact us</a>
+                        </li>
+                    </ul>
+                    <a href="#login" class="btn btn-outline-primary">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="insight-hero">
+        <div class="container hero-content">
+            <h1 class="hero-title text-center">Education & Self-Care Resources</h1>
+            <p class="hero-subtitle text-center">
+                Learn how to take better care of your body with our collection of educational videos, exercises, and self-care tips from our expert physiotherapists.
+            </p>
+            
+            <div class="hero-search">
+                <input type="text" class="form-control search-input" placeholder="Search for exercises, conditions, or treatments...">
+                <button class="btn search-btn">Search</button>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Educational Videos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Self-Care Guides</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Patients Helped</div>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <div class="container">
-    <h1>Insight Education</h1>
-    <div class="main-banner">Slider Image Placeholder</div>
+    </section>
     
-    <div class="insight-card">
-        <div class="image-placeholder"></div>
-        <p class="insight-text"><strong>Skoliosis Package</strong><br>Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-    </div>
-    
-    <div class="insight-card">
-        <div class="image-placeholder"></div>
-        <p class="insight-text"><strong>Bell’s Palsy</strong><br>Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-    </div>
-    
-    <div class="insight-card">
-        <div class="image-placeholder"></div>
-        <p class="insight-text"><strong>Post Stroke</strong><br>Lorem ipsum is simply dummy text of the printing and typesetting industry...</p>
-    </div>
+    <!-- Main Content -->
+    <main class="insight-main">
+        <div class="container">
+            <!-- Featured Video -->
+            <section class="featured-video">
+                <div class="featured-content">
+                    <div class="featured-video-container">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Featured Video" style="width:100%;height:100%;object-fit:cover;">
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="featured-info">
+                        <span class="featured-category">Back Pain Relief</span>
+                        <h2 class="featured-title">5 Essential Exercises for Lower Back Pain</h2>
+                        <p class="featured-description">
+                            Our lead physiotherapist demonstrates simple yet effective exercises you can do at home to alleviate lower back pain. These techniques are based on the latest research and have helped hundreds of our patients.
+                        </p>
+                        <div class="featured-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i> 12 min
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-calendar-alt"></i> May 15, 2023
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-user-md"></i> Dr. Sarah Lim
+                            </div>
+                        </div>
+                        <button class="watch-btn">
+                            <i class="fas fa-play"></i> Watch Now
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Video Categories -->
+            <section class="categories-section">
+                <div class="container">
+                    <h2 class="section-title">Browse by Category</h2>
+                    <div class="category-grid">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-bone"></i>
+                            </div>
+                            <h3 class="category-title">Joint Care</h3>
+                            <p class="category-count">32 Videos</p>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <h3 class="category-title">Sports Injuries</h3>
+                            <p class="category-count">28 Videos</p>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-procedures"></i>
+                            </div>
+                            <h3 class="category-title">Post-Surgery</h3>
+                            <p class="category-count">18 Videos</p>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <h3 class="category-title">Pediatric</h3>
+                            <p class="category-count">15 Videos</p>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="category-title">Office Ergonomics</h3>
+                            <p class="category-count">22 Videos</p>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <i class="fas fa-om"></i>
+                            </div>
+                            <h3 class="category-title">Yoga Therapy</h3>
+                            <p class="category-count">14 Videos</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Latest Videos -->
+            <section>
+                <h2 class="section-title">Latest Educational Videos</h2>
+                <div class="video-grid">
+                    <!-- Video 1 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Neck Pain Exercises">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">8:42</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Neck Pain</span>
+                            <h3 class="video-title">Relieve Neck Tension in 5 Minutes</h3>
+                            <p class="video-description">
+                                Quick and effective exercises to release tension from sitting at a desk all day.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 1.2K views</span>
+                                <span>2 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Posture Correction">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">12:15</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Posture</span>
+                            <h3 class="video-title">Fix Your Posture in 30 Days</h3>
+                            <p class="video-description">
+                                A step-by-step guide to correcting forward head posture and rounded shoulders.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 3.4K views</span>
+                                <span>3 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Knee Exercises">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">15:30</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Knee Pain</span>
+                            <h3 class="video-title">Knee Strengthening for Arthritis</h3>
+                            <p class="video-description">
+                                Low-impact exercises to strengthen knees without causing additional pain.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 2.1K views</span>
+                                <span>1 month ago</span>
+                            </div>
+                        </div>
+                    </div>
 
-   <!-- Footer -->
-   <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="logo.png" alt="NOV Logo">
-      </div>
-      <p>Your partner in recovery and wellness.</p>
-      <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
-    </div>
-  </footer>
+                    <!-- Video 4 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1581091870622-1c6a9b1a6c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Shoulder Mobility">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">10:45</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Shoulder Pain</span>
+                            <h3 class="video-title">Improve Shoulder Mobility</h3>
+                            <p class="video-description">
+                                Exercises to enhance shoulder flexibility and reduce stiffness.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 1.8K views</span>
+                                <span>2 months ago</span>
+                            </div>
+                        </div>
+                    </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                    <!-- Video 5 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1599058917213-0c8b1a6c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Core Strength">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">9:30</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Core Strength</span>
+                            <h3 class="video-title">Core Stability for Beginners</h3>
+                            <p class="video-description">
+                                Foundational exercises to build core strength and stability.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 2.5K views</span>
+                                <span>3 months ago</span>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Video 6 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="https://images.unsplash.com/photo-1601233746210-1c6a9b1a6c8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hip Mobility">
+                            <div class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="video-duration">11:20</div>
+                        </div>
+                        <div class="video-content">
+                            <span class="video-category">Hip Pain</span>
+                            <h3 class="video-title">Hip Mobility Exercises</h3>
+                            <p class="video-description">
+                                Gentle stretches to improve hip mobility and reduce discomfort.
+                            </p>
+                            <div class="video-meta">
+                                <span><i class="far fa-eye"></i> 3.0K views</span>
+                                <span>4 months ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
 </body>
 </html>

@@ -3,38 +3,450 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOV Fisiotherapi Center</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="aboutus.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>About Us - NOV Fisioterapi Center</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Inria+Serif:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #BBE1FF;
+      --primary-green: #EBFFE9;
+      --card-bg: rgba(216, 228, 234, 0.8);
+      --gray-bg: #D9D9D9;
+      --primary-dark: #000;
+      --white: #fff;
+      --dark-blue: #1F364C;
+         --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    body {
+      background: white;
+      width: 100%;
+      overflow-x: hidden;
+      margin: 0 auto;
+      padding-top: 100px;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: var(--white);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+        /* Header Styles */
+        .navbar {
+            background-color: rgb(255, 255, 255);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .navbar-brand .logo-removebg {
+            height: 50px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--primary-dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-dark) !important;
+        }
+        
+        .btn-outline-primary {
+            color: var(--white);
+            border-color: var(--white);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+
+    /* Custom navbar toggler */
+    .navbar-dark .navbar-toggler {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Hero Section */
+    .hero-title {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--primary-dark);
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+
+    /* Founders Section */
+    .founder-card {
+      width: 100%;
+      height: 250px;
+      background: var(--gray-bg);
+      border-radius: 20px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+    
+    .founder-title {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    /* About Section */
+    .about-title {
+      font-size: 20px;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+    
+    .company-name {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin: 20px 0;
+    }
+    
+    .about-desc {
+      font-size: 18px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    .about-img {
+      width: 100%;
+      border-radius: 30px;
+      border: 5px white solid;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 10px 0;
+      object-fit: cover;
+    }
+/* Mission & Goals Section Styling */
+  .mission-goals-section {
+    background-color: #f8f9fa;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1F364C;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #BBE1FF;
+    margin: 10px auto;
+  }
+  
+  /* Mission Cards */
+  .mission-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-top: 4px solid #1F364C;
+  }
+  
+  .mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+  
+  .mission-illustration {
+    text-align: center;
+    margin-bottom: 20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mission-illustration img {
+    max-height: 80px;
+    transition: all 0.3s ease;
+  }
+  
+  .mission-card:hover .mission-illustration img {
+    transform: scale(1.1);
+  }
+  
+  .mission-content h3 {
+    color: #1F364C;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .mission-content p {
+    color: #555;
+    text-align: center;
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .mission-card:hover .mission-content p {
+    opacity: 1;
+    height: auto;
+  }
+  
+  /* Goal Cards */
+  .goal-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid #1F364C;
+  }
+  
+  .goal-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+  
+  .goal-illustration {
+    text-align: center;
+    margin-bottom: 20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .goal-illustration img {
+    max-height: 80px;
+    transition: all 0.3s ease;
+  }
+  
+  .goal-card:hover .goal-illustration img {
+    transform: scale(1.1);
+  }
+  
+  .goal-content h3 {
+    color: #1F364C;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .goal-content p {
+    color: #555;
+    text-align: center;
+    opacity: 0;
+    height: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .goal-card:hover .goal-content p {
+    opacity: 1;
+    height: auto;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .mission-card, .goal-card {
+      padding: 20px;
+    }
+    
+    .mission-illustration, .goal-illustration {
+      height: 80px;
+    }
+    
+    .mission-illustration img, .goal-illustration img {
+      max-height: 60px;
+    }
+  }
+
+    /* Mission Statement */
+    .mission-section {
+      width: 100%;
+      max-width: 1512px;
+      height: auto;
+      min-height: 300px;
+      margin: 40px auto;
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #EBFFE9 0%, #BBE1FF 100%);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .mission-text {
+      width: 90%;
+      max-width: 1200px;
+      color: var(--primary-dark);
+      font-size: 32px;
+      font-family: 'Inria Serif', serif;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    /* Page Navigation Dots */
+    .page-nav {
+      width: 120px;
+      height: 30px;
+      background: var(--gray-bg);
+      border-radius: 90px;
+      margin: 20px auto;
+      position: relative;
+    }
+    
+    .page-dot {
+      width: 18px;
+      height: 18px;
+      background: #6C6C6C;
+      border-radius: 50%;
+      position: absolute;
+      top: 6px;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            margin-top: -30px; /* Adjust this to control overlap */
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 80px;
+      }
+      
+      .hero-title {
+        font-size: 36px;
+      }
+      
+      .section-title {
+        font-size: 28px;
+      }
+      
+      .mission-text {
+        font-size: 24px;
+      }
+      
+      .goals-title {
+        font-size: 32px;
+      }
+      
+      .about-desc, .mission-list li {
+        font-size: 16px;
+      }
+      
+      .founder-card {
+        height: 200px;
+      }
+      
+      .goal-card {
+        height: 150px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Header Section -->
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="navbar-brand">
-        <a href="index.html">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
           <img src="/logo-removebg.png" class="logo-removebg" alt="NOV Fisioterapi Center">
-        </a></div>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="aboutus.html">About us</a>
+              <a class="nav-link active" href="aboutus.html">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="product.html">Product</a>
+              <a class="nav-link" href="ourteam.html">Our Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="review.html">Reviews</a>
+              <a class="nav-link" href="product.html">Our Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="insight.html">Insight</a>
+              <a class="nav-link" href="review.html">Reviews</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
+              <a class="nav-link" href="insight.html">Insight</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactus.html">Contact Us</a>
             </li>
           </ul>
           <a href="#login" class="btn btn-outline-primary">Login</a>
@@ -43,58 +455,195 @@
     </nav>
   </header>
 
- 
-
-   <!-- About Us Section -->
-   <section class="container text-center mt-5">
-    <h2 class="fw-bold">About Us</h2>
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-3 text-center">
-            <div class="founder-card"></div>
-            <p class="mt-2">Founder</p>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="text-center">
+      <h1 class="hero-title">Our Company</h1>
+    </section>
+    
+    <!-- Founders Section -->
+    <section class="row justify-content-center">
+      <div class="col-md-4 text-center mb-4">
+        <div class="founder-card">
+          <img src="https://placehold.co/400x250" alt="Founder 1" class="img-fluid h-100">
         </div>
-        <div class="col-md-3 text-center">
-            <div class="founder-card"></div>
-            <p class="mt-2">Founder</p>
-        </div>
-        <div class="col-md-3 text-center">
-            <div class="founder-card"></div>
-            <p class="mt-2">Founder</p>
-        </div>
-    </div>
-</section>
-
-<!-- Our Milestone -->
-<section class="container mt-5">
-    <h2 class="fw-bold text-center">Our Milestone</h2>
-    <div class="timeline">
-        <div class="milestone left">
-            <div class="content">
-                <h4>20xx</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-        <div class="milestone right">
-            <div class="content">
-                <h4>20xx</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <img src="logo.png" alt="NOV Logo">
+        <h3 class="founder-title mt-3">Founder</h3>
       </div>
-      <p>Your partner in recovery and wellness.</p>
-      <p>Contact us: novcenter@gmail.com | +62 812 3456 7890</p>
+      <div class="col-md-4 text-center mb-4">
+        <div class="founder-card">
+          <img src="https://placehold.co/400x250" alt="Founder 2" class="img-fluid h-100">
+        </div>
+        <h3 class="founder-title mt-3">Founder</h3>
+      </div>
+      <div class="col-md-4 text-center mb-4">
+        <div class="founder-card">
+          <img src="https://placehold.co/400x250" alt="Founder 3" class="img-fluid h-100">
+        </div>
+        <h3 class="founder-title mt-3">Founder</h3>
+      </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="row mt-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 class="about-title">-ABOUT US</h2>
+        <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
+        <p class="about-desc">
+          PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik. 
+          Kami berkomitmen untuk memberikan pelayanan terbaik dengan tim profesional dan fasilitas modern.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-6">
+            <img src="https://placehold.co/300x350" alt="Clinic Facility" class="about-img">
+          </div>
+          <div class="col-6">
+            <img src="https://placehold.co/200x200" alt="Therapy Session" class="about-img">
+            <img src="https://placehold.co/250x250" alt="Medical Equipment" class="about-img mt-3">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Vision Section -->
+    <section class="text-center my-5 py-4">
+      <h2 class="section-title">Our Vision</h2>
+      <p class="vision-text">
+        Menjadikan pusat layanan kesehatan yang sehat,<br>
+        aman, berkualitas, dan terkemuka di Kota Batam.
+      </p>
+    </section>
+    
+    <!-- Mission Section -->
+    <div class="mission-section mb-5">
+      <h2 class="section-title text-center mb-4">Our Mission</h2>
+      <div class="row g-4">
+        <!-- Mission Item 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/2913/2913100.png" alt="Safe Environment" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Safe Environment</h3>
+              <p>Menciptakan lingkungan aman dan mendukung bagi pasien</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mission Item 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/3024/3024559.png" alt="Patient Comfort" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Patient Comfort</h3>
+              <p>Memastikan kenyamanan pasien dalam berbagi keluhan</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mission Item 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="Quality Service" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Quality Service</h3>
+              <p>Memberikan pelayanan kesehatan berkualitas tinggi</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mission Item 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="Continuous Improvement" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Continuous Improvement</h3>
+              <p>Meningkatkan mutu layanan secara berkelanjutan</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mission Item 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Modern Facilities" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Modern Facilities</h3>
+              <p>Menyediakan fasilitas kesehatan modern dan terbaik</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mission Item 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="mission-card">
+            <div class="mission-illustration">
+              <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Patient Motivation" class="img-fluid">
+            </div>
+            <div class="mission-content">
+              <h3>Patient Motivation</h3>
+              <p>Memberikan dorongan untuk pemulihan pasien</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
-  
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mission Statement -->
+    <section class="mission-section">
+      <div class="mission-text">
+        "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </div>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Novfisiocenter@gmail.com
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Telephone</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M22 16.92V19.92C22.0008 20.1985 21.9431 20.4743 21.8307 20.7292C21.7183 20.9841 21.5538 21.2122 21.3483 21.3979C21.1428 21.5836 20.9009 21.7225 20.6393 21.8056C20.3776 21.8886 20.1023 21.9139 19.83 21.88C16.7426 21.49 13.7872 20.3685 11.19 18.6C8.6979 16.9066 6.60277 14.6456 5.06 12C3.46852 9.26809 2.51303 6.23249 2.26 3.12C2.22611 2.84772 2.25142 2.57236 2.33445 2.31072C2.41748 2.04908 2.55641 1.80723 2.7421 1.60172C2.9278 1.39621 3.15589 1.23173 3.41078 1.11932C3.66567 1.00691 3.94153 0.949244 4.22 0.95H7.22C7.72148 0.948991 8.20138 1.15291 8.5479 1.5149C8.89442 1.87689 9.07692 2.36429 9.05 2.86C8.886 5.048 9.348 7.232 10.39 9.18C10.57 9.541 10.598 9.964 10.466 10.35L9.42 13.33C10.4569 15.0614 11.9386 16.5431 13.67 17.58L16.65 16.534C17.036 16.402 17.459 16.43 17.82 16.61C19.768 17.652 21.952 18.114 24.14 17.95C24.6357 17.9231 25.1231 18.1056 25.4851 18.4521C25.8471 18.7986 26.051 19.2785 26.05 19.78V22.78C26.05 23.854 25.124 24.78 24.05 24.78C19.0443 24.6615 14.2116 22.9616 10.29 19.83C6.36837 16.6984 3.57844 12.3907 2.34 7.62C2.108 6.625 3.085 5.65 4.09 5.65C6.06 5.65 7.92 6.23 9.53 7.26C10.11 7.625 10.38 8.325 10.18 8.96C9.55 10.1 9.2 11.35 9.1 12.63C9.193 12.9139 9.38105 13.1529 9.63 13.3C11.0959 14.2684 12.7316 15.9041 13.7 17.37C13.8471 17.6189 14.0861 17.807 14.37 17.9C15.65 17.8 16.9 17.45 18.04 16.82C18.675 16.62 19.375 16.89 19.74 17.47C20.77 19.08 21.35 20.94 21.35 22.91C21.35 23.985 20.425 24.91 19.35 24.91H16.35" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        +62 778 5508040
+                    </p>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
+                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
+                        </svg>
+                        Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
