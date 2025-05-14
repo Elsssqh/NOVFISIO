@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - NOV Fisioterapi Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1F364C;
+            --secondary-color: #657379;
+            --accent-blue: #BBE1FF;
+            --accent-green: #EBFFE9;
+            --light-gray: #EDEDED;
+            --dark-gray: #D8D8E4;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: #1D1B20;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .nav-link {
+            color: var(--primary-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        
+        .login-btn {
+            background: var(--secondary-color);
+            color: white !important;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 16px;
+        }
+        
+        /* Hero Section */
+        .page-header {
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+        }
+        
+        /* Team Sections */
+        .team-section {
+            padding: 60px 0;
+        }
+        
+        .section-header {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title strong {
+            font-weight: 900;
+        }
+        
+        .team-card {
+            background: var(--light-gray);
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            height: 100%;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .team-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        
+        /* Doctor Profile */
+        .doctor-profile {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .doctor-img {
+            width: 100px;
+            height: 120px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        .doctor-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        
+        .doctor-location {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        /* Decorative Elements */
+        .decorative-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .circle-blue {
+            background: rgba(189, 214, 255, 0.5);
+        }
+        
+        .circle-green {
+            background: rgba(189, 255, 201, 0.5);
+        }
+        
+        .circle-beige {
+            background: rgba(214, 203, 187, 0.5);
+        }
+        
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .dot-blue {
+            background: #7F97C2;
+        }
+        
+        .dot-green {
+            background: #7FC28A;
+        }
+        
+        .dot-beige {
+            background: #C2AB7F;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            margin-top: 80px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo img {
+            height: 60px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            margin-bottom: 10px;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .team-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="product.html">Our Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="review.html">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="insight.html">Insight</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactus.html">Contact us</a>
+                        </li>
+                    </ul>
+                    <a href="#login" class="btn login-btn">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Our Team</h1>
+        </div>
+    </section>
+    
+    <!-- Doctors Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <strong>Doctors</strong></h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="doctor-profile">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <img src="https://placehold.co/100x120" alt="Doctor" class="doctor-img">
+                            </div>
+                            <div class="col">
+                                <h3 class="doctor-name">Nov Fisioterapi Center</h3>
+                                <p class="doctor-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                                        <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
+                                        <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
+                                    </svg>
+                                    Batam, Kepulauan Riau
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative Elements -->
+                    <div class="decorative-circle circle-blue" style="top: 100px; right: 50px;"></div>
+                    <div class="dot dot-blue" style="top: 150px; right: 100px;"></div>
+                    
+                    <div class="decorative-circle circle-beige" style="top: 50px; right: -50px;"></div>
+                    <div class="dot dot-beige" style="top: 100px; right: 0;"></div>
+                </div>
+                
+                <div class="col-md-6">
+                    <img src="https://placehold.co/600x400" alt="Medical Team" class="img-fluid rounded">
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <!-- Doctor Cards -->
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Doctor 1" class="team-img">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>General Practitioner</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Doctor 2" class="team-img">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Sports Medicine Specialist</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Doctor 3" class="team-img">
+                        <h3>Dr. Elena Rodriguez</h3>
+                        <p>Neurological Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Physiotherapists Section -->
+    <section class="team-section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <strong>Physiotherapists</strong></h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 1" class="team-img">
+                        <h3>Alex Turner</h3>
+                        <p>Senior Physiotherapist</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 2" class="team-img">
+                        <h3>Jamie Wilson</h3>
+                        <p>Orthopedic Specialist</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 3" class="team-img">
+                        <h3>Taylor Smith</h3>
+                        <p>Pediatric Physiotherapist</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Row -->
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 4" class="team-img">
+                        <h3>Jordan Lee</h3>
+                        <p>Sports Rehabilitation</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 5" class="team-img">
+                        <h3>Casey Kim</h3>
+                        <p>Geriatric Specialist</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/400x300" alt="Physio 6" class="team-img">
+                        <h3>Riley Park</h3>
+                        <p>Post-Surgical Rehab</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Decorative Element -->
+            <div class="decorative-circle circle-green" style="bottom: -50px; left: -50px;"></div>
+            <div class="dot dot-green" style="bottom: 0; left: 0;"></div>
+        </div>
+    </section>
+    
+    <!-- Pharmacists Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <strong>Pharmacists</strong></h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/600x400" alt="Pharmacist 1" class="team-img">
+                        <h3>Dr. Olivia Martinez</h3>
+                        <p>Head Pharmacist</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="team-card">
+                        <img src="https://placehold.co/600x400" alt="Pharmacist 2" class="team-img">
+                        <h3>Dr. Nathan Brown</h3>
+                        <p>Clinical Pharmacist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo text-center">
+                        <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
+                    </div>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 6L12 13L2 6" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Novfisiocenter@gmail.com
+                    </p>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Telephone</h4>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M22 16.92V19.92C22.0008 20.1985 21.9431 20.4743 21.8307 20.7292C21.7183 20.9841 21.5538 21.2122 21.3483 21.3979C21.1428 21.5836 20.9009 21.7225 20.6393 21.8056C20.3776 21.8886 20.1023 21.9139 19.83 21.88C16.7426 21.49 13.7872 20.3685 11.19 18.6C8.6979 16.9066 6.60277 14.6456 5.06 12C3.46852 9.26809 2.51303 6.23249 2.26 3.12C2.22611 2.84772 2.25142 2.57236 2.33445 2.31072C2.41748 2.04908 2.55641 1.80723 2.7421 1.60172C2.9278 1.39621 3.15589 1.23173 3.41078 1.11932C3.66567 1.00691 3.94153 0.949244 4.22 0.95H7.22C7.72148 0.948991 8.20138 1.15291 8.5479 1.5149C8.89442 1.87689 9.07692 2.36429 9.05 2.86C8.886 5.048 9.348 7.232 10.39 9.18C10.57 9.541 10.598 9.964 10.466 10.35L9.42 13.33C10.4569 15.0614 11.9386 16.5431 13.67 17.58L16.65 16.534C17.036 16.402 17.459 16.43 17.82 16.61C19.768 17.652 21.952 18.114 24.14 17.95C24.6357 17.9231 25.1231 18.1056 25.4851 18.4521C25.8471 18.7986 26.051 19.2785 26.05 19.78V22.78C26.05 23.854 25.124 24.78 24.05 24.78C19.0443 24.6615 14.2116 22.9616 10.29 19.83C6.36837 16.6984 3.57844 12.3907 2.34 7.62C2.108 6.625 3.085 5.65 4.09 5.65C6.06 5.65 7.92 6.23 9.53 7.26C10.11 7.625 10.38 8.325 10.18 8.96C9.55 10.1 9.2 11.35 9.1 12.63C9.193 12.9139 9.38105 13.1529 9.63 13.3C11.0959 14.2684 12.7316 15.9041 13.7 17.37C13.8471 17.6189 14.0861 17.807 14.37 17.9C15.65 17.8 16.9 17.45 18.04 16.82C18.675 16.62 19.375 16.89 19.74 17.47C20.77 19.08 21.35 20.94 21.35 22.91C21.35 23.985 20.425 24.91 19.35 24.91H16.35" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        +62 778 5508040
+                    </p>
+                    <p class="contact-info">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
+                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
+                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
+                        </svg>
+                        Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
