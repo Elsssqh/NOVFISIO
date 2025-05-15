@@ -4,89 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Product - NOV Fisiotherapy Center</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="product.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
+            --accent-green: #EBFFE9;
+            --accent-blue: #BBE1FF;
         }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-color);
+            background: white;
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0 auto;
         }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-        
-        /* Specific icons for each service */
-        .scoliosis-icon { color: #16a085; }
-        .hand-icon { color: #e67e22; }
-        .ankle-icon { color: #9b59b6; }
-        .joint-icon { color: #c0392b; }
-        .back-icon { color: #2980b9; }
-        .palsy-icon { color: #8e44ad; }
-        .stroke-icon { color: #d35400; }
-        .surgery-icon { color: #27ae60; }
-        .lymph-icon { color: #3498db; }
-        
         .navbar {
-            background-color: white !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: rgb(255, 255, 255) !important;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
-        
-        .navbar-brand img {
-            height: 60px;
+        .navbar-brand .logo-removebg {
+            height: 50px;
         }
-        
-        .nav-link {
-            color: var(--primary-color) !important;
+        .navbar-nav .nav-link {
+            color: #1F364C !important;
             font-weight: 500;
             margin: 0 10px;
-            position: relative;
+            transition: color 0.3s;
         }
-        
-        .nav-link:hover {
-            color: var(--secondary-color) !important;
+        .navbar-nav .nav-link:hover {
+            color: #1F364C !important;
         }
-        
-        .nav-link.active:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--secondary-color);
-        }
-        
         .btn-outline-primary {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
+            color: #1F364C;
+            border-color: #1F364C;
         }
-        
         .btn-outline-primary:hover {
-            background-color: var(--secondary-color);
-            color: white;
+            background-color: #1F364C;
+            color: #fff;
+            border-color: #1F364C;
         }
-        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
         h2 {
-            color: var(--primary-color);
+            color: #1a365d;
             margin-bottom: 30px;
             font-weight: 700;
             position: relative;
             display: inline-block;
         }
-        
         h2:after {
             content: '';
             position: absolute;
@@ -95,24 +74,21 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--secondary-color);
+            background-color: #BBE1FF;
         }
-        
         .carousel {
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin-bottom: 50px;
         }
-        
         .carousel-item img {
             height: 500px;
             object-fit: cover;
         }
-        
         .product-card {
-            background-color: white;
-            border-radius: 10px;
+            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            border-radius: 20px;
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -120,63 +96,104 @@
             height: 100%;
             border: 1px solid #eee;
         }
-        
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            border-color: var(--secondary-color);
+            border-color: #BBE1FF;
         }
-        
-        .product-card img {
-            height: 80px;
-            margin-bottom: 15px;
-            object-fit: contain;
+        .product-card h4 {
+            font-family: 'Baskervville', serif;
+            color: #324D69;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
-        
         .product-card strong {
-            color: var(--secondary-color);
+            color: #1F364C;
             display: block;
             margin: 8px 0;
             font-size: 1.1rem;
         }
-        
-        .product-card br {
-            display: none;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px 0;
-            margin-top: 50px;
-        }
-        
-        .footer-logo img {
-            height: 80px;
-            margin-bottom: 20px;
-        }
-        
-        .footer-content p {
-            margin-bottom: 10px;
-        }
-        
         .price-badge {
-            background-color: var(--accent-color);
-            color: white;
+            background-color: #BBE1FF;
+            color: #1F364C;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             margin-top: 10px;
             display: inline-block;
         }
-        
-        @media (max-width: 768px) {
+        .btn-primary {
+            background: #1F364C;
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #324D69;
+            color: #fff;
+        }
+        .bg-light {
+            background: linear-gradient(135deg, #EBFFE9 0%, #BBE1FF 100%) !important;
+        }
+        .footer {
+            background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
+            padding: 80px 0 40px;
+            border-radius: 30px 30px 0 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+            color: #1F364C;
+        }
+        .footer-logo {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .footer-logo img {
+            height: 60px;
+        }
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .contact-icon {
+            margin-right: 10px;
+            min-width: 20px;
+        }
+        .social-icons a {
+            color: #1F364C;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        .social-icons a:last-child {
+            margin-right: 0;
+        }
+        @media (max-width: 1200px) {
+            .product-card h4 {
+                font-size: 24px;
+            }
+        }
+        @media (max-width: 992px) {
             .carousel-item img {
                 height: 300px;
             }
-            
             .product-card {
                 padding: 15px;
+            }
+        }
+        @media (max-width: 768px) {
+            .footer {
+                padding: 40px 0 20px;
+            }
+        }
+        @media (max-width: 576px) {
+            .footer-logo img {
+                height: 40px;
             }
         }
     </style>
@@ -184,7 +201,7 @@
 <body>
     <!-- Header Section -->
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container">
                 <div class="navbar-brand">
                     <a href="index.html">
@@ -221,7 +238,7 @@
     <!-- Our Product Section -->
     <section class="container py-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold">Our Treatment Packages</h2>
+            <h2 class="fw-bold"><br><br>Our Treatment Packages</h2>
             <p class="lead text-muted">Professional physiotherapy services tailored to your needs</p>
         </div>
         
@@ -386,32 +403,28 @@
     </section>
     
     <!-- Footer -->
-    <footer class="bg-dark text-white">
+    <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 text-center text-md-start">
+                <div class="col-md-4 mb-4">
                     <div class="footer-logo">
-                        <img src="logo.png" alt="NOV Logo" class="img-fluid">
+                        <img src="/logo-removebg.png" alt="NOV Logo" class="img-fluid">
                     </div>
-                    <p>Your partner in recovery and wellness.</p>
+                    <p class="text-center">Your partner in recovery and wellness.</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="aboutus.html" class="text-white">About Us</a></li>
-                        <li><a href="product.html" class="text-white">Our Services</a></li>
-                        <li><a href="contactus.html" class="text-white">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 text-center text-md-end">
-                    <h5>Contact Us</h5>
-                    <p><i class="fas fa-envelope me-2"></i> novcenter@gmail.com</p>
-                    <p><i class="fas fa-phone me-2"></i> +62 812 3456 7890</p>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Contact us</h4>
+                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-envelope"></i></span>novcenter@gmail.com</p>
+                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-phone"></i></span>+62 812 3456 7890</p>
                     <div class="social-icons mt-3">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Address</h4>
+                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>Jl. Contoh Alamat No. 123, Kota, Indonesia</p>
                 </div>
             </div>
             <hr class="my-4">
