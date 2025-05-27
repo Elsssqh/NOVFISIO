@@ -173,61 +173,59 @@
     margin: 10px auto;
   }
   
-  /* Mission Cards */
-  .mission-card {
-    background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    border-top: 4px solid #1F364C;
-  }
-  
-  .mission-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-  }
-  
-  .mission-illustration {
-    text-align: center;
-    margin-bottom: 20px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .mission-illustration img {
-    max-height: 80px;
-    transition: all 0.3s ease;
-  }
-  
-  .mission-card:hover .mission-illustration img {
-    transform: scale(1.1);
-  }
-  
-  .mission-content h3 {
-    color: #1F364C;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .mission-content p {
-    color: #555;
-    text-align: center;
-    opacity: 0;
-    height: 0;
-    transition: all 0.3s ease;
-  }
-  
-  .mission-card:hover .mission-content p {
-    opacity: 1;
-    height: auto;
-  }
+  /* ===== Professional Mission Section ===== */
+.mission-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.mission-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  height: 100%;
+  border-left: 4px solid var(--primary-blue);
+  text-align: center;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border-left: 4px solid var(--dark-blue);
+}
+
+.mission-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-blue);
+  background: rgba(187, 225, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover .mission-icon {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+.mission-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--dark-blue);
+}
+
+.mission-card p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
   
   /* Goal Cards */
   .goal-card {
@@ -515,89 +513,105 @@
         aman, berkualitas, dan terkemuka di Kota Batam.
       </p>
     </section>
-    
     <!-- Mission Section -->
-    <div class="mission-section mb-5">
-      <h2 class="section-title text-center mb-4">Our Mission</h2>
-      <div class="row g-4">
-        <!-- Mission Item 1 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/2913/2913100.png" alt="Safe Environment" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Safe Environment</h3>
-              <p>Menciptakan lingkungan aman dan mendukung bagi pasien</p>
-            </div>
+<section class="mission-section mb-5">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Our Mission</h2>
+    <div class="row g-4">
+      <!-- Mission Item 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
           </div>
-        </div>
-        
-        <!-- Mission Item 2 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/3024/3024559.png" alt="Patient Comfort" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Patient Comfort</h3>
-              <p>Memastikan kenyamanan pasien dalam berbagi keluhan</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Mission Item 3 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="Quality Service" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Quality Service</h3>
-              <p>Memberikan pelayanan kesehatan berkualitas tinggi</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Mission Item 4 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/2779/2779775.png" alt="Continuous Improvement" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Continuous Improvement</h3>
-              <p>Meningkatkan mutu layanan secara berkelanjutan</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Mission Item 5 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Modern Facilities" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Modern Facilities</h3>
-              <p>Menyediakan fasilitas kesehatan modern dan terbaik</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Mission Item 6 -->
-        <div class="col-md-6 col-lg-4">
-          <div class="mission-card">
-            <div class="mission-illustration">
-              <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Patient Motivation" class="img-fluid">
-            </div>
-            <div class="mission-content">
-              <h3>Patient Motivation</h3>
-              <p>Memberikan dorongan untuk pemulihan pasien</p>
-            </div>
-          </div>
+          <h3>Safe Environment</h3>
+          <p>Creating a secure and supportive healthcare environment for all patients</p>
         </div>
       </div>
+      
+      <!-- Mission Item 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.07V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="23 3 12 14 9 11"></polyline>
+            </svg>
+          </div>
+          <h3>Patient-Centered Care</h3>
+          <p>Prioritizing individual comfort and personalized treatment plans</p>
+        </div>
+      </div>
+      
+      <!-- Mission Item 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <h3>Clinical Excellence</h3>
+          <p>Delivering evidence-based therapies with measurable outcomes</p>
+        </div>
+      </div>
+      
+      <!-- Mission Item 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>Professional Development</h3>
+          <p>Continuous training for our team to maintain highest standards</p>
+        </div>
+      </div>
+      
+      <!-- Mission Item 5 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Modern Facilities</h3>
+          <p>Investing in cutting-edge rehabilitation technology</p>
+        </div>
+      </div>
+      
+      <!-- Mission Item 6 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+              <line x1="6" y1="1" x2="6" y2="4"></line>
+              <line x1="10" y1="1" x2="10" y2="4"></line>
+              <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+          </div>
+          <h3>Holistic Approach</h3>
+          <p>Integrating physical therapy with overall wellness strategies</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
     <!-- Mission Statement -->
     <section class="mission-section">
