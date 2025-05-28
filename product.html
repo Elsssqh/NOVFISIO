@@ -6,10 +6,13 @@
     <title>Our Product - NOV Fisiotherapy Center</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --accent-green: #EBFFE9;
             --accent-blue: #BBE1FF;
+            --primary-color: #1F364C;
+            --secondary-color: #324D69;
         }
         * {
             margin: 0;
@@ -86,49 +89,130 @@
             height: 500px;
             object-fit: cover;
         }
+        
+        /* Products Section */
+        .products-section {
+            padding: 60px 0;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
         .product-card {
             background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
             border-radius: 20px;
             padding: 25px;
-            margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
             height: 100%;
             border: 1px solid #eee;
+            cursor: pointer;
         }
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             border-color: #BBE1FF;
         }
-        .product-card h4 {
-            font-family: 'Baskervville', serif;
-            color: #324D69;
-            font-size: 28px;
-            margin-bottom: 10px;
+        .product-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
         }
-        .product-card strong {
-            color: #1F364C;
-            display: block;
-            margin: 8px 0;
-            font-size: 1.1rem;
+        .product-title {
+            font-family: 'Baskervville', serif;
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .product-description {
+            color: #5a6a7a;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .price-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
         }
         .price-badge {
             background-color: #BBE1FF;
-            color: #1F364C;
-            padding: 5px 15px;
+            color: var(--primary-color);
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
-            margin-top: 10px;
-            display: inline-block;
+            font-weight: 500;
         }
+        
+        /* Modal Styles */
+        .treatment-modal .modal-content {
+            border-radius: 20px;
+            border: none;
+        }
+        .treatment-modal .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+            position: relative;
+        }
+        .treatment-modal .modal-title {
+            font-family: 'Baskervville', serif;
+            color: var(--primary-color);
+            font-size: 2rem;
+        }
+        .treatment-modal .modal-body {
+            padding-top: 0;
+        }
+        .treatment-modal .modal-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .treatment-modal .treatment-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        .treatment-modal .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .treatment-modal .price-table th {
+            background-color: var(--accent-blue);
+            color: var(--primary-color);
+            padding: 10px;
+            text-align: left;
+        }
+        .treatment-modal .price-table td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .treatment-modal .price-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .treatment-modal .btn-close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        
         .btn-primary {
-            background: #1F364C;
+            background: var(--primary-color);
             color: white;
             border: none;
         }
         .btn-primary:hover {
-            background: #324D69;
+            background: var(--secondary-color);
             color: #fff;
         }
         .bg-light {
@@ -141,7 +225,7 @@
             margin-top: -30px;
             position: relative;
             z-index: 1;
-            color: #1F364C;
+            color: var(--primary-color);
         }
         .footer-logo {
             margin-bottom: 30px;
@@ -166,16 +250,17 @@
             min-width: 20px;
         }
         .social-icons a {
-            color: #1F364C;
+            color: var(--primary-color);
             font-size: 1.2rem;
             margin-right: 10px;
         }
         .social-icons a:last-child {
             margin-right: 0;
         }
+        
         @media (max-width: 1200px) {
-            .product-card h4 {
-                font-size: 24px;
+            .product-title {
+                font-size: 1.5rem;
             }
         }
         @media (max-width: 992px) {
@@ -183,17 +268,29 @@
                 height: 300px;
             }
             .product-card {
-                padding: 15px;
+                padding: 20px;
+            }
+            .treatment-modal .modal-title {
+                font-size: 1.8rem;
             }
         }
         @media (max-width: 768px) {
             .footer {
                 padding: 40px 0 20px;
             }
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
         @media (max-width: 576px) {
             .footer-logo img {
                 height: 40px;
+            }
+            .treatment-modal .modal-title {
+                font-size: 1.5rem;
+            }
+            .treatment-modal .modal-icon {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -231,18 +328,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
                         </li>
-                    <!-- </ul>
-                    <a href="#login" class="btn btn-outline-primary">Login</a> -->
+                    </ul>
                 </div>
             </div>
         </nav>
     </header>
     
-    
     <!-- Our Product Section -->
-    <section class="container py-5">
+    <section class="container py-5 mt-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold"><br><br>Our Treatment Packages</h2>
+            <h2 class="fw-bold">Our Treatment Packages</h2>
             <p class="lead text-muted">Professional physiotherapy services tailored to your needs</p>
         </div>
         
@@ -255,7 +350,7 @@
                     <img src="2024-01-16 (2).jpg" class="d-block w-100" alt="Patient consultation">
                 </div>
                 <div class="carousel-item">
-                    <img src="2024-01-16.jpg" class="d-block w-100" alt="Therapy session">
+                    <img src="fotoprofile\Foto Staf Klinik Nov Fisiotherapi Center\Untitled design (1).png" class="d-block w-100" alt="Therapy session">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -268,177 +363,885 @@
             </button>
         </div>
         
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Scoliosis Package</h4>
-                    <div class="service-icon scoliosis-icon">
+        <div class="products-section">
+            <div class="products-grid">
+                <!-- Ozone Therapy -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#ozoneTherapyModal">
+                    <div class="product-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="product-title">Ozone Therapy</h3>
+                    <div class="product-description">
+                        <p>Saline solution ozone treatment for detoxification and immune system support</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp800,000</span>
+                    </div>
+                </div>
+                
+                <!-- MAHT Ozone -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#mahtOzoneModal">
+                    <div class="product-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="product-title">MAHT Ozone</h3>
+                    <div class="product-description">
+                        <p>Major Autohemotherapy ozone treatment for enhanced oxygenation</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp1,088,000</span>
+                    </div>
+                </div>
+                
+                <!-- Scoliosis Package -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#scoliosisModal">
+                    <div class="product-icon">
                         <i class="fas fa-spine"></i>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
+                    <h3 class="product-title">Scoliosis Package</h3>
+                    <div class="product-description">
+                        <p>Comprehensive exercise therapy program for scoliosis correction</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp1,735,000</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Hand & Wrist</h4>
-                    <div class="service-icon hand-icon">
+                
+                <!-- Hand & Wrist -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#handWristModal">
+                    <div class="product-icon">
                         <i class="fas fa-hand-paper"></i>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
+                    <h3 class="product-title">Hand & Wrist</h3>
+                    <div class="product-description">
+                        <p>Treatment for wrist, fingers up to elbow issues</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp295,000</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Ankle Sprain</h4>
-                    <div class="service-icon ankle-icon">
+                
+                <!-- Ankle Sprain -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#ankleSprainModal">
+                    <div class="product-icon">
                         <i class="fas fa-shoe-prints"></i>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
+                    <h3 class="product-title">Ankle Sprain</h3>
+                    <div class="product-description">
+                        <p>Specialized treatment for ankle injuries and rehabilitation</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp295,000</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Joint Pain</h4>
-                    <div class="service-icon joint-icon">
+                
+                <!-- Joint Pain -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#jointPainModal">
+                    <div class="product-icon">
                         <i class="fas fa-bone"></i>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Back Pain</h4>
-                    <div class="service-icon back-icon">
-                        <i class="fas fa-procedures"></i>
+                    <h3 class="product-title">Joint Pain</h3>
+                    <div class="product-description">
+                        <p>Treatment for shoulder, knee, and hip/pelvic joint pain</p>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Bell's Palsy</h4>
-                    <div class="service-icon palsy-icon">
-                        <i class="fas fa-face-meh"></i>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp295,000</span>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
                 </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Post Stroke</h4>
-                    <div class="service-icon stroke-icon">
+                
+                <!-- Back Pain -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#backPainModal">
+                    <div class="product-icon">
+                        <i class="fas fa-backspace"></i>
+                    </div>
+                    <h3 class="product-title">Back Pain</h3>
+                    <div class="product-description">
+                        <p>Treatment for lower back, neck, and shoulder pain</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp295,000</span>
+                    </div>
+                </div>
+                
+                <!-- Bell's Palsy -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#bellsPalsyModal">
+                    <div class="product-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="product-title">Bell's Palsy</h3>
+                    <div class="product-description">
+                        <p>Specialized treatment for facial nerve paralysis</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp295,000</span>
+                    </div>
+                </div>
+                
+                <!-- Post Stroke -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#postStrokeModal">
+                    <div class="product-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Post Surgery</h4>
-                    <div class="service-icon surgery-icon">
-                        <i class="fas fa-cut"></i>
+                    <h3 class="product-title">Post Stroke</h3>
+                    <div class="product-description">
+                        <p>Rehabilitation program for stroke recovery</p>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <div class="product-card text-center">
-                    <h4>Lymphastim</h4>
-                    <div class="service-icon lymph-icon">
-                        <i class="fas fa-hands"></i>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp2,340,000</span>
                     </div>
-                    <strong>6x Treatment Rp 1.735.000</strong>
-                    <strong>12x Treatment Rp 3.200.000</strong>
-                    <strong>24x Treatment Rp 6.000.000</strong>
-                    <div class="price-badge">Save 15%</div>
-                    <button class="btn btn-primary mt-3">Book Now</button>
+                </div>
+                
+                <!-- Post Surgery -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#postSurgeryModal">
+                    <div class="product-icon">
+                        <i class="fas fa-procedures"></i>
+                    </div>
+                    <h3 class="product-title">Post Surgery</h3>
+                    <div class="product-description">
+                        <p>Return to play rehabilitation after surgical procedures</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp2,340,000</span>
+                    </div>
+                </div>
+                
+                <!-- Lymphastim -->
+                <div class="product-card" data-bs-toggle="modal" data-bs-target="#lymphastimModal">
+                    <div class="product-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="product-title">Lymphastim</h3>
+                    <div class="product-description">
+                        <p>Lymphatic drainage therapy for edema management</p>
+                    </div>
+                    <div class="price-options">
+                        <span class="price-badge">From Rp234,000</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Call to Action -->
-    <section class="bg-light py-5">
-        <div class="container text-center">
-            <h3 class="mb-4">Ready to start your recovery journey?</h3>
-            <p class="lead mb-4">Contact us today to schedule your first appointment</p>
-            <a href="contactus.html" class="btn btn-primary btn-lg">Get in Touch</a>
-        </div>
-    </section>
+    <!-- Treatment Modals -->
     
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="footer-logo">
-                        <img src="/logo-removebg.png" alt="NOV Logo" class="img-fluid">
+    <!-- Ozone Therapy Modal -->
+    <div class="modal fade treatment-modal" id="ozoneTherapyModal" tabindex="-1" aria-labelledby="ozoneTherapyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-atom"></i>
                     </div>
-                    <p class="text-center">Your partner in recovery and wellness.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h4 class="footer-title">Contact us</h4>
-                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-envelope"></i></span>novcenter@gmail.com</p>
-                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-phone"></i></span>+62 812 3456 7890</p>
-                    <div class="social-icons mt-3">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="ozoneTherapyModalLabel">Ozone Therapy</h3>
+                    <img src="ozone-therapy.jpg" class="treatment-image" alt="Ozone Therapy">
+                    <p>Saline solution ozone treatment is a revolutionary therapy that combines medical ozone with saline solution to create a powerful treatment for detoxification, immune system support, and overall wellness. This therapy helps to oxygenate your body at the cellular level, promoting healing and rejuvenation.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Enhances immune system function</li>
+                        <li>Improves cellular oxygenation</li>
+                        <li>Reduces inflammation throughout the body</li>
+                        <li>Detoxifies the liver and other organs</li>
+                        <li>Improves circulation and energy levels</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 session</td>
+                                <td>Rp800,000</td>
+                            </tr>
+                            <tr>
+                                <td>4 sessions</td>
+                                <td>Rp3,380,000</td>
+                            </tr>
+                            <tr>
+                                <td>8 sessions</td>
+                                <td>Rp6,380,000</td>
+                            </tr>
+                            <tr>
+                                <td>12 sessions</td>
+                                <td>Rp8,000,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h4 class="footer-title">Address</h4>
-                    <p class="contact-info"><span class="contact-icon"><i class="fas fa-map-marker-alt"></i></span>Jl. Contoh Alamat No. 123, Kota, Indonesia</p>
                 </div>
             </div>
-            <hr class="my-4">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2024 NOV Fisiotherapy Center. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <!-- MAHT Ozone Modal -->
+    <div class="modal fade treatment-modal" id="mahtOzoneModal" tabindex="-1" aria-labelledby="mahtOzoneModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="mahtOzoneModalLabel">MAHT Ozone Therapy</h3>
+                    <img src="maht-ozone.jpg" class="treatment-image" alt="MAHT Ozone Therapy">
+                    <p>Major Autohemotherapy (MAHT) is an advanced ozone therapy where blood is drawn from the patient, mixed with medical ozone, and then reinfused back into the bloodstream. This powerful treatment provides systemic benefits by delivering ozone directly to your circulatory system.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Powerful immune system modulation</li>
+                        <li>Enhanced oxygen utilization</li>
+                        <li>Improved circulation and blood flow</li>
+                        <li>Reduction in chronic inflammation</li>
+                        <li>Support for chronic conditions</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 session</td>
+                                <td>Rp1,088,000</td>
+                            </tr>
+                            <tr>
+                                <td>4 sessions</td>
+                                <td>Rp3,880,000</td>
+                            </tr>
+                            <tr>
+                                <td>8 sessions</td>
+                                <td>Rp7,380,000</td>
+                            </tr>
+                            <tr>
+                                <td>12 sessions</td>
+                                <td>Rp10,880,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-</body>
-</html>
+    <!-- Scoliosis Package Modal -->
+    <div class="modal fade treatment-modal" id="scoliosisModal" tabindex="-1" aria-labelledby="scoliosisModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-spine"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="scoliosisModalLabel">Scoliosis Package</h3>
+                    <img src="scoliosis-treatment.jpg" class="treatment-image" alt="Scoliosis Treatment">
+                    <p>Our comprehensive scoliosis treatment program combines specialized exercises, manual therapy, and postural training to help correct spinal curvature and improve overall posture. This program is tailored to each patient's specific curvature pattern and severity.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Reduces spinal curvature progression</li>
+                        <li>Improves posture and alignment</li>
+                        <li>Decreases pain and discomfort</li>
+                        <li>Enhances breathing capacity</li>
+                        <li>Improves overall mobility and function</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6 sessions</td>
+                                <td>Rp1,735,000</td>
+                            </tr>
+                            <tr>
+                                <td>12 sessions</td>
+                                <td>Rp3,120,000</td>
+                            </tr>
+                            <tr>
+                                <td>30 sessions</td>
+                                <td>Rp7,215,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hand & Wrist Modal -->
+    <div class="modal fade treatment-modal" id="handWristModal" tabindex="-1" aria-labelledby="handWristModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="handWristModalLabel">Hand & Wrist Treatment</h3>
+                    <img src="hand-wrist.jpg" class="treatment-image" alt="Hand and Wrist Treatment">
+                    <p>Our specialized hand and wrist therapy program addresses conditions such as carpal tunnel syndrome, tendonitis, arthritis, and post-surgical rehabilitation. Treatment includes manual therapy, exercises, and modalities to restore function and reduce pain.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Reduces pain and inflammation</li>
+                        <li>Improves grip strength and dexterity</li>
+                        <li>Enhances range of motion</li>
+                        <li>Accelerates post-surgical recovery</li>
+                        <li>Prevents future injuries</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Single treatment</td>
+                                <td>Rp295,000</td>
+                            </tr>
+                            <tr>
+                                <td>6 sessions</td>
+                                <td>Rp1,540,000</td>
+                            </tr>
+                            <tr>
+                                <td>10 sessions</td>
+                                <td>Rp2,340,000</td>
+                            </tr>
+                            <tr>
+                                <td>15 sessions</td>
+                                <td>Rp3,120,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Ankle Sprain Modal -->
+    <div class="modal fade treatment-modal" id="ankleSprainModal" tabindex="-1" aria-labelledby="ankleSprainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="ankleSprainModalLabel">Ankle Sprain Treatment</h3>
+                    <img src="ankle-sprain.jpg" class="treatment-image" alt="Ankle Sprain Treatment">
+                    <p>Our comprehensive ankle sprain rehabilitation program is designed to restore full function following acute or chronic ankle injuries. Treatment includes manual therapy, proprioceptive training, strengthening exercises, and gait analysis.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Reduces pain and swelling</li>
+                        <li>Restores range of motion</li>
+                        <li>Improves balance and proprioception</li>
+                        <li>Strengthens supporting muscles</li>
+                        <li>Prevents recurrent sprains</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Single treatment</td>
+                                <td>Rp295,000</td>
+                            </tr>
+                            <tr>
+                                <td>6 sessions</td>
+                                <td>Rp1,560,000</td>
+                            </tr>
+                            <tr>
+                                <td>10 sessions</td>
+                                <td>Rp2,340,000</td>
+                            </tr>
+                            <tr>
+                                <td>15 sessions</td>
+                                <td>Rp3,120,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Joint Pain Modal -->
+    <div class="modal fade treatment-modal" id="jointPainModal" tabindex="-1" aria-labelledby="jointPainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="jointPainModalLabel">Joint Pain Treatment</h3>
+                    <img src="joint-pain.jpg" class="treatment-image" alt="Joint Pain Treatment">
+                    <p>Our joint pain treatment program targets shoulder, knee, and hip/pelvic joint pain caused by arthritis, bursitis, tendinitis, or post-surgical conditions. Treatment includes manual therapy, therapeutic exercises, and modalities to reduce pain and improve function.</p>
+                    
+                    <h5 class="mt-4">Benefits:</h5>
+                    <ul>
+                        <li>Reduces joint pain and stiffness</li>
+                        <li>Improves range of motion</li>
+                        <li>Enhances joint stability</li>
+                        <li>Strengthens supporting muscles</li>
+                        <li>Delays or prevents surgical intervention</li>
+                    </ul>
+                    
+                    <h5 class="mt-4">Package Options:</h5>
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th>Sessions</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Single treatment</td>
+                                <td>Rp295,000</td>
+                            </tr>
+                            <tr>
+                                <td>6 sessions</td>
+                                <td>Rp1,560,000</td>
+                            </tr>
+                            <tr>
+                                <td>10 sessions</td>
+                                <td>Rp2,808,000</td>
+                            </tr>
+                            <tr>
+                                <td>15 sessions</td>
+                                <td>Rp3,744,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                        <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Back Pain Modal -->
+    <div class="modal fade treatment-modal" id="backPainModal" tabindex="-1" aria-labelledby="backPainModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <i class="fas fa-backspace"></i>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title text-center" id="backPainModalLabel">Back Pain Treatment</h3>
+                    <imgsrc="back-pain.jpg" class="treatment-image" alt="Back Pain Treatment">
+<p>Our comprehensive back pain treatment program addresses lower back, neck, and shoulder pain caused by various conditions including herniated discs, muscle strains, postural issues, and degenerative changes. Treatment includes manual therapy, therapeutic exercises, and postural education.</p>
+                <h5 class="mt-4">Benefits:</h5>
+                <ul>
+                    <li>Reduces acute and chronic back pain</li>
+                    <li>Improves spinal mobility and flexibility</li>
+                    <li>Strengthens core muscles</li>
+                    <li>Corrects postural imbalances</li>
+                    <li>Prevents future episodes of back pain</li>
+                </ul>
+                
+                <h5 class="mt-4">Package Options:</h5>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Sessions</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single treatment</td>
+                            <td>Rp295,000</td>
+                        </tr>
+                        <tr>
+                            <td>6 sessions</td>
+                            <td>Rp1,560,000</td>
+                        </tr>
+                        <tr>
+                            <td>10 sessions</td>
+                            <td>Rp2,340,000</td>
+                        </tr>
+                        <tr>
+                            <td>15 sessions</td>
+                            <td>Rp3,120,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bell's Palsy Modal -->
+<div class="modal fade treatment-modal" id="bellsPalsyModal" tabindex="-1" aria-labelledby="bellsPalsyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title text-center" id="bellsPalsyModalLabel">Bell's Palsy Treatment</h3>
+                <img src="bells-palsy.jpg" class="treatment-image" alt="Bell's Palsy Treatment">
+                <p>Our specialized Bell's Palsy treatment program focuses on restoring facial muscle function and symmetry following facial nerve paralysis. Treatment includes neuromuscular re-education, manual therapy, and specific exercises to improve facial expression and function.</p>
+                
+                <h5 class="mt-4">Benefits:</h5>
+                <ul>
+                    <li>Improves facial muscle control</li>
+                    <li>Reduces asymmetry</li>
+                    <li>Enhances facial expression</li>
+                    <li>Prevents contractures</li>
+                    <li>Accelerates recovery time</li>
+                </ul>
+                
+                <h5 class="mt-4">Package Options:</h5>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Sessions</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single treatment</td>
+                            <td>Rp295,000</td>
+                        </tr>
+                        <tr>
+                            <td>6 sessions</td>
+                            <td>Rp1,560,000</td>
+                        </tr>
+                        <tr>
+                            <td>10 sessions</td>
+                            <td>Rp2,340,000</td>
+                        </tr>
+                        <tr>
+                            <td>15 sessions</td>
+                            <td>Rp3,120,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Post Stroke Modal -->
+<div class="modal fade treatment-modal" id="postStrokeModal" tabindex="-1" aria-labelledby="postStrokeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title text-center" id="postStrokeModalLabel">Post Stroke Rehabilitation</h3>
+                <img src="post-stroke.jpg" class="treatment-image" alt="Post Stroke Rehabilitation">
+                <p>Our comprehensive post-stroke rehabilitation program is designed to help patients regain mobility, strength, and independence following a stroke. Treatment includes neurodevelopmental techniques, functional training, and adaptive strategies tailored to each patient's specific needs.</p>
+                
+                <h5 class="mt-4">Benefits:</h5>
+                <ul>
+                    <li>Improves motor function and coordination</li>
+                    <li>Enhances balance and gait</li>
+                    <li>Increases independence in daily activities</li>
+                    <li>Reduces spasticity and contractures</li>
+                    <li>Improves quality of life</li>
+                </ul>
+                
+                <h5 class="mt-4">Package Options:</h5>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Sessions</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10 sessions</td>
+                            <td>Rp2,340,000</td>
+                        </tr>
+                        <tr>
+                            <td>20 sessions</td>
+                            <td>Rp4,680,000</td>
+                        </tr>
+                        <tr>
+                            <td>30 sessions</td>
+                            <td>Rp7,020,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Post Surgery Modal -->
+<div class="modal fade treatment-modal" id="postSurgeryModal" tabindex="-1" aria-labelledby="postSurgeryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-procedures"></i>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title text-center" id="postSurgeryModalLabel">Post Surgery Rehabilitation</h3>
+                <img src="post-surgery.jpg" class="treatment-image" alt="Post Surgery Rehabilitation">
+                <p>Our post-surgical rehabilitation program is designed to help patients recover fully after orthopedic, neurological, or other surgical procedures. Treatment includes pain management, scar tissue mobilization, progressive exercises, and functional training to restore optimal movement and function.</p>
+                
+                <h5 class="mt-4">Benefits:</h5>
+                <ul>
+                    <li>Reduces post-surgical pain and swelling</li>
+                    <li>Improves range of motion</li>
+                    <li>Strengthens affected areas</li>
+                    <li>Accelerates recovery time</li>
+                    <li>Restores functional abilities</li>
+                </ul>
+                
+                <h5 class="mt-4">Package Options:</h5>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Sessions</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10 sessions</td>
+                            <td>Rp2,340,000</td>
+                        </tr>
+                        <tr>
+                            <td>20 sessions</td>
+                            <td>Rp4,680,000</td>
+                        </tr>
+                        <tr>
+                            <td>30 sessions</td>
+                            <td>Rp7,020,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lymphastim Modal -->
+<div class="modal fade treatment-modal" id="lymphastimModal" tabindex="-1" aria-labelledby="lymphastimModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-water"></i>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title text-center" id="lymphastimModalLabel">Lymphastim Therapy</h3>
+                <img src="lymphastim.jpg" class="treatment-image" alt="Lymphastim Therapy">
+                <p>Lymphastim is a specialized lymphatic drainage therapy that helps manage edema (swelling) caused by various conditions including post-surgical swelling, lymphedema, and venous insufficiency. This gentle, manual technique stimulates the lymphatic system to remove excess fluid and waste products from tissues.</p>
+                
+                <h5 class="mt-4">Benefits:</h5>
+                <ul>
+                    <li>Reduces swelling and edema</li>
+                    <li>Improves circulation</li>
+                    <li>Enhances immune function</li>
+                    <li>Promotes detoxification</li>
+                    <li>Reduces pain and discomfort</li>
+                </ul>
+                
+                <h5 class="mt-4">Package Options:</h5>
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Sessions</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Single treatment</td>
+                            <td>Rp234,000</td>
+                        </tr>
+                        <tr>
+                            <td>6 sessions</td>
+                            <td>Rp1,404,000</td>
+                        </tr>
+                        <tr>
+                            <td>10 sessions</td>
+                            <td>Rp2,340,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    <a href="contactus.html" class="btn btn-primary ms-2">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="footer-logo">
+                    <img src="/logo-removebg.png" alt="NOV Fisioterapi Center">
+                </div>
+                <p>Professional physiotherapy services with a personalized approach to help you recover, rehabilitate, and regain your optimal physical function.</p>
+                <div class="social-icons mt-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="aboutus.html" class="text-decoration-none">About Us</a></li>
+                    <li class="mb-2"><a href="ourteam.html" class="text-decoration-none">Our Team</a></li>
+                    <li class="mb-2"><a href="product.html" class="text-decoration-none">Our Services</a></li>
+                    <li class="mb-2"><a href="review.html" class="text-decoration-none">Reviews</a></li>
+                    <li class="mb-2"><a href="insight.html" class="text-decoration-none">Insight</a></li>
+                    <li class="mb-2"><a href="contactus.html" class="text-decoration-none">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h4 class="footer-title">Contact Info</h4>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <span>123 Therapy Street, Health District, Jakarta 12345</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt contact-icon"></i>
+                    <span>+62 123 4567 8901</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>info@novfisio.com</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-clock contact-icon"></i>
+                    <span>Mon-Fri: 8AM-8PM | Sat: 9AM-5PM</span>
+                </div>
+            </div>
+        </div>
+        <hr class="my-5">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; 2024 NOV Fisioterapi Center. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">Designed with <i class="fas fa-heart text-danger"></i> by NOV Team</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Initialize all tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+</script>

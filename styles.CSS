@@ -338,8 +338,6 @@ margin: 10px auto;
 .container-position {
     position: relative;
     z-index: 1;
-    display: flex;
-    align-items: center;
 }
 
 .page-title {
@@ -462,22 +460,4 @@ footer p {
     background: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background for better readability */
     padding: 5px;
     border-radius: 5px;
-}
-
-/* Styles for the clinic.png image */
-.clinic-image {
-  width: 100px;
-  height: auto;
-  margin-right: 20px;
-}
-
-/* Styles for decorative elements */
-.decorative-circle.circle-green {
-  bottom: -50px;
-  left: -50px;
-}
-
-.dot.dot-green {
-  bottom: 0;
-  left: 0;
 }

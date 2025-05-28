@@ -413,7 +413,18 @@
       .goal-card {
         height: 150px;
       }
-    }
+    
+
+    
+  /* Add this to your existing styles */
+  .founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  }
+  
+  .founder-card:hover img {
+    transform: scale(1.05);
+  }}
   </style>
 </head>
 <body>
@@ -457,30 +468,103 @@
   <main class="container">
     <!-- Hero Section -->
     <section class="text-center">
-      <h1 class="hero-title">Our Company</h1>
+      <!-- <h1 class="hero-title">Our Company</h1> -->
     </section>
-    
     <!-- Founders Section -->
-    <section class="row justify-content-center">
-      <div class="col-md-4 text-center mb-4">
-        <div class="founder-card">
-          <img src="https://placehold.co/400x250" alt="Founder 1" class="img-fluid h-100">
+<section class="row justify-content-center mb-5 py-5" style="background: linear-gradient(to bottom, #f8fafc, #EBFFE9);">
+  <div class="col-12 text-center mb-4">
+    <h2 class="section-title">Meet Our Founders</h2>
+    <p class="text-muted">The visionaries behind NOV Fisioterapi Center</p>
+  </div>
+  
+  <div class="col-md-5 col-lg-4 text-center mb-4">
+    <div class="founder-card mx-auto" style="width:100%; max-width:350px; background:#fff; border-radius:16px; box-shadow:0 15px 30px rgba(31,54,76,0.1); overflow:hidden; transition:all 0.4s ease; position:relative;">
+      <!-- Decorative elements -->
+      <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 20% 80%, var(--primary-blue), transparent 60%); opacity:0.1; z-index:1;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:100%; height:100%; background: radial-gradient(circle at 80% 20%, var(--primary-green), transparent 60%); opacity:0.1; z-index:1;"></div>
+      
+      <div style="position:relative; height:280px; overflow:hidden; z-index:2;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, transparent 90%); z-index:1;"></div>
+        <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/6.png" alt="Jenny Luhur" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
+        
+        <!-- Logo Badge -->
+        <div style="position:absolute; top:20px; left:20px; z-index:3; background:#fff; border-radius:50%; box-shadow:0 4px 20px rgba(0,0,0,0.15); padding:8px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; border:2px solid var(--primary-blue);">
+          <img src="logo-removebg.png" alt="NOV Logo" style="width:100%; height:auto; object-fit:contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
         </div>
-        <h3 class="founder-title mt-3">Founder</h3>
       </div>
-      <div class="col-md-4 text-center mb-4">
-        <div class="founder-card">
-          <img src="https://placehold.co/400x250" alt="Founder 2" class="img-fluid h-100">
+      
+      <div style="padding:25px; background:#fff; position:relative; z-index:3;">
+        <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); width:40px; height:40px; background:#fff; border-radius:50%; box-shadow:0 -5px 10px rgba(0,0,0,0.05); display:flex; align-items:center; justify-content:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F364C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
         </div>
-        <h3 class="founder-title mt-3">Founder</h3>
+        
+        <h3 class="mb-2" style="font-size:1.4rem; font-weight:800; color:#1F364C;">Jenny Luhur</h3>
+        <p class="mb-3" style="font-size:0.9rem; color:#6c757d; font-weight:500;">Co-Founder & Director</p>
+        <div style="height:1px; background:linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); margin:15px 0;"></div>
+        <p style="font-size:0.85rem; color:#555; line-height:1.5;">Leading our vision with 15+ years in healthcare management and patient care innovation.</p>
       </div>
-      <div class="col-md-4 text-center mb-4">
-        <div class="founder-card">
-          <img src="https://placehold.co/400x250" alt="Founder 3" class="img-fluid h-100">
+    </div>
+  </div>
+  
+  <div class="col-md-5 col-lg-4 text-center mb-4">
+    <div class="founder-card mx-auto" style="width:100%; max-width:350px; background:#fff; border-radius:16px; box-shadow:0 15px 30px rgba(31,54,76,0.1); overflow:hidden; transition:all 0.4s ease; position:relative;">
+      <!-- Decorative elements -->
+      <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 20% 80%, var(--primary-green), transparent 60%); opacity:0.1; z-index:1;"></div>
+      <div style="position:absolute; bottom:0; right:0; width:100%; height:100%; background: radial-gradient(circle at 80% 20%, var(--primary-blue), transparent 60%); opacity:0.1; z-index:1;"></div>
+      
+      <div style="position:relative; height:280px; overflow:hidden; z-index:2;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, transparent 90%); z-index:1;"></div>
+        <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/7.png" alt="Moimoi" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;">
+        
+        <!-- Logo Badge -->
+        <div style="position:absolute; top:20px; left:20px; z-index:3; background:#fff; border-radius:50%; box-shadow:0 4px 20px rgba(0,0,0,0.15); padding:8px; width:80px; height:80px; display:flex; align-items:center; justify-content:center; border:2px solid var(--primary-green);">
+          <img src="logo-removebg.png" alt="NOV Logo" style="width:100%; height:auto; object-fit:contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
         </div>
-        <h3 class="founder-title mt-3">Founder</h3>
       </div>
-    </section>
+
+      <div style="position:absolute; top:-20px; left:50%; transform:translateX(-50%); width:40px; height:40px; background:#fff; border-radius:50%; box-shadow:0 -5px 10px rgba(0,0,0,0.05); display:flex; align-items:center; justify-content:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1F364C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+          </svg>
+        </div>
+        
+        <h3 class="mb-2" style="font-size:1.4rem; font-weight:800; color:#1F364C;">Moimoi</h3>
+        <p class="mb-3" style="font-size:0.9rem; color:#6c757d; font-weight:500;">Co-Founder & Medical Director</p>
+        <div style="height:1px; background:linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent); margin:15px 0;"></div>
+        <p style="font-size:0.85rem; color:#555; line-height:1.5;">Specializing in physiotherapy with a focus on innovative treatment methodologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Add this to your existing styles */
+  .founder-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(31,54,76,0.15);
+  }
+  
+  .founder-card:hover img {
+    transform: scale(1.08);
+  }
+  
+  /* Background pattern ideas */
+  .founders-bg-1 {
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(187,225,255,0.2) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(235,255,233,0.2) 0%, transparent 20%),
+      #f8fafc;
+  }
+  
+  .founders-bg-2 {
+    background: 
+      linear-gradient(135deg, #f8fafc 0%, #EBFFE9 100%);
+  }
+</style>
     
     <!-- About Section -->
     <section class="row mt-5 align-items-center">
@@ -504,15 +588,86 @@
       </div>
     </div>
     </section>
-    
-    <!-- Vision Section -->
-    <section class="text-center my-5 py-4">
-      <h2 class="section-title">Our Vision</h2>
-      <p class="vision-text">
+        
+      <!-- Vision Section -->
+<section class="vision-section text-center py-5 position-relative overflow-hidden">
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="position-relative">
+      <!-- Background "VISION" text -->
+      <h1 class="vision-watermark" style="
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 15vw;
+          font-weight: 900;
+          color: rgba(31, 54, 76, 0.05);
+          margin: 0;
+          line-height: 1;
+          font-family: 'Inria Serif', serif;
+          white-space: nowrap;
+          width: 100%;
+        ">
+         V I S I O N
+      </h1>
+      
+      <!-- Main content -->
+      <h2 class="section-title mb-4">Our Vision</h2>
+      <p class="vision-statement" style="
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 1.4;
+          position: relative;
+          max-width: 800px;
+          margin: 0 auto;
+        ">
         Menjadikan pusat layanan kesehatan yang sehat,<br>
         aman, berkualitas, dan terkemuka di Kota Batam.
       </p>
-    </section>
+    </div>
+  </div>
+</section>
+
+<style>
+  .vision-section {
+    background-color: #ffffff;
+    position: relative;
+  }
+  
+  .vision-watermark {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .vision-statement {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  @media (max-width: 768px) {
+    .vision-watermark {
+      font-size: 15vw;
+    }
+    
+    .vision-statement {
+      font-size: 22px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
     <!-- Mission Section -->
 <section class="mission-section mb-5">
   <div class="container">
@@ -614,10 +769,12 @@
 
     </div>
     <!-- Mission Statement -->
-    <section class="mission-section">
-      <div class="mission-text">
-        "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
-      </div>
+    <section class="mission-section text-center">
+        <div class="container">
+    <h2 class="section-title text-center mb-5">Our Goal</h2>
+        <div class="mission-text">
+            "Menjadikan PT. Nov Fisioterapi Center sebagai tempat pelayanan kesehatan yang sehat, aman, dan berkualitas"
+        </div>
     </section>
     
   <!-- Footer -->

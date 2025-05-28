@@ -276,6 +276,23 @@
                 height: 250px;
             }
         }
+        
+        /* Pharmacist Card Styles */
+        .team-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #1F364C;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .team-role {
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 500;
+            margin-bottom: 0;
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -320,43 +337,35 @@
     
     
     <!-- Doctors Section -->
-    <section class="team-section bg-light position-relative">
-        <!-- <div class="dot-map-background">
-            <img src="Untitled/image 10.png" alt="Dot Map Background" class="dot-map"> -->
-        </div>
-        <div class="container container-position">
-            <div class="row align-items-center">
-            <div class="col-md-6">
-                <!-- Content will be here (left side) -->
-            </div>
-            <div class="col-md-6 text-end"><img src="Untitled/clinic.png" alt="Clinic" class="clinic-image img-fluid"></div></div><div class="section-header"><h1 class="page-title"><br>Our Team</h1><h2 class="section-title"><br>Our <strong>Doctor</strong></h2>
+    <section class="team-section bg-light position-relative" style="padding-top: 120px;">
+        <div class="container container-position" style="margin-left:30px; margin-right:30px;">
+            <div class="row align-items-center mb-4" style="min-height:120px;">
+                <div class="col-md-6 d-flex align-items-end">
+                    <div>
+                        <h1 class="page-title" style="font-size:2.8rem; margin-bottom:20px; line-height:1;">Our Team</h1>
+                        <h2 class="section-title" style="font-size:2rem; margin-top:10px;"><br>Our <strong>Doctor</strong></h2>
+                    </div>
+                </div>
+                <div class="col-md-6 text-end">
+                    <img src="Untitled/clinic.png" alt="Clinic" class="clinic-image img-fluid" style="margin-top:20px; height:90px;">
+                </div>
             </div>
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="team-card">
                         <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/dr. Novia.jpg" alt="dr. Novia, M.Biomed" class="team-img">
                         <h3>dr. Novia, M.Biomed</h3>
-                        <p>General Practitioner</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="doctor-profile">
-                        <div class="row ali</div>gn-items-center">
+                        <div class="row align-items-center">
                             <div class="col-auto">
                                 <img src="depan.jpg" alt="Doctor" class="doctor-img">
                             </div>
                             <div class="col">
                                 <h3 class="doctor-name">Nov Fisioterapi Center</h3>
-                                <div class="location-container position-relative">
-                                    <!-- <img src="Untitled/image 10.png" alt="Map Background" class="map-background">
-                                    <p class="doctor-location position-absolute">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
-                                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
-                                        </svg>
-                                        Batam, Kepulauan Riau
-                                    </p> -->
-                                </div>
+                                <div class="doctor-location">Batam, Kepulauan Riau</div>
                             </div>
                         </div>
                     </div>
@@ -438,20 +447,21 @@
             </div>
             
             <div class="row">
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <div class="team-card">
                         <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/Diah Witari.jpg" alt="apt. Diah Witari, S.Farm" class="team-img">
-                        <h3>apt. Diah Witari, S.Farm </h3>
-                        <p>Head Pharmacist</p>
+                        <h3>apt. Diah Witari, S.Farm</h3>
                     </div>
                 </div>
-                
-                <div class="col-md-6 mb-4">
+                <div class="col-md-4 mb-4">
                     <div class="team-card">
                         <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/sisna.png" alt="apt. Sisna, S.Farm" class="team-img">
                         <h3>apt. Sisna, S.Farm</h3>
-                        <p>Clinical Pharmacist</p>
                     </div>
+                </div>
+                <!-- Empty column to maintain grid structure -->
+                <div class="col-md-4 mb-4">
+                    <!-- Empty space or you can add another pharmacist if available -->
                 </div>
             </div>
         </div>
