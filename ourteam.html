@@ -74,8 +74,116 @@
             color: var(--primary-color);
             margin-bottom: 40px;
         }
-        
+         /* Hero Section */
+        .hero-section {
+        background: linear-gradient(rgba(31, 54, 76, 0.85), rgba(31, 54, 76, 0.85));
+        padding: 130px 0 100px 0; /* Increased top padding to 130px for navbar clearance */
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        margin-top: 80px; /* Add margin-top for extra space below navbar */
+    }
+
+    .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        animation: fadeInDown 1s ease;
+    }
+
+    .team-photo-container {
+        max-width: 800px;
+        margin: 0 auto 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        animation: fadeIn 1s ease 0.3s both;
+    }
+
+    .team-photo {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+
+    .team-photo:hover {
+        transform: scale(1.02);
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 1s ease 0.6s both;
+    }
+
+    .hero-btn {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        animation: fadeIn 1s ease 0.9s both;
+    }
+
+    .hero-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.2rem;
+        }
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+        .team-photo-container {
+            margin-bottom: 20px;
+        }
+    } 
         /* Team Sections */
+
         .team-section {
             position: relative;
             background: url('product.png') no-repeat center center;
@@ -334,8 +442,41 @@
             </div>
         </nav>
     </header>
+    <!-- Hero Section with Large Team Photo -->
+<section class="hero-section" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-1">
+                <div class="hero-content">
+                    <h1 class="hero-title" style="color: var(--primary-color);">Meet Our Expert Team</h1>
+                    <p class="hero-subtitle" style="color: var(--secondary-color);">Dedicated professionals committed to your recovery and wellness journey</p>
+                    <div class="cta-buttons">
+                        <a href="contactus.html" class="btn btn-primary btn-lg hero-btn" 
+                           style="background-color: var(--primary-color); border: none; margin-right: 15px;">
+                            Book Your Consultation
+                        </a>
+                        <a href="#team" class="btn btn-outline-primary btn-lg hero-btn" 
+                           style="border-color: var(--primary-color); color: var(--primary-color);">
+                            Meet The Team
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2">
+                <div class="team-photo-container" style="border: 8px solid white; box-shadow: 0 15px 40px rgba(31, 54, 76, 0.2);">
+                    <img src="fotoprofile/Foto Staf Klinik Nov Fisiotherapi Center/Untitled design (1).png" 
+                         alt="NOV Fisiotherapy Team" 
+                         class="team-photo img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
     
-    
+    <!-- Decorative elements -->
+    <div class="decorative-circle circle-blue" style="width: 150px; height: 150px; top: 10%; left: 5%; opacity: 0.3;"></div>
+    <div class="decorative-circle circle-green" style="width: 200px; height: 200px; bottom: 10%; right: 5%; opacity: 0.3;"></div>
+</section>
+
     <!-- Doctors Section -->
     <section class="team-section bg-light position-relative" style="padding-top: 120px;">
         <div class="container container-position" style="margin-left:30px; margin-right:30px;">

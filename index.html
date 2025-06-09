@@ -8,10 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Baskervville&family=Averia+Gruesa+Libre&family=Inria+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --accent-green: #EBFFE9;
             --accent-blue: #BBE1FF;
+            --card-gradient: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            --dark-gray: #474444;
+            --primary-color: #1F364C;
+            --secondary-color: #5C8AB8;
         }
         
         * {
@@ -37,7 +43,7 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
         
-        /* Header Styles */
+        /* --- HEADER SECTION --- */
         .navbar {
             background-color: rgb(255, 255, 255);
             padding: 20px 0;
@@ -73,7 +79,7 @@
             border-color: var(--primary-dark);
         }
         
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
             width: 105%;
             height: 100vh;
@@ -136,103 +142,56 @@
             background: transparent;
         }
         
-        
-            /* About Section */
-            .about-title {
+        /* --- ABOUT SECTION --- */
+        .about-title {
             font-size: 20px;
             color: var(--primary-dark);
             margin-bottom: 10px;
-            margin-left: 10px;
-            }
-            
-            .company-name {
+        }
+        
+        .company-name {
             font-size: 32px;
             font-weight: 800;
             color: var(--primary-dark);
             margin: 20px 0;
-            }
-            
-            .about-desc {
+        }
+        
+        .about-desc {
             font-size: 18px;
             margin-bottom: 30px;
             line-height: 1.6;
-            }
-            
-            .about-img {
+        }
+        
+        .about-img {
             width: 100%;
             border-radius: 30px;
             border: 5px white solid;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             margin: 10px 0;
             object-fit: cover;
-            }
-        .section-title {
-            font-size: 2rem;
-            color: #1a365d;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            font-weight: 600;
-            letter-spacing: 1px;
+        }
+        
+        .about-section-offset {
+            margin-left: 100px;
+        }
+        
+        .about-img-large {
+            width: 300px;
+            height: 350px;
+        }
+        
+        .about-img-medium {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .about-img-small {
+            width: 250px;
+            height: 250px;
+            margin-top: 1rem;
         }
 
-        .company-name {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1a365d;
-        }
-
-        .company-description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #4a5568;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #e2e8f0;
-            margin: 30px 0;
-            width: 100%;
-        }
-
-        /* Aesthetic Visual Styles */
-        .aesthetic-visual {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-            height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .aesthetic-tag {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: #4299e1;
-            margin-bottom: 10px;
-        }
-
-        .aesthetic-text {
-            font-size: 1.5rem;
-            color: #4a5568;
-            margin-bottom: 20px;
-        }
-
-        .arrow-icon {
-            font-size: 2rem;
-            color: #4299e1;
-            position: absolute;
-            right: 30px;
-            bottom: 30px;
-        }
-
-        /* Mission Section */
+        /* --- MISSION SECTION --- */
         .mission-section {
             width: 100%;
             max-width: 1512px;
@@ -258,7 +217,7 @@
             margin: 0 auto;
         }
         
-        /* Services Section */
+        /* --- SERVICES SECTION --- */
         .services-section {
             padding: 80px 0;
             position: relative;
@@ -332,6 +291,10 @@
             max-width: 434px;
         }
         
+        .service-content-right {
+            text-align: right;
+        }
+        
         .service-name {
             color: black;
             font-size: 32px;
@@ -345,84 +308,229 @@
             font-weight: 400;
         }
         
-        /* Testimonials Section */
-        .testimonials-title {
-            left: 100px; /* Adjusted to move left */
-            top: 3000px; /* Adjusted to move up */
-            width: 500px;
-            height: 211px;
-            color: black;
-            font-size: 60px;
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            width: 100%;
+            padding: 80px 0 40px 0;
+            border-radius: 30px;
+            margin: 60px 0;
+        }
+        
+        .testimonials-title-static {
+            text-align: center;
+            font-size: 48px;
             font-weight: 900;
-            position: absolute;
+            color: #1a365d;
+            margin-bottom: 40px;
         }
-
+        
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        
         .testimonial-card {
-            position: absolute;
             background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
+            border-radius: 20px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+            padding: 32px 28px;
+            max-width: 340px;
+            min-width: 260px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
-
-        .testimonial-large {
-            width: 400px;
-            height: 421px;
-            left: 325px; /* Adjusted to move left */
-            top: 3250px; /* Adjusted to move up */
+        
+        .testimonial-quote {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 18px;
+            font-style: italic;
         }
-
-        .testimonial-medium {
-            width: 270px;
-            height: 329px;
-            left: 1023px; /* Adjusted to move slightly to the left */
-            top: 3250px; /* Adjusted to move slightly up */
+        
+        .testimonial-author {
+            margin-top: 10px;
         }
-
-        .testimonial-small {
-            width: 213px;
-            height: 253px;
+        
+        .testimonial-name {
+            font-weight: 700;
+            color: #1a365d;
         }
-
-        .testimonial-1 {
-            left: 80px; /* Adjusted to move slightly to the left */
-            top: 3250px; /* Adjusted to move slightly up */
+        
+        .testimonial-profession {
+            font-size: 15px;
+            color: #4a5568;
+            margin-bottom: 6px;
         }
-
-        .testimonial-2 {
-            left: 774px; /* Adjusted to move slightly to the left */
-            top: 3400px; /* Adjusted to move slightly up */
+        
+        .testimonial-rating {
+            color: #f7c948;
+            font-size: 18px;
         }
-
-        .testimonial-text {
+        
+        /* Review Title */
+        .review-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 60px;
+            padding: 0 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .review-title:after {
+            content: '';
             position: absolute;
-            color: black;
-            font-size: 24px;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        /* Review Grid Container */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Review Cards */
+        .review-card {
+            background: var(--card-gradient);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .review-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        /* Card Sizes */
+        .card-small {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        
+        .card-medium {
+            grid-column: span 4;
+            grid-row: span 3;
+        }
+        
+        .card-large {
+            grid-column: span 5;
+            grid-row: span 4;
+        }
+        
+        .card-wide {
+            grid-column: span 6;
+            grid-row: span 2;
+        }
+        
+        .card-tall {
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+
+        /* Review Content */
+        .review-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-text {
+            color: #333;
+            font-size: 1.1rem;
             font-weight: 400;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+        
+        .author-title {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .rating {
+            margin-top: 5px;
+            color: #FFC107;
+        }
+        
+        .rating i {
+            margin-right: 3px;
         }
 
-        .testimonial-1-text {
-            left: 77px; /* Adjusted to move slightly to the left */
-            top: 3550px; /* Adjusted to move slightly up */
-            width: 210px;
-        }
-
-        .testimonial-2-text {
-            left: 778px; /* Adjusted to move slightly to the left */
-            top: 3250px; /* Adjusted to move slightly up */
-            width: 213px;
-        }
-
-        .testimonial-3-text {
-            left: 1036px; /* Adjusted to move slightly to the left */
-            top: 3600px; /* Adjusted to move slightly up */
-            width: 210px;
-        }
-
-        /* Contact Section */
+        /* --- CONTACT SECTION --- */
         .contact-section {
             position: relative;
             width: 100%;
             background: linear-gradient(135deg, #EBFFE9 0%, #BBE1FF 100%);
             padding: 100px 0;
-            margin-top: 800px;
         }
 
         .contact-form-container {
@@ -496,12 +604,12 @@
             font-weight: 600;
         }
 
-        /* Footer */
+        /* --- FOOTER --- */
         .footer {
             background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
             padding: 80px 0 40px;
             border-radius: 30px 30px 0 0;
-            margin-top: -30px; /* Adjust this to control overlap */
+            margin-top: -30px;
             position: relative;
             z-index: 1;
         }
@@ -533,7 +641,7 @@
             min-width: 20px;
         }
 
-        /* Responsive Design */
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 1200px) {
             .hero-title {
                 font-size: 60px;
@@ -733,8 +841,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="contactus.html">Contact us</a>
                         </li>
-                    <!-- </ul>
-                    <a href="#login" class="btn btn-outline-primary">Login</a> -->
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -751,29 +858,29 @@
             </div>
         </div>
     </div>
-    <!-- About Section -->
-    <section class="row mt-5 align-items-center" style="margin-left: 100px;">
-      <div class="col-lg-6">
-        <h2 class="about-title">-ABOUT US</h2>
-        <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
-        <p class="about-desc">
-          PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik. 
-          Kami berkomitmen untuk memberikan pelayanan terbaik dengan tim profesional dan fasilitas modern.
-        </p>
-      </div>
-      <div class="col-lg-6">
-      <div class="row">
-        <div class="col-6">
-          <img src="depan.jpg" alt="Clinic Facility" class="about-img" style="width: 300px; height: 350px; object-fit: cover;">
-        </div>
-        <div class="col-6">
-          <img src="apotek.jpg" alt="Therapy Session" class="about-img" style="width: 200px; height: 200px; object-fit: cover;">
-          <img src="2024-01-16 (1).jpg" alt="Medical Equipment" class="about-img mt-3" style="width: 250px; height: 250px; object-fit: cover;">
-        </div>
-      </div>
-    </div>
-    </section>
     
+    <!-- About Section -->
+    <section class="row mt-5 align-items-center about-section-offset">
+        <div class="col-lg-6">
+            <h2 class="about-title">-ABOUT US</h2>
+            <h3 class="company-name">NOV FISIOTERAPI CENTER</h3>
+            <p class="about-desc">
+                PT. Nov Fisioterapi Center bergerak di bidang layanan kesehatan, termasuk fisioterapi, dokter umum, ozon, dan estetik. 
+                Kami berkomitmen untuk memberikan pelayanan terbaik dengan tim profesional dan fasilitas modern.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-6">
+                    <img src="depan.jpg" alt="Clinic Facility" class="about-img about-img-large">
+                </div>
+                <div class="col-6">
+                    <img src="apotek.jpg" alt="Therapy Session" class="about-img about-img-medium">
+                    <img src="2024-01-16 (1).jpg" alt="Medical Equipment" class="about-img about-img-small">
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Mission Section -->
     <section class="mission-section">
@@ -799,19 +906,39 @@
                 <div class="service-item">
                     <div class="service-card-large"></div>
                     <div class="service-content">
-                        <div class="service-name">layanan fisioterapi</div>
+                        <div class="service-name">Fisioterapi & Rehabilitasi</div>
                         <div class="service-description">
-                            .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
+                            Layanan fisioterapi profesional untuk pemulihan cedera, nyeri otot, gangguan gerak, dan rehabilitasi pasca operasi. Didukung oleh terapis berpengalaman dan teknologi modern.
                         </div>
                     </div>
                 </div>
                 
                 <div class="service-item reverse">
                     <div class="service-card-large"></div>
-                    <div class="service-content" style="text-align: right;">
-                        <div class="service-name">terapi ozone</div>
+                    <div class="service-content service-content-right">
+                        <div class="service-name">Konsultasi Dokter Umum</div>
                         <div class="service-description">
-                            .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
+                            Konsultasi kesehatan menyeluruh dengan dokter umum untuk diagnosis, penanganan awal, dan rujukan spesialis jika diperlukan. Pelayanan ramah dan informatif.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item">
+                    <div class="service-card-large"></div>
+                    <div class="service-content">
+                        <div class="service-name">Ozone Therapy</div>
+                        <div class="service-description">
+                            Terapi ozon untuk meningkatkan daya tahan tubuh, mempercepat penyembuhan, dan membantu detoksifikasi. Dilakukan oleh tenaga medis terlatih dengan standar keamanan tinggi.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-item reverse">
+                    <div class="service-card-large"></div>
+                    <div class="service-content service-content-right">
+                        <div class="service-name">Apotek & Produk Kesehatan</div>
+                        <div class="service-description">
+                            Menyediakan obat-obatan, alat kesehatan, dan produk penunjang terapi dengan kualitas terjamin untuk mendukung proses pemulihan Anda.
                         </div>
                     </div>
                 </div>
@@ -820,22 +947,82 @@
     </section>
     
     <!-- Testimonials Section -->
-    <div class="testimonials-title">What our customer says!</div>
-
-    <div class="testimonial-card testimonial-large"></div>
-    <div class="testimonial-card testimonial-medium"></div>
-    <div class="testimonial-card testimonial-small testimonial-1"></div>
-    <div class="testimonial-card testimonial-small testimonial-2"></div>
-
-    <div class="testimonial-text testimonial-1-text">
-        .Lorem Ipsum has been the
-    </div>
-    <div class="testimonial-text testimonial-2-text">
-        .Lorem Ipsum has been the .Lorem Ipsum has been the the the the
-    </div>
-    <div class="testimonial-text testimonial-3-text">
-        .Lorem Ipsum has been the
-    </div>
+    <section class="testimonials-section">
+        <div class="container">
+            <h1 class="review-title">What Our Clients Say</h1>
+            
+            <div class="review-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card card-large">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "After my knee surgery, the team at NOV Fisioterapi Center helped me regain full mobility. Their personalized approach and cutting-edge techniques made all the difference in my recovery. I can now play with my grandchildren pain-free!"
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-title">Post-Surgery Patient</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The therapists are incredibly knowledgeable and caring. My chronic back pain has significantly improved after just 6 sessions."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah M.</div>
+                                <div class="author-title">Office Worker</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 3 -->
+                <div class="review-card card-tall">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "As an athlete, I need top-notch care for my sports injuries. NOV Fisioterapi Center understands athletes' needs and has helped me recover faster than expected multiple times. Their sports-specific therapy is unmatched in Batam."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-info">
+                                <div class="author-name">Andi R.</div>
+                                <div class="author-title">Professional Athlete</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="contact-section">

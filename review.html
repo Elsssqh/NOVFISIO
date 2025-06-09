@@ -8,12 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --accent-green: #EBFFE9;
             --accent-blue: #BBE1FF;
             --card-gradient: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
             --dark-gray: #474444;
+            --primary-color: #1F364C;
+            --secondary-color: #5C8AB8;
         }
         
         * {
@@ -29,223 +33,367 @@
             width: 100%;
             overflow-x: hidden;
             margin: 0 auto;
+            color: #333;
+            line-height: 1.6;
         }
 
         /* Navbar Styles */
         .navbar {
-            background-color: rgb(255, 255, 255);
-            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .navbar-brand .logo-removebg {
             height: 50px;
+            transition: height 0.3s ease;
+        }
+        
+        .navbar.scrolled .logo-removebg {
+            height: 40px;
         }
         
         .navbar-nav .nav-link {
             color: #000 !important;
             font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s;
+            margin: 0 12px;
+            transition: all 0.3s;
+            position: relative;
         }
         
         .navbar-nav .nav-link:hover {
-            color: #1F364C !important;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        
+        .navbar-nav .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
         }
         
         .btn-outline-primary {
-            color: #1F364C;
-            border-color: #1F364C;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s;
         }
         
         .btn-outline-primary:hover {
-            background-color: #1F364C;
+            background-color: var(--primary-color);
             color: white;
-            border-color: #1F364C;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(31, 54, 76, 0.2);
         }
 
         /* Main Content */
         .review-main {
-            width: 1440px;
-            min-height: 3275px;
+            width: 100%;
             margin: 0 auto;
             position: relative;
             background: white;
-            padding-top: 100px;
+            padding-top: 120px;
+            padding-bottom: 80px;
         }
 
         /* Review Title */
         .review-title {
             text-align: center;
-            color: black;
-            font-size: 96px;
+            color: var(--primary-color);
+            font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
+            padding: 0 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .review-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--secondary-color);
+            border-radius: 5px;
+        }
+
+        /* Review Grid Container */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(200px, auto);
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Review Boxes - Exact positions as in your design */
-        .review-box {
-            position: absolute;
+        /* Review Cards */
+        .review-card {
             background: var(--card-gradient);
-            border-radius: 30px;
-            display: flex;
-            align-items: flex-end;
+            border-radius: 20px;
             padding: 30px;
-            box-sizing: border-box;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: none;
         }
-
-        .review-text {
-            color: black;
-            font-size: 24px;
-            font-weight: 400;
+        
+        .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
-
-        /* Box 1 - Large rectangle */
-        .box-1 {
-            width: 377px;
-            height: 421px;
-            left: 391px;
-            top: 100px;
-        }
-
-        /* Box 2 - Small square */
-        .box-2 {
-            width: 200px;
-            height: 253px;
-            left: 161px;
-            top: 100px;
-        }
-
-        /* Box 3 - Small square */
-        .box-3 {
-            width: 200px;
-            height: 253px;
-            left: 815px;
-            top: 268px;
-        }
-
-        /* Box 4 - Wide rectangle */
-        .box-4 {
-            width: 710px;
-            height: 253px;
-            left: 645px;
-            top: 635px;
-        }
-
-        /* Box 5 - Medium rectangle */
-        .box-5 {
-            width: 388px;
-            height: 312px;
-            left: 170px;
-            top: 798px;
-        }
-
-        /* Box 6 - Tall rectangle */
-        .box-6 {
-            width: 254px;
-            height: 329px;
-            left: 1049px;
-            top: 85px;
-        }
-
-        /* Box 7 - Large square */
-        .box-7 {
-            width: 412px;
-            height: 458px;
-            left: 158px;
-            top: 1615px;
-        }
-
-        /* Box 8 - Wide rectangle */
-        .box-8 {
-            width: 703px;
-            height: 387px;
-            left: 645px;
-            top: 1917px;
-        }
-
-        /* Box 9 - Large rectangle */
-        .box-9 {
-            width: 700px;
-            height: 596px;
-            left: 645px;
-            top: 1019px;
-        }
-
-        /* Circles */
-        .review-circle {
+        
+        .review-card:before {
+            content: '';
             position: absolute;
-            background: var(--dark-gray);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
+
+        /* Card Sizes */
+        .card-small {
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        
+        .card-medium {
+            grid-column: span 4;
+            grid-row: span 3;
+        }
+        
+        .card-large {
+            grid-column: span 5;
+            grid-row: span 4;
+        }
+        
+        .card-wide {
+            grid-column: span 6;
+            grid-row: span 2;
+        }
+        
+        .card-tall {
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+
+        /* Review Content */
+        .review-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-text {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .review-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            background-color: white;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+        
+        .author-title {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .rating {
+            margin-top: 5px;
+            color: #FFC107;
+        }
+        
+        .rating i {
+            margin-right: 3px;
         }
 
+        /* Decorative Elements */
+        .review-decoration {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .circle-decoration {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            position: absolute;
+        }
+        
         .circle-1 {
-            width: 55px;
-            height: 59px;
-            left: 1154px;
-            top: 210px;
+            top: -50px;
+            right: -50px;
         }
-
+        
         .circle-2 {
-            width: 113px;
-            height: 107px;
-            left: 936px;
-            top: 1264px;
+            bottom: -30px;
+            left: -30px;
+            width: 100px;
+            height: 100px;
         }
 
-        .circle-3 {
-            width: 54px;
-            height: 59px;
-            left: 230px;
-            top: 192px;
+        /* Testimonial Highlight */
+        .testimonial-highlight {
+            grid-column: span 12;
+            background: var(--primary-color);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+        }
+        
+        .highlight-quote {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight-quote:before, .highlight-quote:after {
+            color: rgba(255,255,255,0.3);
+            font-size: 4rem;
+            position: absolute;
+        }
+        
+        .highlight-quote:before {
+            content: '"';
+            top: -30px;
+            left: -40px;
+        }
+        
+        .highlight-quote:after {
+            content: '"';
+            bottom: -60px;
+            right: -40px;
+        }
+        
+        .highlight-author {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Text positions */
-        .text-1 {
-            width: 197px;
-            left: 158px;
-            top: 391px;
+        /* CTA Section */
+        .review-cta {
+            text-align: center;
+            margin-top: 60px;
+            padding: 0 20px;
         }
-
-        .text-2 {
-            width: 198px;
-            left: 1061px;
-            top: 443px;
+        
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
-
-        .text-3 {
-            width: 543px;
-            left: 666px;
-            top: 1859px;
+        
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
-
-        .text-4 {
-            width: 543px;
-            left: 195px;
-            top: 2097px;
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.3s;
         }
-
-        .text-5 {
-            width: 363px;
-            left: 195px;
-            top: 1155px;
-        }
-
-        .text-6 {
-            width: 200px;
-            left: 819px;
-            top: 100px;
-        }
-
-        .text-7 {
-            width: 604px;
-            left: 691px;
-            top: 1644px;
+        
+        .btn-primary:hover {
+            background-color: #15283d;
+            border-color: #15283d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(31, 54, 76, 0.2);
         }
 
         /* Footer */
@@ -253,7 +401,23 @@
             background: linear-gradient(180deg, var(--accent-green) 0%, var(--accent-blue) 100%);
             padding: 80px 0 40px;
             border-radius: 30px 30px 0 0;
-            margin-top: -30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .footer-content {
             position: relative;
             z-index: 1;
         }
@@ -265,75 +429,202 @@
         
         .footer-logo img {
             height: 60px;
+            transition: transform 0.3s;
+        }
+        
+        .footer-logo:hover img {
+            transform: scale(1.05);
         }
         
         .footer-title {
             font-weight: 700;
             margin-bottom: 20px;
             font-size: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
         }
 
         .contact-info {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 15px;
             font-size: 1rem;
+            color: #333;
+        }
+        
+        .contact-info a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
         }
 
         .contact-icon {
-            margin-right: 10px;
+            margin-right: 12px;
             min-width: 20px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: var(--primary-color);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+            font-size: 0.9rem;
         }
 
         /* Responsive Design */
-        @media (max-width: 1440px) {
-            .review-main {
-                width: 100%;
-                min-height: auto;
-                padding-bottom: 100px;
+        @media (max-width: 1200px) {
+            .review-grid {
+                gap: 20px;
             }
             
+            .card-small {
+                grid-column: span 4;
+            }
+            
+            .card-medium {
+                grid-column: span 6;
+            }
+            
+            .card-large, .card-wide {
+                grid-column: span 12;
+            }
+            
+            .card-tall {
+                grid-column: span 4;
+            }
+            
+            .highlight-quote {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
             .review-title {
-                font-size: 72px;
+                font-size: 2.8rem;
             }
             
-            /* Adjust box positions for smaller screens */
-            .box-1, .box-2, .box-3, 
-            .box-4, .box-5, .box-6,
-            .box-7, .box-8, .box-9,
-            .review-text, .review-circle {
-                position: relative;
-                left: auto !important;
-                top: auto !important;
-                margin: 20px auto;
-                width: 90% !important;
-                height: auto;
-                min-height: 200px;
+            .card-small, .card-medium, .card-tall {
+                grid-column: span 6;
             }
             
-            .review-text {
-                font-size: 20px;
+            .testimonial-highlight {
+                padding: 40px 30px;
             }
             
-            .circle-1, .circle-2, .circle-3 {
-                display: none;
+            .highlight-quote {
+                font-size: 1.3rem;
             }
         }
 
         @media (max-width: 768px) {
             .review-title {
-                font-size: 48px;
+                font-size: 2.2rem;
                 margin-bottom: 40px;
             }
             
-            .review-text {
-                font-size: 18px;
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .review-card {
+                grid-column: span 1 !important;
+            }
+            
+            .testimonial-highlight {
+                padding: 30px 20px;
+            }
+            
+            .highlight-quote {
+                font-size: 1.2rem;
+            }
+            
+            .highlight-quote:before, .highlight-quote:after {
+                font-size: 3rem;
+            }
+            
+            .highlight-quote:before {
+                top: -20px;
+                left: -10px;
+            }
+            
+            .highlight-quote:after {
+                bottom: -40px;
+                right: -10px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
             }
         }
 
         @media (max-width: 576px) {
             .review-title {
-                font-size: 36px;
+                font-size: 1.8rem;
+            }
+            
+            .review-card {
+                padding: 20px;
+            }
+            
+            .review-text {
+                font-size: 1rem;
+            }
+            
+            .cta-title {
+                font-size: 1.5rem;
+            }
+            
+            .footer {
+                padding: 60px 0 30px;
+            }
+            
+            .footer-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -372,99 +663,332 @@
                             <a class="nav-link" href="contactus.html">Contact us</a>
                         </li>
                     </ul>
-                    <a href="#login" class="btn btn-outline-primary">Login</a>
+                     <!--<a href="#login" class="btn btn-outline-primary">Login</a> -->
                 </div>
             </div>
         </nav>
     </header>
     
-   <!-- Main Content Section -->
-  <div class="Content" style="flex: 1; padding: 20px; position: relative;">
-    <!-- Customer Review Title -->
-    <div class="CustomerReview" style="text-align: center; margin: 50px 0; color: black; font-size: 96px; font-family: Inter; font-weight: 900; word-wrap: break-word">
-      Customer Review
-    </div>
-
-    <!-- Content Blocks -->
-    <div style="position: relative; height: 2800px;">
-      <div class="Rectangle29" style="width: 377px; height: 421px; left: 391px; top: 100px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle221" style="width: 200px; height: 253px; left: 161px; top: 100px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle222" style="width: 200px; height: 253px; left: 815px; top: 268px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle237" style="width: 710px; height: 253px; left: 645px; top: 635px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle236" style="width: 388px; height: 312px; left: 170px; top: 798px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle223" style="width: 254px; height: 329px; left: 1049px; top: 85px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="LoremIpsumHasBeenThe" style="width: 197px; height: 109px; left: 158px; top: 391px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the
-      </div>
-      <div class="LoremIpsumHasBeenThe" style="width: 198px; height: 109px; left: 1061px; top: 443px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the
-      </div>
-      <div class="LoremIpsumHasBeenThe" style="width: 543px; height: 58px; left: 666px; top: 1859px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the
-      </div>
-      <div class="LoremIpsumHasBeenThe" style="width: 543px; height: 58px; left: 195px; top: 2097px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the
-      </div>
-      <div class="LoremIpsumHasBeenThe" style="width: 363px; height: 109px; left: 195px; top: 1155px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the
-      </div>
-      <div class="LoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheThe" style="width: 200px; height: 109px; left: 819px; top: 100px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the
-      </div>
-      <div class="LoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheTheLoremIpsumHasBeenTheLoremIpsumHasBeenTheTheTheThe" style="width: 604px; height: 109px; left: 691px; top: 1644px; position: absolute; color: black; font-size: 24px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-        .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the  .Lorem Ipsum has been the  .Lorem Ipsum has been the the the the
-      </div>
-      <div class="Ellipse37" style="width: 55px; height: 59px; left: 1154px; top: 210px; position: absolute; background: #474444; border-radius: 9999px"></div>
-      <div class="Rectangle234" style="width: 412px; height: 458px; left: 158px; top: 1615px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle238" style="width: 703px; height: 387px; left: 645px; top: 1917px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Rectangle235" style="width: 700px; height: 596px; left: 645px; top: 1019px; position: absolute; background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%); border-radius: 30px"></div>
-      <div class="Ellipse39" style="width: 113px; height: 107px; left: 936px; top: 1264px; position: absolute; background: #474444; border-radius: 9999px"></div>
-      <div class="Ellipse38" style="width: 54px; height: 59px; left: 230px; top: 192px; position: absolute; background: #474444; border-radius: 9999px"></div>
-    </div>
-  </div>
+    <!-- Main Content -->
+    <main class="review-main">
+        <div class="container">
+            <h1 class="review-title">What Our Clients Say</h1>
+            
+            <div class="review-grid">
+                <!-- Review Card 1 -->
+                <div class="review-card card-large">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "After my knee surgery, the team at NOV Fisioterapi Center helped me regain full mobility. Their personalized approach and cutting-edge techniques made all the difference in my recovery. I can now play with my grandchildren pain-free!"
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-info">
+                                <div class="author-name">John Doe</div>
+                                <div class="author-title">Post-Surgery Patient</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-decoration circle-1"></div>
+                </div>
+                
+                <!-- Review Card 2 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The therapists are incredibly knowledgeable and caring. My chronic back pain has significantly improved after just 6 sessions."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SM</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah M.</div>
+                                <div class="author-title">Office Worker</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 3 -->
+                <div class="review-card card-tall">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "As an athlete, I need top-notch care for my sports injuries. NOV Fisioterapi Center understands athletes' needs and has helped me recover faster than expected multiple times. Their sports-specific therapy is unmatched in Batam."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-info">
+                                <div class="author-name">Andi R.</div>
+                                <div class="author-title">Professional Athlete</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 4 -->
+                <div class="review-card card-medium">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "I was skeptical at first, but the results speak for themselves. My posture has improved dramatically, and the neck pain I've had for years is finally gone. The team took time to explain everything and made me feel comfortable throughout the process."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">LT</div>
+                            <div class="author-info">
+                                <div class="author-name">Lisa T.</div>
+                                <div class="author-title">Teacher</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle-decoration circle-2"></div>
+                </div>
+                
+                <!-- Review Card 5 -->
+                <div class="review-card card-wide">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "After trying several clinics in the area, NOV Fisioterapi Center stands out for their professionalism and results. My shoulder mobility has improved by 80% in just 3 weeks. The combination of manual therapy and their advanced equipment is truly effective."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">MW</div>
+                            <div class="author-info">
+                                <div class="author-name">Michael W.</div>
+                                <div class="author-title">Construction Worker</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 6 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The pediatric physiotherapy program helped my son overcome his developmental delays. The therapists were so patient and creative with him."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">NP</div>
+                            <div class="author-info">
+                                <div class="author-name">Nia P.</div>
+                                <div class="author-title">Parent</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Highlight -->
+                <div class="testimonial-highlight">
+                    <p class="highlight-quote">
+                        NOV Fisioterapi Center transformed my life after my car accident. When doctors said I might never walk properly again, their team worked miracles. Today, I'm not just walking - I'm running marathons!
+                    </p>
+                    <div class="highlight-author">- David K., Marathon Runner</div>
+                </div>
+                
+                <!-- Review Card 7 -->
+                <div class="review-card card-medium">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "The prenatal physiotherapy sessions were a game-changer during my pregnancy. Not only did they help with my back pain, but the exercises also made my delivery much smoother. I'm so grateful for their specialized care for expecting mothers."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">SR</div>
+                            <div class="author-info">
+                                <div class="author-name">Siti R.</div>
+                                <div class="author-title">New Mother</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 8 -->
+                <div class="review-card card-small">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "I've been coming for regular maintenance sessions for 2 years now. The team remembers all my issues and tailors each session perfectly. It's like having a personal health coach!"
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">BW</div>
+                            <div class="author-info">
+                                <div class="author-name">Budi W.</div>
+                                <div class="author-title">Regular Client</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Review Card 9 -->
+                <div class="review-card card-large">
+                    <div class="review-content">
+                        <div class="review-text">
+                            "As someone who's been through multiple physiotherapy centers over 20 years of managing my arthritis, NOV Fisioterapi Center is by far the best. Their holistic approach combining traditional techniques with modern technology has given me more pain-free days than I've had in a decade. The staff's compassion and expertise make each visit something I look forward to rather than dread."
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar">EC</div>
+                            <div class="author-info">
+                                <div class="author-name">Elizabeth C.</div>
+                                <div class="author-title">Arthritis Patient</div>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="review-cta">
+                <h2 class="cta-title">Ready to Start Your Recovery Journey?</h2>
+                <p class="cta-subtitle">
+                    Join hundreds of satisfied clients who have regained their mobility, reduced pain, and improved their quality of life with our expert physiotherapy services.
+                </p>
+                <a href="contactus.html" class="btn btn-primary btn-lg">Book Your Consultation Today</a>
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container footer-content">
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="footer-logo">
                         <img src="logo-removebg.png" alt="NOV Fisioterapi Center">
                     </div>
                     <p class="text-center">Your partner in recovery and wellness.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="aboutus.html" class="text-decoration-none text-dark">About Us</a></li>
+                        <li class="mb-2"><a href="ourteam.html" class="text-decoration-none text-dark">Our Team</a></li>
+                        <li class="mb-2"><a href="product.html" class="text-decoration-none text-dark">Our Services</a></li>
+                        <li class="mb-2"><a href="review.html" class="text-decoration-none text-dark">Reviews</a></li>
+                        <li class="mb-2"><a href="insight.html" class="text-decoration-none text-dark">Insights</a></li>
+                        <li class="mb-2"><a href="contactus.html" class="text-decoration-none text-dark">Contact Us</a></li>
+                    </ul>
                 </div>
                 
                 <div class="col-md-4 mb-4">
                     <h4 class="footer-title">Contact us</h4>
                     <p class="contact-info">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                            <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M22 6L12 13L2 6" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Novfisiocenter@gmail.com
-                    </p>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <h4 class="footer-title">Telephone</h4>
-                    <p class="contact-info">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                            <path d="M22 16.92V19.92C22.0008 20.1985 21.9431 20.4743 21.8307 20.7292C21.7183 20.9841 21.5538 21.2122 21.3483 21.3979C21.1428 21.5836 20.9009 21.7225 20.6393 21.8056C20.3776 21.8886 20.1023 21.9139 19.83 21.88C16.7426 21.49 13.7872 20.3685 11.19 18.6C8.6979 16.9066 6.60277 14.6456 5.06 12C3.46852 9.26809 2.51303 6.23249 2.26 3.12C2.22611 2.84772 2.25142 2.57236 2.33445 2.31072C2.41748 2.04908 2.55641 1.80723 2.7421 1.60172C2.9278 1.39621 3.15589 1.23173 3.41078 1.11932C3.66567 1.00691 3.94153 0.949244 4.22 0.95H7.22C7.72148 0.948991 8.20138 1.15291 8.5479 1.5149C8.89442 1.87689 9.07692 2.36429 9.05 2.86C8.886 5.048 9.348 7.232 10.39 9.18C10.57 9.541 10.598 9.964 10.466 10.35L9.42 13.33C10.4569 15.0614 11.9386 16.5431 13.67 17.58L16.65 16.534C17.036 16.402 17.459 16.43 17.82 16.61C19.768 17.652 21.952 18.114 24.14 17.95C24.6357 17.9231 25.1231 18.1056 25.4851 18.4521C25.8471 18.7986 26.051 19.2785 26.05 19.78V22.78C26.05 23.854 25.124 24.78 24.05 24.78C19.0443 24.6615 14.2116 22.9616 10.29 19.83C6.36837 16.6984 3.57844 12.3907 2.34 7.62C2.108 6.625 3.085 5.65 4.09 5.65C6.06 5.65 7.92 6.23 9.53 7.26C10.11 7.625 10.38 8.325 10.18 8.96C9.55 10.1 9.2 11.35 9.1 12.63C9.193 12.9139 9.38105 13.1529 9.63 13.3C11.0959 14.2684 12.7316 15.9041 13.7 17.37C13.8471 17.6189 14.0861 17.807 14.37 17.9C15.65 17.8 16.9 17.45 18.04 16.82C18.675 16.62 19.375 16.89 19.74 17.47C20.77 19.08 21.35 20.94 21.35 22.91C21.35 23.985 20.425 24.91 19.35 24.91H16.35" stroke="#292D32" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        +62 778 5508040
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <a href="mailto:Novfisiocenter@gmail.com">Novfisiocenter@gmail.com</a>
                     </p>
                     <p class="contact-info">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="contact-icon">
-                            <path d="M12 13.43C13.7231 13.43 15.12 12.0331 15.12 10.31C15.12 8.58687 13.7231 7.19 12 7.19C10.2768 7.19 8.87995 8.58687 8.87995 10.31C8.87995 12.0331 10.2768 13.43 12 13.43Z" stroke="#292D32" stroke-width="1.5"/>
-                            <path d="M3.61995 8.49C5.58995 -0.169998 18.42 -0.159997 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.38995 20.54C5.62995 17.88 2.46995 13.57 3.61995 8.49Z" stroke="#292D32" stroke-width="1.5"/>
-                        </svg>
+                        <i class="fas fa-phone-alt contact-icon"></i>
+                        <a href="tel:+627785508040">+62 778 5508040</a>
+                    </p>
+                    <p class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
                         Komp. Pertokoan King Business Center Blok A2 No.01-02, Belian, Batam Kota
                     </p>
                 </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 NOV Fisioterapi Center. All Rights Reserved.
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation for review cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const reviewCards = document.querySelectorAll('.review-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            reviewCards.forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
 </html>

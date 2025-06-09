@@ -69,3 +69,29 @@ footer {
 footer img {
     height: 40px;
 }
+
+/* About Section Custom Styles */
+.about-section-offset {
+    margin-left: 100px;
+}
+.about-img-large {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+}
+.about-img-medium {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.about-img-small {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 1rem;
+}
+
+/* Service Content Alignment */
+.service-content-right {
+    text-align: right;
+}
