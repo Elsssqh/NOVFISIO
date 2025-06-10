@@ -108,7 +108,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 40px;
-    box-shadow: 0 10px 40px 0 rgba(31,54,76,0.13), 0 1.5px 8px rgba(60,60,60,0.08);
+    
     background: linear-gradient(120deg, #f6f7f8 60%, #e3e7ed 100%);
     display: flex;
     align-items: center;
@@ -128,7 +128,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(70%) brightness(0.85) contrast(1.08) saturate(0.7);
     border-radius: 40px;
     transition: filter 0.5s;
     box-shadow: 0 8px 32px rgba(60,60,60,0.10);
@@ -157,13 +156,13 @@
     font-weight: 800;
     margin-bottom: 18px;
     letter-spacing: 0.5px;
-    color: #1F364C;
+    color: #eef6ff;
     text-shadow: 0 4px 24px rgba(60,60,60,0.10), 0 1px 4px rgba(0,0,0,0.06);
 }
 .carousel-caption .hero-subtitle {
     font-size: 1.18rem;
     margin-bottom: 28px;
-    color: #324D69;
+    color: #ffffff;
     text-shadow: 0 2px 8px rgba(60,60,60,0.08);
 }
 .carousel-caption .hero-btn {
@@ -172,17 +171,21 @@
     border-radius: 32px;
     font-size: 1.08rem;
     font-weight: 600;
-    background: rgba(255,255,255,0.85);
-    color: #1F364C;
-    border: 1.5px solid #bfc3c9;
-    box-shadow: 0 2px 8px rgba(60,60,60,0.08);
+    background: rgba(255,255,255,0.18);
+    color: #23272f;
+    border: 1.5px solid rgba(200,200,200,0.35);
+    box-shadow: 0 2px 12px rgba(31,54,76,0.10);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
     transition: background 0.2s, color 0.2s, border 0.2s, transform 0.18s;
+    letter-spacing: 0.5px;
 }
 .carousel-caption .hero-btn:hover {
-    background: #e2e4e6;
-    color: #23272f;
-    border: 1.5px solid #23272f;
-    transform: translateY(-2px) scale(1.03);
+    background: rgba(255,255,255,0.32);
+    color: #1F364C;
+    border: 1.5px solid #1F364C;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 4px 18px rgba(31,54,76,0.13);
 }
 .carousel-indicators {
     bottom: 24px;
@@ -208,14 +211,20 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.18);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(200,200,200,0.35);
+    box-shadow: 0 2px 12px rgba(31,54,76,0.10);
+    opacity: 0.92;
+    transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+    z-index: 4;
     top: 50%;
     transform: translateY(-50%);
-    opacity: 0.95;
-    transition: all 0.2s;
-    z-index: 4;
-    box-shadow: 0 2px 8px rgba(60,60,60,0.10);
-    border: 1.5px solid #bfc3c9;
+    color: #23272f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .carousel-control-prev {
     left: 14px;
@@ -224,15 +233,16 @@
     right: 14px;
 }
 .carousel-control-prev:hover, .carousel-control-next:hover {
-    background: #bfc3c9;
-    color: #23272f;
-    border: 1.5px solid #23272f;
+    background: rgba(255,255,255,0.32);
+    border: 1.5px solid #ffffff;
+    color: #1F364C;
+    box-shadow: 0 4px 18px rgba(31,54,76,0.13);
     transform: translateY(-50%) scale(1.07);
 }
 .carousel-control-prev-icon, .carousel-control-next-icon {
     width: 1.5rem;
     height: 1.5rem;
-    filter: invert(0.2) grayscale(1);
+    filter: invert(0.2) grayscale(1) drop-shadow(0 1px 2px rgba(31,54,76,0.10));
 }
 @media (max-width: 992px) {
     .hero-carousel {
@@ -386,7 +396,7 @@
             left: 0;
             width: 100%;
             height: 20px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+           
         }
         .feature-card {
             background: white;
@@ -1383,10 +1393,10 @@
                     </div>
                     <p>Professional physiotherapy services with a personalized approach to help you recover, rehabilitate, and regain your optimal physical function.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 mb-5 mb-lg-0">

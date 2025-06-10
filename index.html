@@ -282,9 +282,26 @@
         .service-card-large {
             width: 695px;
             height: 341px;
-            background: linear-gradient(180deg, #F1FDE3 0%, #B9C8FF 100%);
             border-radius: 30px;
             flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card-large.service-img-fisio {
+            background-image: url('fotofoto klinik/alat.jpg');
+        }
+        .service-card-large.service-img-dokter {
+            background-image: url('2024-01-16 (2).jpg');
+        }
+        .service-card-large.service-img-ozone {
+            background-image:  url('2024-01-16 (1).jpg');
+        }
+        .service-card-large.service-img-apotek {
+            background-image:  url('fotofoto klinik/apotek.jpg');
         }
         
         .service-content {
@@ -904,7 +921,7 @@
             
             <div class="service-container">
                 <div class="service-item">
-                    <div class="service-card-large"></div>
+                    <div class="service-card-large service-img-fisio"></div>
                     <div class="service-content">
                         <div class="service-name">Fisioterapi & Rehabilitasi</div>
                         <div class="service-description">
@@ -914,7 +931,7 @@
                 </div>
                 
                 <div class="service-item reverse">
-                    <div class="service-card-large"></div>
+                    <div class="service-card-large service-img-dokter"></div>
                     <div class="service-content service-content-right">
                         <div class="service-name">Konsultasi Dokter Umum</div>
                         <div class="service-description">
@@ -924,7 +941,7 @@
                 </div>
                 
                 <div class="service-item">
-                    <div class="service-card-large"></div>
+                    <div class="service-card-large service-img-ozone"></div>
                     <div class="service-content">
                         <div class="service-name">Ozone Therapy</div>
                         <div class="service-description">
@@ -934,7 +951,7 @@
                 </div>
                 
                 <div class="service-item reverse">
-                    <div class="service-card-large"></div>
+                    <div class="service-card-large service-img-apotek"></div>
                     <div class="service-content service-content-right">
                         <div class="service-name">Apotek & Produk Kesehatan</div>
                         <div class="service-description">
