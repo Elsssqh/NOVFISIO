@@ -20,6 +20,13 @@
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
+
+        .whatsapp-float-btn {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            z-index: 3;
+        }
         
         body {
             background: white;
@@ -346,14 +353,14 @@
                     <span style="font-size:1.1rem;">08.00-21.00</span><br>
                     <span style="font-size:1.1rem;color:#888;font-weight:600;">rest hour :</span><br>
                     <span style="font-size:1.1rem;">18.00-19.00</span>
-                </div>
-                <div style="margin-left:16px;">
-                    <svg width="48" height="48" fill="none" stroke="#1F364C" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <a href="https://wa.me/62778550048" target="_blank" rel="noopener" class="whatsapp-float-btn">
+            <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="width:48px;height:48px;">
+        </a>
                 </div>
             </div>
         </div>
         <!-- WhatsApp floating button -->
-        <a href="https://wa.me/62778550048" target="_blank" style="position:absolute;bottom:30px;left:30px;z-index:3;">
+        <a href="https://wa.me/62778550048" target="_blank" rel="noopener" class="whatsapp-float-btn">
             <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" style="width:48px;height:48px;">
         </a>
     
@@ -401,22 +408,22 @@
             <div class="form-grid">
                 <div class="form-group">
                     <label class="form-label">First Name</label>
-                    <input type="text" class="form-input">
+                    <input type="text" class="form-input" placeholder="Enter first name">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Last Name</label>
-                    <input type="text" class="form-input">
+                      <input type="text" class="form-input" placeholder="Enter last name">
                 </div>
             </div>
             
             <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-input">
+                  <input type="text" class="form-input" placeholder="Enter email">
             </div>
             
             <div class="form-group">
                 <label class="form-label">Description</label>
-                <input type="text" class="form-input">
+                  <input type="text" class="form-input" placeholder="Enter description">
             </div>
             
             <div class="submit-btn-container">
